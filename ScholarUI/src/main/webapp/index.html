@@ -1,0 +1,68 @@
+<html>
+	<head>
+	    <title>
+	    	Scholar
+	    </title>
+	    
+	    <meta charset="UTF-8">
+		
+		<head profile="http://www.w3.org/2005/10/profile">
+		<link rel="icon" type="image/png" href="images/logo.png">
+	
+	    <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css">
+	    
+	    <script type="text/javascript" src="extjs/ext-all-debug.js"></script>
+	    
+	    <script type="text/javascript" src="scholar.js"></script>
+	    
+	    <!-- CSS includes -->
+	    <link rel="stylesheet" type="text/css" href="scholar.css" />
+	    <link rel="stylesheet" type="text/css" href="extjs/src/ux/css/GroupTabPanel.css" />
+	    <link rel="stylesheet" type="text/css" href="extjs/src/ux/css/LiveSearchGridPanel.css" />
+	    <link rel="stylesheet" type="text/css" href="extjs/src/ux/css/portal.css" />
+	    <link rel="stylesheet" type="text/css" href="extjs/src/ux/css/CheckHeader.css" />
+	    
+	    <script type="text/javascript" src="/TestDJN/dwr/interface/Test.js"> </script>
+		<script type="text/javascript" src="/TestDJN/dwr/engine.js"> </script>		
+		<script type="text/javascript" src="/TestDJN/dwr/util.js"> </script>		
+		<script type='text/javascript' src='/TestDJN/dwr/util.js'></script>
+		   
+	    <script type="text/javascript">
+	        Ext.Loader.setConfig({
+	            enabled: true,
+	            paths: {	    
+	                'Ext.ux':'extjs/src/ux'	               
+	            }
+	        });
+	        Ext.onReady(function(){
+		        Ext.form.field.ComboBox.override( {
+		            setValue: function(value) {
+		                if( typeof value != 'object' && !Ext.isEmpty(value) && !this.store.isLoaded && this.queryMode == 'remote') {
+		                    value = (value && value.toString) ? value.toString() : value;
+		                    this.store.addListener('load', function() {
+		                        this.store.isLoaded = true;
+		                        this.setValue(value);
+		                    }, this);
+		                    this.store.load();
+		                } else {
+		                    this.callOverridden(arguments);
+		                }
+		            }
+		        })		
+		        
+		        Test.sayHello("ho");
+	        });
+	    </script>
+	    	    
+	</head>
+	<body>
+	</body>
+	<div id="loading-mask"></div>
+	<div id="loading">
+  	<div class="loading-indicator">
+    	Loading...
+  	</div>
+
+</div>
+	
+</html>
