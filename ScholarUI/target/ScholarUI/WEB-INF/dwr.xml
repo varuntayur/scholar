@@ -1,8 +1,0 @@
-
-<dwr>
-  <allow>    
-    <create creator="new" javascript="Test">
-      <param name="class" value="Test"/>
-    </create>
-  </allow>
-</dwr>
