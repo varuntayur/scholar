@@ -22,11 +22,7 @@
 	    <link rel="stylesheet" type="text/css" href="extjs/src/ux/css/portal.css" />
 	    <link rel="stylesheet" type="text/css" href="extjs/src/ux/css/CheckHeader.css" />
 	    
-	    <script type="text/javascript" src="/TestDJN/dwr/interface/Test.js"> </script>
-		<script type="text/javascript" src="/TestDJN/dwr/engine.js"> </script>		
-		<script type="text/javascript" src="/TestDJN/dwr/util.js"> </script>		
-		<script type='text/javascript' src='/TestDJN/dwr/util.js'></script>
-		   
+	   
 	    <script type="text/javascript">
 	        Ext.Loader.setConfig({
 	            enabled: true,
@@ -35,22 +31,7 @@
 	            }
 	        });
 	        Ext.onReady(function(){
-		        Ext.form.field.ComboBox.override( {
-		            setValue: function(value) {
-		                if( typeof value != 'object' && !Ext.isEmpty(value) && !this.store.isLoaded && this.queryMode == 'remote') {
-		                    value = (value && value.toString) ? value.toString() : value;
-		                    this.store.addListener('load', function() {
-		                        this.store.isLoaded = true;
-		                        this.setValue(value);
-		                    }, this);
-		                    this.store.load();
-		                } else {
-		                    this.callOverridden(arguments);
-		                }
-		            }
-		        })		
 		        
-		        Test.sayHello("ho");
 	        });
 	    </script>
 	    	    
