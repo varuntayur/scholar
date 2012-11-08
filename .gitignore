@@ -161,3 +161,14 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+# This is a comment
+# Ignore target at the top level
+ScholarUI/target/
+# Ignore child project's targets as well
+ScholarUI/*/target/
+# And any grandchildren ...
+ScholarUI/*/*/target/
+# Or you can do:
+target/
+# which matches 'target' in any sub folder
