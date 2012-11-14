@@ -164,11 +164,18 @@ pip-log.txt
 
 # This is a comment
 # Ignore target at the top level
-ScholarUI/target/
+scholar-web/target/
 # Ignore child project's targets as well
-ScholarUI/*/target/
+scholar-web/*/target/
 # And any grandchildren ...
-ScholarUI/*/*/target/
+scholar-web/*/*/target/
 # Or you can do:
 target/
 # which matches 'target' in any sub folder
+
+# Ignore target at the top level
+scholar-rest/target/
+# Ignore child project's targets as well
+scholar-rest/*/target/
+# And any grandchildren ...
+scholar-rest/*/*/target/
