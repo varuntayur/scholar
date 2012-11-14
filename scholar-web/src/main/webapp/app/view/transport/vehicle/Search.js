@@ -1,7 +1,7 @@
 Ext.define('scholar.view.transport.vehicle.Search', {
 	extend : 'Ext.ux.LiveSearchGridPanel',
 	alias: 'widget.vehicleSearch',
-	store : 'transport.vehicle.SearchStore',
+	store : 'transport.vehicle.Search',
 	id:'vehicleSearch',
 	dockedItems : [ {
 		xtype : 'toolbar',

@@ -1,4 +1,4 @@
-package com.varun.scholar.rest.vehicle;
+package com.varun.scholar.transport.vehicle;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;

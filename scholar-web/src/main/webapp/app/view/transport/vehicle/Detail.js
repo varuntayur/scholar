@@ -8,25 +8,32 @@ Ext.define('scholar.view.transport.vehicle.Detail', {
 	header : false,
 	border : false,
 	bodyPadding : 10,
-	autoScroll: true,
+	autoScroll : true,
 	defaultType : 'textfield',
 	defaults : {
 		width : 300,
 		labelWidth : 90
 	},
+	constructor : function() {
+		return this.callParent();
+	},
+	constructor : function(config) {
+		if (config) {
+			this.store = config.store;
+		}
+		this.callParent();
+	},
+
 	defaultType : 'textfield',
-	items : [
-	         {
-	        	 fieldLabel : 'Vehicle Number',
-	     		name : 'vehicleNumber'
-	     	 },
-	     	 {
-	     		fieldLabel : 'Details',
-				xtype:'textarea',
-				name : 'vehicleDetails'
-			}
-	        ],
-    buttons : [
+	items : [ {
+		fieldLabel : 'Vehicle Number',
+		name : 'vehicleNumber'
+	}, {
+		fieldLabel : 'Details',
+		xtype : 'textarea',
+		name : 'vehicleDetails'
+	} ],
+	buttons : [
 			{
 				text : 'Cancel',
 				handler : function() {
@@ -38,6 +45,17 @@ Ext.define('scholar.view.transport.vehicle.Detail', {
 				text : 'Save',
 				handler : function() {
 					if (this.up('form').getForm().isValid()) {
+
+						this.ownerCt.ownerCt.store.insert(0, Ext.create(
+								'scholar.model.transport.vehicle.Search', {
+									vehicleNumber : this.ownerCt.ownerCt
+											.getForm().getValues()['vehicleNumber'],
+									vehicleDetails : this.ownerCt.ownerCt
+											.getForm().getValues()['vehicleDetails']
+								}));
+						//this.ownerCt.ownerCt.store.save();
+						
+
 						this.up('window').hide();
 						Ext.MessageBox.alert('Success!',
 								'Your request has been saved.');

@@ -1,6 +1,6 @@
-Ext.define('scholar.store.transport.vehicle.SearchStore', {
+Ext.define('scholar.store.transport.vehicle.Search', {
     extend: 'Ext.data.Store',
-    model: 'scholar.model.transport.vehicle.SearchModel',
+    model: 'scholar.model.transport.vehicle.Search',
 //    data : [
 //	        [ 'ka058145', 'Canter 48 seater',  '9/1 12:00am' ],
 //			[ 'ka051457', 'Swaraj Mazda 48 seater', '9/1 12:00am' ],
