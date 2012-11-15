@@ -19,8 +19,9 @@ Ext.define('scholar.store.transport.vehicle.Search', {
 		},
 		writer: {
 			type: 'json'
-		}
-	},
+		},
+		appendId: false
+	},	
 	autoSync: true,
 	autoLoad: true
 });

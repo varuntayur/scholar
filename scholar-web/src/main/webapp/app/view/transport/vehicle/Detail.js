@@ -20,12 +20,17 @@ Ext.define('scholar.view.transport.vehicle.Detail', {
 	constructor : function(config) {
 		if (config) {
 			this.store = config.store;
+			this.isEdit = (typeof config.isEdit === "undefined") ? false: true;
 		}
 		this.callParent();
 	},
 
 	defaultType : 'textfield',
 	items : [ {
+		fieldLabel : 'Vehicle Id',
+		name : 'vehicleId',
+		visible: false
+	},  {
 		fieldLabel : 'Vehicle Number',
 		name : 'vehicleNumber'
 	}, {
@@ -44,18 +49,32 @@ Ext.define('scholar.view.transport.vehicle.Detail', {
 			{
 				text : 'Save',
 				handler : function() {
-					if (this.up('form').getForm().isValid()) {
-
-						this.ownerCt.ownerCt.store.insert(0, Ext.create(
-								'scholar.model.transport.vehicle.Search', {
-									vehicleNumber : this.ownerCt.ownerCt
-											.getForm().getValues()['vehicleNumber'],
-									vehicleDetails : this.ownerCt.ownerCt
-											.getForm().getValues()['vehicleDetails']
-								}));
-						//this.ownerCt.ownerCt.store.save();
+					var form = this.up('form').getForm();
+					if (form.isValid()) {
 						
-
+						var store = this.ownerCt.ownerCt.store; 
+						
+						if(form.owner.isEdit)							
+						{
+							var vehicleId = form.getValues()['vehicleId'];		
+						
+							var newRec = new store.model(form.getValues());
+							store.add(newRec);	
+							
+							store.save();
+							
+							store.removeAt(store.find('vehicleId',vehicleId));														
+						}
+						else
+						{
+							var rec = new store.model(form.getValues());
+							store.add(rec);
+//							store.insert(0,Ext.create(						
+//									'scholar.model.transport.vehicle.Search', {
+//										vehicleNumber : form.getValues()['vehicleNumber'],
+//										vehicleDetails : form.getValues()['vehicleDetails']
+//									}));
+						}
 						this.up('window').hide();
 						Ext.MessageBox.alert('Success!',
 								'Your request has been saved.');

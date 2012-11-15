@@ -36,7 +36,7 @@ Ext.define('scholar.controller.transport.vehicle.Controller', {
 	},
 
 	editVehicle : function(grid, record) {
-		var admForm = Ext.widget('vehicleDetail', { store: this.getTransportVehicleSearchStore() });
+		var admForm = Ext.widget('vehicleDetail', { store: this.getTransportVehicleSearchStore(), isEdit: true });
 		admForm.loadRecord(record);
 
 		Ext.create('Ext.Window', {

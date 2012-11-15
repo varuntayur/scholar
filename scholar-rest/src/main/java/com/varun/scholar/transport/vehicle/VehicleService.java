@@ -34,15 +34,19 @@ public class VehicleService {
 	@DELETE
 	@Path("/vehicle")
 	@Produces({ "application/json" })
-	public boolean deleteVehicle() {
+	public boolean deleteVehicle(String a, String b, String c, String d) {
 		return true;
 	}
 
 	@PUT
 	@Path("/vehicle")
 	@Produces({ "application/json" })
-	public boolean putVehicle() {
+	public boolean putVehicle(String a, String b, String c, String d) {
 		return true;
 	}
 
+	
+	public static void main(String[] args) {
+		System.out.println(new Gson().toJson(new VehicleDao()));
+	}
 }

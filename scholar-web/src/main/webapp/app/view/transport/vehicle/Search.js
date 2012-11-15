@@ -22,6 +22,11 @@ Ext.define('scholar.view.transport.vehicle.Search', {
 	} ],
 	columnLines : true,
 	columns : [  {
+		text : 'Vehicle Id',
+		width : 10,
+		sortable : true,
+		dataIndex : 'vehicleId'
+	}, {
 		text : 'Vehicle Number',
 		width : 100,
 		sortable : true,
