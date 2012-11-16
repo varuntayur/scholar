@@ -29,7 +29,7 @@ Ext.define('scholar.view.transport.vehicle.Detail', {
 	items : [ {
 		fieldLabel : 'Vehicle Id',
 		name : 'vehicleId',
-		visible: false
+		hidden: true
 	},  {
 		fieldLabel : 'Vehicle Number',
 		name : 'vehicleNumber'
@@ -56,25 +56,23 @@ Ext.define('scholar.view.transport.vehicle.Detail', {
 						
 						if(form.owner.isEdit)							
 						{
-							var vehicleId = form.getValues()['vehicleId'];		
-						
-							var newRec = new store.model(form.getValues());
-							store.add(newRec);	
+							var formValues = form.getValues();
+							var vehicleId = formValues['vehicleId'];		
 							
-							store.save();
+							var rec = store.findRecord('vehicleId',vehicleId);
+							rec.set({
+									  'vehicleNumber' : formValues['vehicleNumber'],
+									  'vehicleDetails': formValues['vehicleDetails']
+							});
 							
-							store.removeAt(store.find('vehicleId',vehicleId));														
+							store.commitChanges();
 						}
 						else
 						{
 							var rec = new store.model(form.getValues());
 							store.add(rec);
-//							store.insert(0,Ext.create(						
-//									'scholar.model.transport.vehicle.Search', {
-//										vehicleNumber : form.getValues()['vehicleNumber'],
-//										vehicleDetails : form.getValues()['vehicleDetails']
-//									}));
 						}
+//						store.load();
 						this.up('window').hide();
 						Ext.MessageBox.alert('Success!',
 								'Your request has been saved.');

@@ -55,6 +55,11 @@ Ext.define('scholar.controller.transport.vehicle.Controller', {
 
 	deleteVehicle : function(grid, record) {
 		console.log(record);
+		var store = this.getTransportVehicleSearchStore();
+		var selection = Ext.ComponentQuery.query('#vehicleSearch')[0].getView().getSelectionModel().getSelection()[0];
+        if (selection) {
+            store.remove(selection);
+        }
 	},
 
 	views : [ 'transport.vehicle.Lookup', 'transport.vehicle.Detail' ],
