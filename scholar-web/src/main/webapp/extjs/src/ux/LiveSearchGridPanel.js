@@ -100,6 +100,11 @@ Ext.define('Ext.ux.LiveSearchGridPanel', {
        }, 'Case sensitive'];
     },
     
+    getBBar: function()
+    {
+    	return this.bbar;
+    },
+    
     // Component initialization override: adds the top and bottom toolbars and setup headers renderer.
     initComponent: function() {
         var me = this;
@@ -109,6 +114,12 @@ Ext.define('Ext.ux.LiveSearchGridPanel', {
             defaultText: this.defaultStatusText,
             name: 'searchStatusBar'
         });
+        
+//        me.bbar = Ext.create('Ext.PagingToolbar', {
+//            displayInfo: true,
+//            displayMsg: 'Displaying topics {0} - {1} of {2}',
+//            emptyMsg: this.defaultStatusText           
+//        })
         
         me.callParent(arguments);
     },

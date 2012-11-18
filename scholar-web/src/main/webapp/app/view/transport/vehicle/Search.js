@@ -17,9 +17,13 @@ Ext.define('scholar.view.transport.vehicle.Search', {
 			iconCls:'x-icon-delete',
 			text : 'Delete',
 			action:'deleteVehicle',
-		}
-		]
-	} ],
+		}]		
+	}, {
+        xtype: 'pagingtoolbar',
+        store: 'transport.vehicle.Search',   // same store GridPanel is using
+        dock: 'bottom',
+        displayInfo: true
+    }],
 	columnLines : true,
 	columns : [  {
 		text : 'Vehicle Id',

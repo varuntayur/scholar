@@ -6,8 +6,9 @@ Ext.define('scholar.controller.transport.vehicle.Controller', {
 
 		this.control({
 			'#vehicleSearch' : {
-				itemdblclick : this.editVehicle
-			},
+				itemdblclick : this.editVehicle,
+				render:this.loadVehicle
+			},			
 			'#vehicleSearch button[action=deleteVehicle]' : {
 				click : this.deleteVehicle
 			},
@@ -16,6 +17,11 @@ Ext.define('scholar.controller.transport.vehicle.Controller', {
 			}
 		});
 
+	},
+	
+	loadVehicle: function(){
+		console.log('show called');
+		this.getTransportVehicleSearchStore().loadPage(1);
 	},
 
 	addVehicle : function(grid, record) {

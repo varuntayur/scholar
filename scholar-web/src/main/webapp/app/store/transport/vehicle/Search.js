@@ -15,13 +15,15 @@ Ext.define('scholar.store.transport.vehicle.Search', {
 		url: 'http://localhost:8080/scholar-rest/rest/vehicle',
 		reader: {
 			type: 'json',
-			root: 'data'
+			root: 'data',
+			totalProperty: 'total'
 		},
 		writer: {
 			type: 'json'
 		},
 		appendId: false
 	},	
+	pageSize: 50,
 	autoSync: true,
-	autoLoad: true
+	autoLoad: false
 });
