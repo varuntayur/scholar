@@ -1,7 +1,7 @@
 Ext.define('scholar.view.transport.route.Search', {
 	extend : 'Ext.ux.LiveSearchGridPanel',
 	alias: 'widget.routeSearch',
-	store : 'transport.route.SearchStore',
+	store : 'transport.route.Search',
 	id:'routeSearch',
 	dockedItems : [ {
 		xtype : 'toolbar',
@@ -19,9 +19,21 @@ Ext.define('scholar.view.transport.route.Search', {
 			action:'deleteRoute',
 		}
 		]
-	} ],
+	}, {
+        xtype: 'pagingtoolbar',
+        store: 'transport.route.Search',   // same store GridPanel is using
+        dock: 'bottom',
+        displayInfo: true
+    } ],
 	columnLines : true,
 	columns : [
+				{
+					text : 'Route Id',
+					width : 10,
+					hidden: true,
+					sortable : true,
+					dataIndex : 'routeId'
+				},
 	           {
 					text : 'Route Number',
 					width : 95,

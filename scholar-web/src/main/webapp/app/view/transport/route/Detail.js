@@ -14,8 +14,23 @@ Ext.define('scholar.view.transport.route.Detail', {
 		width : 300,
 		labelWidth : 90
 	},
+	constructor : function() {
+		return this.callParent();
+	},
+	constructor : function(config) {
+		if (config) {
+			this.store = config.store;
+			this.isEdit = (typeof config.isEdit === "undefined") ? false: true;
+		}
+		this.callParent();
+	},
 	defaultType : 'textfield',
 	items : [
+	         	{
+					fieldLabel : 'Route Id',
+					name : 'routeId',
+					hidden: true
+				}, 
 				{
 					fieldLabel : 'Route Number',
 					name : 'routeNumber'
@@ -31,7 +46,7 @@ Ext.define('scholar.view.transport.route.Detail', {
 				},	         
 				{
 					xtype:'combo',
-					store: 'transport.vehicle.SearchStore',
+					store: 'transport.vehicle.Search',
 					valueField: 'vehicleNumber',
 					displayField: 'vehicleNumber',
 					queryMode : 'local',
@@ -55,7 +70,30 @@ Ext.define('scholar.view.transport.route.Detail', {
 			{
 				text : 'Save',
 				handler : function() {
-					if (this.up('form').getForm().isValid()) {
+					var form = this.up('form').getForm();
+					if (form.isValid()) {
+						
+						var store = this.ownerCt.ownerCt.store; 
+						
+						if(form.owner.isEdit)							
+						{
+							var formValues = form.getValues();
+							var routeId = formValues['routeId'];		
+							
+							var rec = store.findRecord('routeId',routeId);
+							rec.set({
+									  'routeNumber' : formValues['routeNumber'],
+									  'routeDetails': formValues['routeDetails']
+							});
+							
+							store.commitChanges();
+						}
+						else
+						{
+							var rec = new store.model(form.getValues());
+							store.add(rec);
+						}
+//						store.load();
 						this.up('window').hide();
 						Ext.MessageBox.alert('Success!',
 								'Your request has been saved.');

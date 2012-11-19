@@ -1,6 +1,10 @@
-Ext.define('scholar.model.transport.route.SearchModel', {
+Ext.define('scholar.model.transport.route.Search', {
 	extend: 'Ext.data.Model',
 	fields : [
+	          {
+				name : 'routeId',
+				type : 'int'
+			  },
 	          {
 				name : 'routeNumber',
 				type : 'string'
@@ -22,6 +26,6 @@ Ext.define('scholar.model.transport.route.SearchModel', {
 				type : 'date',
 				dateFormat : 'n/j h:ia'
 	          } 
-	         ]
-	
+	         ],
+	idProperty: 'routeId'
 });
