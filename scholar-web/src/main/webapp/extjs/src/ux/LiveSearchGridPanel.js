@@ -232,7 +232,7 @@ Ext.define('Ext.ux.LiveSearchGridPanel', {
              if (me.currentIndex !== null) {
                  me.getSelectionModel().select(me.currentIndex);
                  me.statusBar.setStatus({
-                     text: count + ' matche(s) found.',
+                     text: count + ' match(s) found.',
                      iconCls: 'x-status-valid'
                  });
              }
