@@ -23,7 +23,7 @@ Ext.define('scholar.store.transport.vehicle.Search', {
 		},
 		appendId: false
 	},	
-	pageSize: 50,
+	pageSize: 1,
 	autoSync: true,
 	autoLoad: false
 });

@@ -25,7 +25,7 @@ public class VehicleService {
 		System.out.println("_dc=" + dc + " page=" + page + " start=" + start
 				+ " limit=" + limit);
 		
-		String temp = "{ \"data\": [" + gson.toJson(new VehicleDao()) + "] }";
+		String temp = "{\"total\": 100, \"data\": [" + gson.toJson(new VehicleDao()) + "] }";
 		return temp;
 	}
 
