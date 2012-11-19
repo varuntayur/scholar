@@ -44,7 +44,7 @@ Ext.define('scholar.view.student.admission.NewAdmissionForm', {
 	{
 		xtype:'combo',
 		fieldLabel : 'Blood Group',
-		store :'student.admission.BloodGroupStore', 
+		store :'student.admission.BloodGroup', 
 		queryMode : 'local',
 		displayField : 'bloodGroupName',
 		valueField : 'bloodGroupName',
@@ -53,7 +53,7 @@ Ext.define('scholar.view.student.admission.NewAdmissionForm', {
 	{
 		xtype:'combo',
 		fieldLabel : 'Nationality',
-		store : 'student.admission.NationalityStore',
+		store : 'student.admission.Nationality',
 		queryMode : 'local',
 		displayField : 'nationality',
 		valueField : 'nationality',
@@ -62,7 +62,7 @@ Ext.define('scholar.view.student.admission.NewAdmissionForm', {
 	{
 		xtype:'combo',
 		fieldLabel : 'Category',
-		store :'student.admission.CategoryStore',
+		store :'student.admission.Category',
 		queryMode : 'local',
 		displayField : 'categoryName',
 		valueField : 'abbr',

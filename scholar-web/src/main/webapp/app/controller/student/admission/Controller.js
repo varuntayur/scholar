@@ -7,15 +7,18 @@ Ext.define('scholar.controller.student.admission.Controller', {
 	            '#admissionsGrid': {
 	            	itemdblclick: this.editAdmissions
 	            },
-	            '#studentAdmission button[action=newAdmission]' :{
+	            '#admissionsGrid button[action=newAdmission]' :{
 	            	click : this.newAdmission
+	            },
+	            '#admissionsGrid button[action=deleteAdmission]' :{
+	            	click : this.deleteAdmission
 	            }
 	        });
 	},
 	
 	newAdmission : function()
 	{
-		var admForm = Ext.widget('newAdmissionForm');
+		var admForm = Ext.widget('newAdmissionForm',{ store: this.getStudentAdmissionSearchStore() });
         
         Ext.create('Ext.Window', {
 			xtype : 'window',
@@ -31,10 +34,19 @@ Ext.define('scholar.controller.student.admission.Controller', {
 		}).show();
 	},
 	
+	deleteAdmission : function(grid, record) {
+		console.log(record);
+		var store = this.getStudentAdmissionSearchStore();
+		var selection = Ext.ComponentQuery.query('#admissionsGrid')[0].getView().getSelectionModel().getSelection()[0];
+        if (selection) {
+            store.remove(selection);
+        }
+	},
+	
 	editAdmissions: function(grid, record) {
         console.log('Double clicked on ' + record.get('studentName'));
                     
-        var admForm = Ext.widget('newAdmissionForm');
+        var admForm = Ext.widget('newAdmissionForm',{ store: this.getStudentAdmissionSearchStore() });
         admForm.loadRecord(record);
         
         Ext.create('Ext.Window', {
@@ -56,17 +68,17 @@ Ext.define('scholar.controller.student.admission.Controller', {
 	          ],
 
 	stores : [ 
-	           'student.admission.SearchStore',
-	           'student.admission.BloodGroupStore',
-	           'student.admission.NationalityStore',
-	           'student.admission.CategoryStore'
+	           'student.admission.Search',
+	           'student.admission.BloodGroup',
+	           'student.admission.Nationality',
+	           'student.admission.Category'
 	         ],
 	
 	models : [ 
-	           'student.admission.SearchModel',
-	           'student.admission.BloodGroupModel',
-	           'student.admission.NationalityModel',
-	           'student.admission.CategoryModel'
+	           'student.admission.Search',
+	           'student.admission.BloodGroup',
+	           'student.admission.Nationality',
+	           'student.admission.Category'
 	         ]
 
 });

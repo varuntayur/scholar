@@ -78,7 +78,30 @@ Ext.define('scholar.view.student.admission.NewAdmissionFormThird', {
 			{
 				text : 'Save',
 				handler : function() {
-					if (this.up('form').getForm().isValid()) {
+					var form = this.up('form').getForm();
+					if (form.isValid()) {
+						
+						var store = this.ownerCt.ownerCt.store; 
+						
+						if(form.owner.isEdit)							
+						{
+							var formValues = form.getValues();
+							var routeId = formValues['admissionId'];		
+							
+							var rec = store.findRecord('admissionId',routeId);
+							rec.set({
+									  'admissionNumber' : formValues['admissionNumber'],
+									  'admissionDetails': formValues['admissionDetails']
+							});
+							
+							store.commitChanges();
+						}
+						else
+						{
+							var rec = new store.model(form.getValues());
+							store.add(rec);
+						}
+//						store.load();
 						this.up('window').hide();
 						Ext.MessageBox.alert('Success!',
 								'Your request has been saved.');

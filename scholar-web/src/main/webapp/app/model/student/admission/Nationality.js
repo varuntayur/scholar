@@ -1,4 +1,4 @@
-Ext.define('scholar.model.student.admission.NationalityModel', {
+Ext.define('scholar.model.student.admission.Nationality', {
 	extend: 'Ext.data.Model',
     fields : [ {
 		name : 'abbr',
