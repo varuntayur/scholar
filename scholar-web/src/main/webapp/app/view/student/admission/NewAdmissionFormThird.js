@@ -10,6 +10,16 @@ Ext.define('scholar.view.student.admission.NewAdmissionFormThird', {
 	border : false,
 	bodyPadding : 10,
 	autoScroll: true,
+	constructor : function() {
+		return this.callParent();
+	},
+	constructor : function(config) {
+		if (config) {
+			this.store = config.store;
+			this.isEdit = (typeof config.isEdit === "undefined") ? false: true;
+		}
+		this.callParent();
+	},
 	items : [ {
 		xtype : 'fieldcontainer',
 		fieldLabel : 'Previous Institution',
@@ -81,7 +91,7 @@ Ext.define('scholar.view.student.admission.NewAdmissionFormThird', {
 					var form = this.up('form').getForm();
 					if (form.isValid()) {
 						
-						var store = this.ownerCt.ownerCt.store; 
+						var store = this.store; 
 						
 						if(form.owner.isEdit)							
 						{

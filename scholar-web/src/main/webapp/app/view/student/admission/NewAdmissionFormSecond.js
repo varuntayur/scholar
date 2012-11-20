@@ -10,6 +10,16 @@ Ext.define('scholar.view.student.admission.NewAdmissionFormSecond', {
 	border : false,
 	bodyPadding : 10,
 	autoScroll: true,
+	constructor : function() {
+		return this.callParent();
+	},
+	constructor : function(config) {
+		if (config) {
+			this.store = config.store;
+			this.isEdit = (typeof config.isEdit === "undefined") ? false: true;
+		}
+		this.callParent();
+	},
 	items : [ {
 		xtype : 'textfield',
 		name:'parentName',
@@ -84,23 +94,51 @@ Ext.define('scholar.view.student.admission.NewAdmissionFormSecond', {
 				text : 'Next >',
 				handler : function() {
 					if (this.up('form').getForm().isValid()) {
-						this.up('window').hide();
-						Ext.create('Ext.Window', {
-							xtype : 'window',
-							closable : true,
-							minimizable : false,
-							title : 'New Admission: Previous Education Details',
-							layout:'fit',
-							minHeight: 400,
-							minWidth: 400,
-							autoScroll : true,
-							autoRender: true,
-							closeAction : 'hide',
-							constrain : true,
-							items : [ {
-								xtype : 'newAdmissionFormThird'
-							} ]
-						}).show();
+						var form = this.up('form').getForm();
+						if (form.isValid()) {
+							
+//							var store = this.ownerCt.ownerCt.store; 
+							var store = this.ownerCt.ownerCt.store; 
+							
+							if(form.owner.isEdit)							
+							{
+								var formValues = form.getValues();
+								var routeId = formValues['admissionId'];		
+								
+								var rec = store.findRecord('admissionId',routeId);
+								rec.set({
+										  'admissionNumber' : formValues['admissionNumber'],
+										  'admissionDetails': formValues['admissionDetails']
+								});
+								
+								store.commitChanges();
+							}
+							else
+							{
+								var rec = new store.model(form.getValues());
+								store.add(rec);
+							}
+//							store.load();	
+							
+							this.up('window').hide();
+							
+							var admForm = Ext.widget('newAdmissionFormThird',{ store: store });
+							
+							Ext.create('Ext.Window', {
+								xtype : 'window',
+								closable : true,
+								minimizable : false,
+								title : 'New Admission: Previous Education Details',
+								layout:'fit',
+								minHeight: 400,
+								minWidth: 400,
+								autoScroll : true,
+								autoRender: true,
+								closeAction : 'hide',
+								constrain : true,
+								items : [ admForm ]
+							}).show();
+						}
 					}
 				}
 			} ]

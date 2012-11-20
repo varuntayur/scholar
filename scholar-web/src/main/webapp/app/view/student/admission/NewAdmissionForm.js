@@ -10,7 +10,22 @@ Ext.define('scholar.view.student.admission.NewAdmissionForm', {
 	border : false,
 	bodyPadding : 10,
 	autoScroll: true,
-	items : [ {
+	constructor : function() {
+		return this.callParent();
+	},
+	constructor : function(config) {
+		if (config) {
+			this.store = config.store;
+			this.isEdit = (typeof config.isEdit === "undefined") ? false: true;
+		}
+		this.callParent();
+	},
+	items : [ 
+	          {
+		xtype : 'textfield',
+		fieldLabel : 'Admission Id',
+		name: 'admissionId'
+	},{
 		xtype : 'datefield',
 		fieldLabel : 'Admission Date',
 		name: 'admissionDate'
@@ -113,23 +128,49 @@ Ext.define('scholar.view.student.admission.NewAdmissionForm', {
 				text : 'Next >',
 				handler : function() {
 					if (this.up('form').getForm().isValid()) {
-						this.up('window').hide();
-						Ext.create('Ext.Window', {
-							xtype : 'window',
-							closable : true,
-							minimizable : false,
-							title : 'New Admission: Parent Details',
-							layout:'fit',
-							minHeight: 400,
-							minWidth: 400,
-							autoScroll : true,
-							autoRender: true,
-							closeAction : 'hide',
-							constrain : true,
-							items : [ {
-								xtype : 'newAdmissionFormSecond'
-							} ]
-						}).show();
+						var form = this.up('form').getForm();
+						if (form.isValid()) {
+							
+							var store = this.ownerCt.ownerCt.store; 
+							
+							if(form.owner.isEdit)							
+							{
+								var formValues = form.getValues();
+								var routeId = formValues['admissionId'];		
+								
+								var rec = store.findRecord('admissionId',routeId);
+								rec.set({
+										  'admissionNumber' : formValues['admissionNumber'],
+										  'admissionDetails': formValues['admissionDetails']
+								});
+								
+								store.commitChanges();
+							}
+							else
+							{
+								var rec = new store.model(form.getValues());
+								store.add(rec);
+							}
+//							store.load();							
+							this.up('window').hide();
+							
+							var admForm = Ext.widget('newAdmissionFormSecond',{ store: store });
+							
+							Ext.create('Ext.Window', {
+								xtype : 'window',
+								closable : true,
+								minimizable : false,
+								title : 'New Admission: Parent Details',
+								layout:'fit',
+								minHeight: 400,
+								minWidth: 400,
+								autoScroll : true,
+								autoRender: true,
+								closeAction : 'hide',
+								constrain : true,
+								items : [ admForm ]
+							}).show();
+						}
 					}
 				}
 			} ]
