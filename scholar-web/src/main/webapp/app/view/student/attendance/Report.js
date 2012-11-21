@@ -118,10 +118,17 @@ Ext.define('scholar.view.student.attendance.Report', {
 							}
 						}) ];
 
-		me.bbar = Ext.create('Ext.ux.StatusBar', {
-			defaultText : me.defaultStatusText,
-			name : 'searchStatusBar'
-		});
+//		me.bbar = Ext.create('Ext.ux.StatusBar', {
+//			defaultText : me.defaultStatusText,
+//			name : 'searchStatusBar'
+//		});
+		
+		me.bbar = {
+		        xtype: 'pagingtoolbar',
+		        store: 'transport.route.Search',   // same store GridPanel is using
+		        dock: 'bottom',
+		        displayInfo: true
+		}
 		
 		var daysInMonth = Ext.Date.getDaysInMonth(new Date());
 

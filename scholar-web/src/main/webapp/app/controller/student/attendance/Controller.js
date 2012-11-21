@@ -7,10 +7,10 @@ Ext.define('scholar.controller.student.attendance.Controller', {
 
 	views : [ 'student.attendance.Manager' ],
 
-	stores : [ 'student.attendance.SearchStore',
+	stores : [ 'student.attendance.Search',
 			'administration.settings.course.Store',
 			'administration.settings.batch.Store' ],
 
-	models : [ 'student.attendance.SearchModel' ]
+	models : [ 'student.attendance.Search' ]
 
 });

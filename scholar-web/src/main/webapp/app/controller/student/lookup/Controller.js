@@ -78,8 +78,8 @@ Ext.define('scholar.controller.student.lookup.Controller', {
 
 	views : [ 'student.lookup.Lookup' ],
 
-	stores : [ 'student.lookup.SearchStore' ],
+	stores : [ 'student.lookup.Search' ],
 	
-	models : [ 'student.lookup.SearchModel' ]
+	models : [ 'student.lookup.Search' ]
 
 });

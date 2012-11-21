@@ -1,6 +1,9 @@
-Ext.define('scholar.model.student.attendance.SearchModel', {
+Ext.define('scholar.model.student.lookup.Search', {
 	extend: 'Ext.data.Model',
 	fields : [ {
+		name : 'admissionId',
+		type : 'int'
+	},{
 		name : 'admissionNumber',
 		type : 'string'
 	}, {
@@ -17,5 +20,6 @@ Ext.define('scholar.model.student.attendance.SearchModel', {
 		type : 'date',
 		dateFormat : 'n/j h:ia'
 	} ],
+	idProperty:'admissionId'
 	
 });

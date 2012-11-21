@@ -111,7 +111,7 @@ Ext.define('scholar.view.student.admission.NewAdmissionFormSecond', {
 										  'admissionDetails': formValues['admissionDetails']
 								});
 								
-								store.commitChanges();
+								//store.commitChanges();
 							}
 							else
 							{

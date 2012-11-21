@@ -1,7 +1,7 @@
 Ext.define('scholar.view.student.lookup.Search', {
 	extend : 'Ext.ux.LiveSearchGridPanel',
 	alias: 'widget.studentSearch',
-	store : 'student.lookup.SearchStore',
+	store : 'student.lookup.Search',
 	id:'studentLookup',
 	dockedItems : [ {
 		xtype : 'toolbar',
@@ -18,7 +18,12 @@ Ext.define('scholar.view.student.lookup.Search', {
 					text : 'View Grades',
 					action:'viewGrades',
 				}]
-	} ],
+	},{
+        xtype: 'pagingtoolbar',
+        store: 'transport.route.Search',   // same store GridPanel is using
+        dock: 'bottom',
+        displayInfo: true
+    }  ],
 	columnLines : true,
 	columns : [ {
 		text : 'Admission Number',		

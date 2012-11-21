@@ -118,20 +118,20 @@ Ext.define('scholar.view.student.admission.NewAdmissionForm', {
 
 	buttons : [
 			{
-				text : 'Cancel',
+				text : 'Cancel',				
 				handler : function() {
 					this.up('form').getForm().reset();
 					this.up('window').hide();
 				}
 			},
 			{
-				text : 'Next >',
+				text : 'Next >',				
 				handler : function() {
 					if (this.up('form').getForm().isValid()) {
 						var form = this.up('form').getForm();
 						if (form.isValid()) {
 							
-							var store = this.ownerCt.ownerCt.store; 
+							var store = this.up().up().store; 
 							
 							if(form.owner.isEdit)							
 							{
@@ -144,7 +144,7 @@ Ext.define('scholar.view.student.admission.NewAdmissionForm', {
 										  'admissionDetails': formValues['admissionDetails']
 								});
 								
-								store.commitChanges();
+								//store.commitChanges();
 							}
 							else
 							{
