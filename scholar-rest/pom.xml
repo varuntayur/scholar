@@ -84,6 +84,14 @@
 			<version>2.2.2</version>
 			<scope>compile</scope>
 		</dependency>
+
+
+		<dependency>
+			<groupId>com.varun.scholar.ejb</groupId>
+			<artifactId>scholar-ejb</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>ejb</type>
+		</dependency>
 	</dependencies>
 
 	<build>
