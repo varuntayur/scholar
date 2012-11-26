@@ -13,6 +13,8 @@
    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <modelVersion>4.0.0</modelVersion>
  
+	<artifactId>scholar-ejb</artifactId>
+   <groupId>com.varun.scholar.ejb</groupId>
    <version>0.0.1-SNAPSHOT</version>
    <packaging>ejb</packaging>
    <name>Server side of remote EJB</name>
@@ -115,6 +117,5 @@
       </plugins>
    </build>
 
-   <artifactId>scholar-ejb</artifactId>
-   <groupId>com.varun.scholar.ejb</groupId>
+   
 </project>

@@ -1,10 +1,6 @@
 package com.varun.scholar.transport.vehicle;
 
-import java.util.Hashtable;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
+import javax.ejb.EJB;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -20,22 +16,27 @@ import com.google.gson.Gson;
 @Path("/")
 public class VehicleService {
 
+	@EJB
+	RemoteCounter rc;
+
 	public VehicleService() {
 
-		final Hashtable jndiProperties = new Hashtable();
-		jndiProperties.put(Context.URL_PKG_PREFIXES,
-				"org.jboss.ejb.client.naming");
-		Context context;
-		try {
-			context = new InitialContext(jndiProperties);
-			RemoteCounter rc = (RemoteCounter) context
-					.lookup("ejb:/scholar-ejb/CounterBean!"
-							+ RemoteCounter.class.getName() + "?stateful");
-			rc.increment();
-			System.out.println("Boom" + rc.getCount());
-		} catch (NamingException e1) {
-			e1.printStackTrace();
-		}
+		// final Hashtable jndiProperties = new Hashtable();
+		// jndiProperties.put(Context.URL_PKG_PREFIXES,
+		// "org.jboss.ejb.client.naming");
+		// Context context;
+		// try {
+		// context = new InitialContext(jndiProperties);
+		// RemoteCounter rc = (RemoteCounter) context
+		// .lookup("ejb:/scholar-ejb/CounterBean!"
+		// + RemoteCounter.class.getName() + "?stateful");
+		// rc.increment();
+		// System.out.println("Boom" + rc.getCount());
+		// } catch (NamingException e1) {
+		// e1.printStackTrace();
+		// }
+		
+		System.out.println("Pataka" + rc.getCount());
 
 	}
 

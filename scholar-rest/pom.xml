@@ -91,7 +91,17 @@
 			<artifactId>scholar-ejb</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>ejb</type>
+			<scope>provided</scope>
 		</dependency>
+
+		<!-- Import the EJB 3.1 API, we use provided scope as the API is included 
+			in JBoss AS 7 -->
+		<dependency>
+			<groupId>org.jboss.spec.javax.ejb</groupId>
+			<artifactId>jboss-ejb-api_3.1_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
