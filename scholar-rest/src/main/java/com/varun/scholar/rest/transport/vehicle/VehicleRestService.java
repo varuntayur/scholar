@@ -1,4 +1,4 @@
-package com.varun.scholar.transport.vehicle;
+package com.varun.scholar.rest.transport.vehicle;
 
 import javax.ejb.EJB;
 import javax.ws.rs.DELETE;
@@ -9,34 +9,18 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
-import org.jboss.as.quickstarts.ejb.remote.stateful.RemoteCounter;
-
 import com.google.gson.Gson;
+import com.varun.scholar.ejb.vehicle.VehicleService;
 
 @Path("/")
-public class VehicleService {
+public class VehicleRestService {
 
 	@EJB
-	RemoteCounter rc;
+	VehicleService rc;
 
-	public VehicleService() {
+	public VehicleRestService() {
 
-		// final Hashtable jndiProperties = new Hashtable();
-		// jndiProperties.put(Context.URL_PKG_PREFIXES,
-		// "org.jboss.ejb.client.naming");
-		// Context context;
-		// try {
-		// context = new InitialContext(jndiProperties);
-		// RemoteCounter rc = (RemoteCounter) context
-		// .lookup("ejb:/scholar-ejb/CounterBean!"
-		// + RemoteCounter.class.getName() + "?stateful");
-		// rc.increment();
-		// System.out.println("Boom" + rc.getCount());
-		// } catch (NamingException e1) {
-		// e1.printStackTrace();
-		// }
-		
-		System.out.println("Pataka" + rc.getCount());
+		System.out.println("Pataka" + rc.toString());
 
 	}
 

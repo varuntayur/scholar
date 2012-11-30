@@ -16,8 +16,11 @@
  */
 package org.jboss.as.quickstarts.ejb.remote.stateful;
 
+import javax.ejb.EJB;
 import javax.ejb.Remote;
 import javax.ejb.Stateful;
+
+import com.varun.scholar.ejb.vehicle.VehicleService;
 
 /**
  * @author Jaikiran Pai
@@ -26,20 +29,23 @@ import javax.ejb.Stateful;
 @Remote(RemoteCounter.class)
 public class CounterBean implements RemoteCounter {
 
-    private int count = 0;
+	@EJB
+	VehicleService book;
 
-    @Override
-    public void increment() {
-        this.count++;
-    }
+	private int count = 0;
 
-    @Override
-    public void decrement() {
-        this.count--;
-    }
+	@Override
+	public void increment() {
+		this.count++;
+	}
 
-    @Override
-    public int getCount() {
-        return this.count;
-    }
+	@Override
+	public void decrement() {
+		this.count--;
+	}
+
+	@Override
+	public int getCount() {
+		return this.count;
+	}
 }

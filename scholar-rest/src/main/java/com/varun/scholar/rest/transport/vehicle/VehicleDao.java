@@ -1,4 +1,4 @@
-package com.varun.scholar.transport.vehicle;
+package com.varun.scholar.rest.transport.vehicle;
 
 public class VehicleDao {
 	
