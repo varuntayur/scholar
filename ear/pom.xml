@@ -36,7 +36,23 @@
 			<version>0.0.1-SNAPSHOT</version>
 			<type>ejb</type>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>com.varun.scholar.shared.interfaces</groupId>
+			<artifactId>scholar-shared-interfaces</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.varun.scholar.shared.models</groupId>
+			<artifactId>scholar-shared-models</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.varun.scholar.ui</groupId>
+			<artifactId>scholar-web</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
 	</dependencies>
 
 	<properties>

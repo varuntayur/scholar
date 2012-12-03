@@ -19,6 +19,8 @@ package com.varun.scholar.rest.transport.vehicle;
 import javax.ejb.EJB;
 import javax.enterprise.inject.Produces;
 
+import org.jboss.as.quickstarts.interapp.shared.Foo;
+
 import com.varun.scholar.shared.VehicleService;
 
 /**
@@ -34,6 +36,11 @@ public class Imports {
 	@Produces
 	@EJB(lookup = "java:global/scholar-ejb/VehicleServiceBean!com.varun.scholar.shared.VehicleService")
 	private VehicleService rc;
+
+	@SuppressWarnings("unused")
+	@Produces
+	@EJB(lookup = "java:global/jboss-as-inter-app-A/FooImpl!org.jboss.as.quickstarts.interapp.shared.Foo")
+	private Foo foo;
 
 	private Imports() {
 		// Disable instantiation of this class

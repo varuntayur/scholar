@@ -9,14 +9,17 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
+import org.jboss.as.quickstarts.interapp.shared.Foo;
+
 import com.google.gson.Gson;
 import com.varun.scholar.shared.VehicleService;
 
 @Path("/")
 public class VehicleRestService {
 
+	
 	@Inject
-	VehicleService rc;
+	private Foo foo;
 
 	private Gson gson = new Gson();
 
@@ -33,8 +36,12 @@ public class VehicleRestService {
 		System.out.println("_dc=" + dc + " page=" + page + " start=" + start
 				+ " limit=" + limit);
 
-		 String temp = "{\"total\": 100, \"data\": ["
-		 + gson.toJson(new VehicleDao()) + "] }";
+		String temp = "{\"total\": 100, \"data\": ["
+				+ gson.toJson(new VehicleDao()) + "] }";
+
+		System.out.println(foo.getName());
+
+		// rc.createOrUpdate(new Vehicle("Test"));
 
 		return temp;
 	}

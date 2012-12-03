@@ -2,7 +2,7 @@ package com.varun.scholar.ejb.vehicle;
 
 import java.util.logging.Logger;
 
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 import com.varun.scholar.data.model.Vehicle;
 import com.varun.scholar.shared.VehicleService;
 
-@Stateless
+@Singleton
 public class VehicleServiceBean implements VehicleService {
 	@PersistenceContext
 	private EntityManager em;
