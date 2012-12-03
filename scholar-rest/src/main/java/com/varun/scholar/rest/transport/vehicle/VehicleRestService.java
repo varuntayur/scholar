@@ -1,6 +1,6 @@
 package com.varun.scholar.rest.transport.vehicle;
 
-import javax.ejb.EJB;
+import javax.inject.Inject;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -10,21 +10,18 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
 import com.google.gson.Gson;
-import com.varun.scholar.ejb.vehicle.VehicleService;
+import com.varun.scholar.shared.VehicleService;
 
 @Path("/")
 public class VehicleRestService {
 
-	@EJB
+	@Inject
 	VehicleService rc;
 
+	private Gson gson = new Gson();
+
 	public VehicleRestService() {
-
-		System.out.println("Pataka" + rc.toString());
-
 	}
-
-	private final Gson gson = new Gson();
 
 	@GET
 	@Path("/vehicle")
@@ -36,8 +33,8 @@ public class VehicleRestService {
 		System.out.println("_dc=" + dc + " page=" + page + " start=" + start
 				+ " limit=" + limit);
 
-		String temp = "{\"total\": 100, \"data\": ["
-				+ gson.toJson(new VehicleDao()) + "] }";
+		 String temp = "{\"total\": 100, \"data\": ["
+		 + gson.toJson(new VehicleDao()) + "] }";
 
 		return temp;
 	}

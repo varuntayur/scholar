@@ -26,8 +26,8 @@
 		<version.war.plugin>2.1.1</version.war.plugin>
 
 		<!-- maven-compiler-plugin -->
-		<maven.compiler.target>1.7</maven.compiler.target>
-		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+		<maven.compiler.source>1.6</maven.compiler.source>
 	</properties>
 
 	<dependencyManagement>
@@ -86,13 +86,6 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>com.varun.scholar.ejb</groupId>
-			<artifactId>scholar-ejb</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<type>ejb</type>
-			<scope>provided</scope>
-		</dependency>
 
 		<!-- Import the EJB 3.1 API, we use provided scope as the API is included 
 			in JBoss AS 7 -->
@@ -102,6 +95,11 @@
 			<scope>provided</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>com.varun.scholar.shared.interfaces</groupId>
+			<artifactId>scholar-shared-interfaces</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

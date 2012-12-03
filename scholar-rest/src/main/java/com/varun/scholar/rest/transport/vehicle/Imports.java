@@ -14,14 +14,29 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.as.quickstarts.ejb.remote.stateless;
+package com.varun.scholar.rest.transport.vehicle;
+
+import javax.ejb.EJB;
+import javax.enterprise.inject.Produces;
+
+import com.varun.scholar.shared.VehicleService;
 
 /**
- * @author Jaikiran Pai
+ * The Imports class is used to alias EJBs imported from other applications as
+ * local CDI beans, thus allowing consumers to ignore the details of
+ * inter-application communication.
+ * 
+ * @author Pete Muir
+ * 
  */
-public interface RemoteCalculator {
+public class Imports {
 
-    int add(int a, int b);
+	@Produces
+	@EJB(lookup = "java:global/scholar-ejb/VehicleServiceBean!com.varun.scholar.shared.VehicleService")
+	private VehicleService rc;
 
-    int subtract(int a, int b);
+	private Imports() {
+		// Disable instantiation of this class
+	}
+
 }

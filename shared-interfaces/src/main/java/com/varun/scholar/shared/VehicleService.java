@@ -1,4 +1,4 @@
-package com.varun.scholar.ejb.vehicle;
+package com.varun.scholar.shared;
 
 import com.varun.scholar.data.model.Vehicle;
 

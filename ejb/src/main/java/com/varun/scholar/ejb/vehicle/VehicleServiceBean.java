@@ -8,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.varun.scholar.data.model.Vehicle;
+import com.varun.scholar.shared.VehicleService;
 
 @Stateless
 public class VehicleServiceBean implements VehicleService {
