@@ -2,13 +2,10 @@ package org.jboss.as.quickstarts.interapp.appB;
 
 import java.util.logging.Logger;
 
-import javax.ejb.EJB;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
-import org.jboss.as.quickstarts.interapp.shared.Foo;
 
 /**
  * The Imports class is used to alias EJBs imported from other applications as
@@ -20,10 +17,10 @@ import org.jboss.as.quickstarts.interapp.shared.Foo;
  */
 public class Imports {
 	
-	@SuppressWarnings("unused")
-	@Produces
-	@EJB(lookup = "java:global/jboss-as-inter-app-A/FooImpl!org.jboss.as.quickstarts.interapp.shared.Foo")
-	private Foo foo;
+//	@SuppressWarnings("unused")
+//	@Produces
+//	@EJB(lookup = "java:global/jboss-as-inter-app-A/FooImpl!org.jboss.as.quickstarts.interapp.shared.Foo")
+//	private Foo foo;
 	
 	@Produces
 	@PersistenceContext

@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import org.jboss.as.quickstarts.interapp.shared.Bar;
-import org.jboss.as.quickstarts.interapp.shared.Foo;
 
 /**
  * The Bar bean is registered as an EJB singleton, allowing it to be used in
@@ -19,8 +18,8 @@ import org.jboss.as.quickstarts.interapp.shared.Foo;
 @Singleton
 public class BarImpl implements Bar {
 
-	@Inject
-	private Foo foo;
+//	@Inject
+//	private Foo foo;
 
 	@Inject
 	private Logger log;
