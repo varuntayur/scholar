@@ -14,12 +14,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.as.quickstarts.interapp.appA;
+package com.varun.scholar.rest;
 
 import javax.ejb.EJB;
 import javax.enterprise.inject.Produces;
 
-import org.jboss.as.quickstarts.interapp.shared.Bar;
+import com.varun.scholar.shared.Bar;
 
 /**
  * The Imports class is used to alias EJBs imported from other applications as
@@ -33,7 +33,7 @@ public class Imports {
 
 	@SuppressWarnings("unused")
 	@Produces
-	@EJB(lookup = "java:global/jboss-as-inter-app-B/BarImpl!org.jboss.as.quickstarts.interapp.shared.Bar")
+	@EJB(lookup = "java:global/scholar-business/BarImpl!com.varun.scholar.shared.Bar")
 	private Bar bar;
 
 	private Imports() {

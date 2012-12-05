@@ -1,4 +1,4 @@
-package org.jboss.as.quickstarts.interapp.shared;
+package com.varun.scholar.shared;
 
 import javax.ejb.Local;
 

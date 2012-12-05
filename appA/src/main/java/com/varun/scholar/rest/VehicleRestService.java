@@ -1,4 +1,4 @@
-package org.jboss.as.quickstarts.interapp.appA;
+package com.varun.scholar.rest;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -10,7 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
-import org.jboss.as.quickstarts.interapp.shared.Bar;
+import com.varun.scholar.shared.Bar;
 
 import com.google.gson.Gson;
 

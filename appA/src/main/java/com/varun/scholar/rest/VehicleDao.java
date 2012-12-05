@@ -1,4 +1,4 @@
-package org.jboss.as.quickstarts.interapp.appA;
+package com.varun.scholar.rest;
 
 public class VehicleDao {
 	

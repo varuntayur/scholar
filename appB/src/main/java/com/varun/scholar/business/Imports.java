@@ -1,4 +1,4 @@
-package org.jboss.as.quickstarts.interapp.appB;
+package com.varun.scholar.business;
 
 import java.util.logging.Logger;
 
@@ -16,12 +16,13 @@ import javax.persistence.PersistenceContext;
  * 
  */
 public class Imports {
-	
-//	@SuppressWarnings("unused")
-//	@Produces
-//	@EJB(lookup = "java:global/jboss-as-inter-app-A/FooImpl!org.jboss.as.quickstarts.interapp.shared.Foo")
-//	private Foo foo;
-	
+
+	// @SuppressWarnings("unused")
+	// @Produces
+	// @EJB(lookup =
+	// "java:global/jboss-as-inter-app-A/FooImpl!org.jboss.as.quickstarts.interapp.shared.Foo")
+	// private Foo foo;
+
 	@Produces
 	@PersistenceContext
 	private EntityManager em;

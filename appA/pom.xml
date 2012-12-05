@@ -13,16 +13,11 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>jboss-as-inter-app-A</artifactId>
+    <artifactId>scholar-rest</artifactId>
     <packaging>war</packaging>
     <name>JBoss AS Quickstarts: Inter-application (Application A)</name>
     <description>Inter-application: Shows how to communicate between two applications using EJB and CDI</description>
 
-    <parent>
-        <groupId>org.jboss.as.quickstarts</groupId>
-        <artifactId>jboss-as-inter-app-parent</artifactId>
-        <version>7.1.2-SNAPSHOT</version>
-    </parent>
     
     <properties>
 		<!-- Explicitly declaring the source encoding eliminates the following 
@@ -76,11 +71,6 @@
         <!-- Import the shared API module, which is used by Maven at compilation 
             time. See the corresponding Dependencies entry in the MANIFEST.mf which defines 
             the dependency at runtime. -->
-        <dependency>
-            <groupId>org.jboss.as.quickstarts</groupId>
-            <artifactId>jboss-as-inter-app-shared</artifactId>
-            <scope>provided</scope>
-        </dependency>
         
         
         <!-- Import the JAX-RS API, we use provided scope as the API is included 
@@ -133,8 +123,13 @@
 			<scope>provided</scope>
 		</dependency>
 
-        
 
+
+		<dependency>
+			<groupId>com.varun.scholar.shared</groupId>
+			<artifactId>scholar-shared</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
     </dependencies>
 
     <build>
@@ -154,7 +149,7 @@
                         in the POM, which defines the dependency at compile time. -->
                     <archive>
                         <manifestEntries>
-                            <Dependencies>deployment.jboss-as-inter-app-shared.jar</Dependencies>
+                            <Dependencies>deployment.scholar-shared-0.0.1-SNAPSHOT.jar</Dependencies>
                         </manifestEntries>
                     </archive>
                 </configuration>
@@ -178,5 +173,7 @@
         </plugins>
     </build>
 
+    <groupId>com.varun.scholar.rest</groupId>
+    <version>0.0.1-SNAPSHOT</version>
 </project>
 

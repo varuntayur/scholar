@@ -1,4 +1,4 @@
-package org.jboss.as.quickstarts.interapp.appB;
+package com.varun.scholar.business;
 
 import java.util.logging.Logger;
 
@@ -6,7 +6,7 @@ import javax.ejb.Singleton;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import org.jboss.as.quickstarts.interapp.shared.Bar;
+import com.varun.scholar.shared.Bar;
 
 /**
  * The Bar bean is registered as an EJB singleton, allowing it to be used in
@@ -18,8 +18,8 @@ import org.jboss.as.quickstarts.interapp.shared.Bar;
 @Singleton
 public class BarImpl implements Bar {
 
-//	@Inject
-//	private Foo foo;
+	// @Inject
+	// private Foo foo;
 
 	@Inject
 	private Logger log;
