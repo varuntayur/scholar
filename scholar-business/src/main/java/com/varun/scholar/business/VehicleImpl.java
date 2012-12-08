@@ -7,20 +7,10 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import com.varun.scholar.business.entities.Vehicle;
-import com.varun.scholar.shared.Bar;
+import com.varun.scholar.shared.transport.VehicleService;
 
-/**
- * The Bar bean is registered as an EJB singleton, allowing it to be used in
- * other applications.
- * 
- * @author Pete Muir
- * 
- */
 @Singleton
-public class BarImpl implements Bar {
-
-	// @Inject
-	// private Foo foo;
+public class VehicleImpl implements VehicleService {
 
 	@Inject
 	private Logger log;

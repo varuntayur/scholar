@@ -11,26 +11,26 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
 import com.google.gson.Gson;
-import com.varun.scholar.shared.Bar;
+import com.varun.scholar.shared.transport.VehicleService;
 
 @Named
 @Path("/")
 public class VehicleRestService {
 
 	@Inject
-	private Bar bar;
+	private VehicleService vehicle;
 
 	private Gson gson = new Gson();
 
 	public VehicleRestService() {
 	}
 
-	public Bar getBar() {
-		return bar;
+	public VehicleService getBar() {
+		return vehicle;
 	}
 
-	public void setBar(Bar bar) {
-		this.bar = bar;
+	public void setBar(VehicleService bar) {
+		this.vehicle = bar;
 	}
 
 	@GET
