@@ -6,6 +6,7 @@ import javax.ejb.Singleton;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
+import com.varun.scholar.business.entities.Vehicle;
 import com.varun.scholar.shared.Bar;
 
 /**
@@ -27,19 +28,21 @@ public class BarImpl implements Bar {
 	@Inject
 	private EntityManager em;
 
-	private String name;
-
-	@Override
-	public String getName() {
-
-		System.out.println(em.toString());
-
-		return name;
+	public String find(Object id) {
+		return null;
 	}
 
 	@Override
-	public void setName(String name) {
-		this.name = name;
+	public String createOrUpdate(String vehicleJson) {
+		Vehicle vh = new Vehicle();
+		em.merge(vh);
+		return "Success";
+	}
+
+	@Override
+	public void remove(String vehicleJson) {
+		em.remove(em.merge(vehicleJson));
+
 	}
 
 }

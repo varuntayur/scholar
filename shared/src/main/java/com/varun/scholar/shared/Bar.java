@@ -3,16 +3,19 @@ package com.varun.scholar.shared;
 import javax.ejb.Local;
 
 /**
- * Bar is provided in a shared API jar, that can be referenced by any application wishing to.
+ * Bar is provided in a shared API jar, that can be referenced by any
+ * application wishing to.
  * 
  * @author Pete Muir
- *
+ * 
  */
 @Local
 public interface Bar {
 
-    public void setName(String name);
+	public String createOrUpdate(String vehicleJson);
 
-    public String getName();
+	public void remove(String vehicleJson);
+
+	public String find(Object vehicleId);
 
 }
