@@ -8,7 +8,7 @@ import com.varun.scholar.shared.transport.VehicleService;
 public class Imports {
 
 	@Produces
-	@EJB(lookup = "java:global/scholar-business/VehicleImpl!com.varun.scholar.shared.transport.VehicleService")
+	@EJB(lookup = "java:global/scholar-business/VehicleServiceImpl!com.varun.scholar.shared.transport.VehicleService")
 	private VehicleService vehicle;
 
 	private Imports() {

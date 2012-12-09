@@ -7,7 +7,6 @@ import javax.enterprise.inject.spi.InjectionPoint;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-
 public class Imports {
 
 	@Produces

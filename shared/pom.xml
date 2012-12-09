@@ -15,8 +15,7 @@
 
 	<artifactId>scholar-shared</artifactId>
 	<packaging>jar</packaging>
-	<name>JBoss AS Quickstarts: Inter-application (Shared API jar)</name>
-	<description>Inter-application: Shows how to communicate between two applications using EJB and CDI</description>
+	<name>Scholar: Inter-application (Shared API jar)</name>
 
 	<!-- <parent> -->
 	<!-- <groupId>org.jboss.as.quickstarts</groupId> -->
@@ -104,6 +103,7 @@
 				<configuration>
 					<source>${maven.compiler.source}</source>
 					<target>${maven.compiler.target}</target>
+					<debug>true</debug>
 				</configuration>
 			</plugin>
 		</plugins>

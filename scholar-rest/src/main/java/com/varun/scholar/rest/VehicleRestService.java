@@ -20,17 +20,7 @@ public class VehicleRestService {
 	@Inject
 	private VehicleService vehicle;
 
-	private Gson gson = new Gson();
-
 	public VehicleRestService() {
-	}
-
-	public VehicleService getBar() {
-		return vehicle;
-	}
-
-	public void setBar(VehicleService bar) {
-		this.vehicle = bar;
 	}
 
 	@GET
@@ -43,12 +33,11 @@ public class VehicleRestService {
 		System.out.println("_dc=" + dc + " page=" + page + " start=" + start
 				+ " limit=" + limit);
 
-		String temp = "{\"total\": 100, \"data\": ["
-				+ gson.toJson(new VehicleDao()) + "] }";
-		
-		System.out.println(getBar().createOrUpdate("Test"));
+		// String temp = "{\"total\": 100, \"data\": ["
+		// + gson.toJson(new VehicleDao()) + "] }";
 
-		// rc.createOrUpdate(new Vehicle("Test"));
+		String temp = "{\"total\": 100, \"data\": [" + vehicle.findAll()
+				+ "] }";
 
 		return temp;
 	}

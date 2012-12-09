@@ -11,5 +11,7 @@ public interface VehicleService {
 	public void remove(String vehicleJson);
 
 	public String find(Object vehicleId);
+	
+	public String findAll();
 
 }

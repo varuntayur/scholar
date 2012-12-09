@@ -15,8 +15,6 @@
 
 	<artifactId>scholar-business</artifactId>
 	<packaging>war</packaging>
-	<name>JBoss AS Quickstarts: Inter-application (Application B)</name>
-	<description>Inter-application: Shows how to communicate between two applications using EJB and CDI</description>
 
 
 	<properties>
@@ -129,6 +127,13 @@
 			</exclusions>
 		</dependency>
 
+		<!-- Gson: Java to Json conversion -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.2</version>
+			<scope>compile</scope>
+		</dependency>
 
 
 		<!-- Import the shared API module, which is used by Maven at compilation 
@@ -189,6 +194,7 @@
 				<configuration>
 					<source>${maven.compiler.source}</source>
 					<target>${maven.compiler.target}</target>
+					<debug>true</debug>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -196,5 +202,6 @@
 
 	<groupId>com.varun.scholar.business</groupId>
 	<version>0.0.1-SNAPSHOT</version>
+	<name>Scholar: Business Interface</name>
 </project>
 

@@ -5,7 +5,7 @@
 	<artifactId>scholar-web</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Scholar UI Web App</name>
+	<name>Scholar: UI Web App</name>
 
 	<dependencyManagement>	
 	</dependencyManagement>

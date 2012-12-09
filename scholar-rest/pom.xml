@@ -15,8 +15,7 @@
 
     <artifactId>scholar-rest</artifactId>
     <packaging>war</packaging>
-    <name>JBoss AS Quickstarts: Inter-application (Application A)</name>
-    <description>Inter-application: Shows how to communicate between two applications using EJB and CDI</description>
+    <name>Scholar: REST interface</name>
 
     
     <properties>
@@ -168,6 +167,7 @@
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
+                    <debug>true</debug>
                 </configuration>
             </plugin>
         </plugins>
