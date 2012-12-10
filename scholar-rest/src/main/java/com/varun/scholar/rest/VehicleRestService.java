@@ -10,7 +10,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
-import com.google.gson.Gson;
 import com.varun.scholar.shared.transport.VehicleService;
 
 @Named
@@ -29,15 +28,9 @@ public class VehicleRestService {
 	public String getVehicle(@QueryParam("_dc") long dc,
 			@QueryParam("page") int page, @QueryParam("start") int start,
 			@QueryParam("limit") int limit) {
-
-		System.out.println("_dc=" + dc + " page=" + page + " start=" + start
-				+ " limit=" + limit);
-
-		// String temp = "{\"total\": 100, \"data\": ["
-		// + gson.toJson(new VehicleDao()) + "] }";
-
-		String temp = "{\"total\": 100, \"data\": [" + vehicle.findAll()
-				+ "] }";
+		
+		String temp = "{\"total\": 100, \"data\": " + vehicle.findAll(page,start,limit)
+				+ "}";
 
 		return temp;
 	}
@@ -66,7 +59,5 @@ public class VehicleRestService {
 		return true;
 	}
 
-	public static void main(String[] args) {
-		System.out.println(new Gson().toJson(new VehicleDao()));
-	}
+	
 }

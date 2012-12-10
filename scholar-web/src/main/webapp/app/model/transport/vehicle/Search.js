@@ -12,7 +12,7 @@ Ext.define('scholar.model.transport.vehicle.Search', {
 	}, {
 		name : 'lastUpdatedDate',
 		type : 'date',
-		dateFormat : 'n/j h:ia'
+		dateFormat : 'F D Y'
 	} ],
 	idProperty:'vehicleId',
 });

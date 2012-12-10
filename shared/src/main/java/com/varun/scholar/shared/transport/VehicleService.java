@@ -12,6 +12,6 @@ public interface VehicleService {
 
 	public String find(Object vehicleId);
 	
-	public String findAll();
+	public String findAll(int page, int start, int limit);
 
 }

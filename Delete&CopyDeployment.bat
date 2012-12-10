@@ -1,3 +1,10 @@
+pushd
+	echo "Cleaning deployments"
+	del %JBOSS_HOME%\standalone\deployments\scholar-shared-0.0.1-SNAPSHOT.jar
+	del %JBOSS_HOME%\standalone\deployments\scholar-business.war
+	del %JBOSS_HOME%\standalone\deployments\scholar-rest.war
+popd
+
 echo "copying Shared interfaces"
 xcopy shared\target\scholar-shared-0.0.1-SNAPSHOT.jar %JBOSS_HOME%\standalone\deployments\
 

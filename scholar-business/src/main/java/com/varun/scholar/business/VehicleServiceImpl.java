@@ -1,5 +1,6 @@
 package com.varun.scholar.business;
 
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -7,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
 import com.varun.scholar.business.entities.Vehicle;
@@ -26,8 +28,9 @@ public class VehicleServiceImpl implements VehicleService {
 	@PostConstruct
 	private void insertSeed() {
 		Vehicle vh = new Vehicle();
-		vh.setTitle("Test");
+		vh.setVehicleNumber("ka05");
 		vh.setVehicleDetails("Test 123");
+		vh.setLastUpdatedDate(new Date());
 		createOrUpdate(gson.toJson(vh));
 	}
 
@@ -49,11 +52,19 @@ public class VehicleServiceImpl implements VehicleService {
 	}
 
 	@Override
-	public String findAll() {
+	public String findAll(int page, int start, int limit) {
 
-		@SuppressWarnings("unchecked")
-		List<Vehicle> vehicles = em.createQuery("from Vehicle v")
-				.getResultList();
+		CriteriaQuery<Vehicle> criteria = em.getCriteriaBuilder().createQuery(
+				Vehicle.class);
+		
+		criteria.select(criteria.from(Vehicle.class));
+
+		List<Vehicle> vehicles = em.createQuery(criteria).setMaxResults(limit)
+				.setFirstResult(start).getResultList();
+
+//		@SuppressWarnings("unchecked")
+//		List<Vehicle> vehicles = em.createQuery("from Vehicle v")
+//				.setMaxResults(limit).getResultList();
 
 		return gson.toJson(vehicles);
 	}
