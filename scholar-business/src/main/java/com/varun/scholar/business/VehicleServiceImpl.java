@@ -56,17 +56,18 @@ public class VehicleServiceImpl implements VehicleService {
 
 		CriteriaQuery<Vehicle> criteria = em.getCriteriaBuilder().createQuery(
 				Vehicle.class);
-		
+
 		criteria.select(criteria.from(Vehicle.class));
 
 		List<Vehicle> vehicles = em.createQuery(criteria).setMaxResults(limit)
 				.setFirstResult(start).getResultList();
 
-//		@SuppressWarnings("unchecked")
-//		List<Vehicle> vehicles = em.createQuery("from Vehicle v")
-//				.setMaxResults(limit).getResultList();
+		int resultCount = em.createQuery(criteria).getResultList().size();
+		String total = "\"total\":" + resultCount;
 
-		return gson.toJson(vehicles);
+		String vehiclesJson = gson.toJson(vehicles);
+
+		return "{" + total + ", \"data\":" + vehiclesJson + "}";
 	}
 
 }

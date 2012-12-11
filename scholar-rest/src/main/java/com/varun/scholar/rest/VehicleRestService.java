@@ -17,7 +17,7 @@ import com.varun.scholar.shared.transport.VehicleService;
 public class VehicleRestService {
 
 	@Inject
-	private VehicleService vehicle;
+	private VehicleService vehicleService;
 
 	public VehicleRestService() {
 	}
@@ -29,10 +29,10 @@ public class VehicleRestService {
 			@QueryParam("page") int page, @QueryParam("start") int start,
 			@QueryParam("limit") int limit) {
 		
-		String temp = "{\"total\": 100, \"data\": " + vehicle.findAll(page,start,limit)
-				+ "}";
+//		String temp = "{\"total\": 100, \"data\": " + vehicleService.findAll(page,start,limit)
+//				+ "}";
 
-		return temp;
+		return vehicleService.findAll(page,start,limit);
 	}
 
 	@POST
