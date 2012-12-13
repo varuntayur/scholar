@@ -72,10 +72,10 @@ Ext.define('scholar.view.transport.vehicle.Detail', {
 							var rec = new store.model(form.getValues());
 							store.add(rec);
 						}
-//						store.load();
 						this.up('window').hide();
 						Ext.MessageBox.alert('Success!',
 								'Your request has been saved.');
+						store.load();
 					}
 				}
 			} ]

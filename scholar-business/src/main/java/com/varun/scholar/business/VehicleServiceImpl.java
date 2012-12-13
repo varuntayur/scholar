@@ -1,10 +1,8 @@
 package com.varun.scholar.business;
 
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
-import javax.annotation.PostConstruct;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -24,15 +22,15 @@ public class VehicleServiceImpl implements VehicleService {
 	private EntityManager em;
 
 	private Gson gson = new Gson();
-
-	@PostConstruct
-	private void insertSeed() {
-		Vehicle vh = new Vehicle();
-		vh.setVehicleNumber("ka05");
-		vh.setVehicleDetails("Test 123");
-		vh.setLastUpdatedDate(new Date());
-		createOrUpdate(gson.toJson(vh));
-	}
+	
+	// @PostConstruct
+	// private void insertSeed() {
+	// Vehicle vh = new Vehicle();
+	// vh.setVehicleNumber("ka05");
+	// vh.setVehicleDetails("Test 123");
+	// vh.setLastUpdatedDate(new Date());
+	// createOrUpdate(gson.toJson(vh));
+	// }
 
 	public String find(Object id) {
 		return null;
@@ -47,6 +45,7 @@ public class VehicleServiceImpl implements VehicleService {
 	@Override
 	public String remove(String vehicleJson) {
 		em.remove(em.merge(gson.fromJson(vehicleJson, Vehicle.class)));
+		em.flush();
 		return findAll(1, 1, VehicleService.NUM_RECS);
 	}
 
