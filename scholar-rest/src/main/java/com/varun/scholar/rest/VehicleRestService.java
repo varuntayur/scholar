@@ -28,36 +28,32 @@ public class VehicleRestService {
 	public String getVehicle(@QueryParam("_dc") long dc,
 			@QueryParam("page") int page, @QueryParam("start") int start,
 			@QueryParam("limit") int limit) {
-		
-//		String temp = "{\"total\": 100, \"data\": " + vehicleService.findAll(page,start,limit)
-//				+ "}";
 
-		return vehicleService.findAll(page,start,limit);
+		return vehicleService.findAll(page, start, limit);
 	}
 
 	@POST
 	@Path("/vehicle")
 	@Produces({ "application/json" })
-	public boolean postVehicle(String a, String b, String c, String d) {
-		System.out.println(a + b + c + d);
-		return true;
+	public String postVehicle(String vehicleJson) {
+		vehicleService.createOrUpdate(vehicleJson);
+		return vehicleService.createOrUpdate(vehicleJson);
 	}
 
 	@DELETE
 	@Path("/vehicle")
 	@Produces({ "application/json" })
-	public boolean deleteVehicle(String a, String b, String c, String d) {
-		System.out.println(a + b + c + d);
-		return true;
+	public String deleteVehicle(String vehicleJson) {
+		System.out.println(vehicleJson);
+		return vehicleService.remove(vehicleJson);
 	}
 
 	@PUT
 	@Path("/vehicle")
 	@Produces({ "application/json" })
-	public boolean putVehicle(String a, String b, String c, String d) {
-		System.out.println(a + b + c + d);
-		return true;
+	public String putVehicle(String vehicleJson) {
+		System.out.println(vehicleJson);
+		return vehicleService.createOrUpdate(vehicleJson);
 	}
 
-	
 }

@@ -40,15 +40,14 @@ public class VehicleServiceImpl implements VehicleService {
 
 	@Override
 	public String createOrUpdate(String vehicleJson) {
-		Vehicle vh = gson.fromJson(vehicleJson, Vehicle.class);
-		em.merge(vh);
-		return "Success";
+		em.merge(gson.fromJson(vehicleJson, Vehicle.class));
+		return findAll(1, 1, VehicleService.NUM_RECS);
 	}
 
 	@Override
-	public void remove(String vehicleJson) {
-		em.remove(em.merge(vehicleJson));
-
+	public String remove(String vehicleJson) {
+		em.remove(em.merge(gson.fromJson(vehicleJson, Vehicle.class)));
+		return findAll(1, 1, VehicleService.NUM_RECS);
 	}
 
 	@Override
