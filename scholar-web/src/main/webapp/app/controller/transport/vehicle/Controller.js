@@ -66,6 +66,7 @@ Ext.define('scholar.controller.transport.vehicle.Controller', {
         if (selection) {
             store.remove(selection);
         }
+        store.load();
 	},
 
 	views : [ 'transport.vehicle.Lookup', 'transport.vehicle.Detail' ],

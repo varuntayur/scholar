@@ -13,7 +13,7 @@ public class Vehicle {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private Long vehicleId;
 
 
 	private String vehicleNumber;
@@ -26,11 +26,11 @@ public class Vehicle {
 	}
 
 	public Long getId() {
-		return id;
+		return vehicleId;
 	}
 
 	public void setId(Long id) {
-		this.id = id;
+		this.vehicleId = id;
 	}
 
 

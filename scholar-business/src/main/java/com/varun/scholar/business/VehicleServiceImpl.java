@@ -22,7 +22,7 @@ public class VehicleServiceImpl implements VehicleService {
 	private EntityManager em;
 
 	private Gson gson = new Gson();
-	
+
 	// @PostConstruct
 	// private void insertSeed() {
 	// Vehicle vh = new Vehicle();
@@ -32,8 +32,8 @@ public class VehicleServiceImpl implements VehicleService {
 	// createOrUpdate(gson.toJson(vh));
 	// }
 
-	public String find(Object id) {
-		return null;
+	public String find(Long id) {
+		return gson.toJson(em.find(Vehicle.class, id));
 	}
 
 	@Override
@@ -44,7 +44,11 @@ public class VehicleServiceImpl implements VehicleService {
 
 	@Override
 	public String remove(String vehicleJson) {
-		em.remove(em.merge(gson.fromJson(vehicleJson, Vehicle.class)));
+		Vehicle fromJson = gson.fromJson(vehicleJson, Vehicle.class);
+		System.out.println("Delete entity:" + fromJson);
+		Vehicle find = em.find(Vehicle.class, fromJson.getId());
+		System.out.println("Entity to delete is:" + find.getId());
+		em.remove(find);
 		em.flush();
 		return findAll(1, 1, VehicleService.NUM_RECS);
 	}

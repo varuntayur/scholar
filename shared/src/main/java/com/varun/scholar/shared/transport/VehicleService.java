@@ -12,7 +12,7 @@ public interface VehicleService {
 
 	public String remove(String vehicleJson);
 
-	public String find(Object vehicleId);
+	public String find(Long vehicleId);
 	
 	public String findAll(int page, int start, int limit);
 

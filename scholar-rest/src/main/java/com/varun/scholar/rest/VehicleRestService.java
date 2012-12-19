@@ -35,8 +35,7 @@ public class VehicleRestService {
 	@POST
 	@Path("/vehicle")
 	@Produces({ "application/json" })
-	public String postVehicle(String vehicleJson) {
-		vehicleService.createOrUpdate(vehicleJson);
+	public String postVehicle(String vehicleJson) {		
 		return vehicleService.createOrUpdate(vehicleJson);
 	}
 
