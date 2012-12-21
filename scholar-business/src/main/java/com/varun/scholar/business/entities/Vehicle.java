@@ -15,7 +15,6 @@ public class Vehicle {
 	@GeneratedValue
 	private Long vehicleId;
 
-
 	private String vehicleNumber;
 	private String vehicleDetails;
 	
