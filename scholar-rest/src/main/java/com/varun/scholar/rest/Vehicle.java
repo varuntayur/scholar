@@ -10,16 +10,16 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
-import com.varun.scholar.shared.transport.VehicleService;
+import com.varun.scholar.shared.interfaces.transport.VehicleCrud;
 
 @Named
 @Path("/")
-public class VehicleRestService {
+public class Vehicle {
 
 	@Inject
-	private VehicleService vehicleService;
+	private VehicleCrud vehicleService;
 
-	public VehicleRestService() {
+	public Vehicle() {
 	}
 
 	@GET

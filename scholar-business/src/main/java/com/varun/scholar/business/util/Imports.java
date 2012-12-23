@@ -1,4 +1,4 @@
-package com.varun.scholar.business;
+package com.varun.scholar.business.util;
 
 import java.util.logging.Logger;
 

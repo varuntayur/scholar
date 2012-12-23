@@ -1,4 +1,4 @@
-package com.varun.scholar.business;
+package com.varun.scholar.business.data.impl;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -9,11 +9,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
-import com.varun.scholar.business.entities.Vehicle;
-import com.varun.scholar.shared.transport.VehicleService;
+import com.varun.scholar.business.data.entities.Vehicle;
+import com.varun.scholar.shared.interfaces.CrudOperations;
+import com.varun.scholar.shared.interfaces.transport.VehicleCrud;
 
 @Stateless
-public class VehicleServiceImpl implements VehicleService {
+public class VehicleCrudImpl implements VehicleCrud {
 
 	@Inject
 	private Logger log;
@@ -23,15 +24,6 @@ public class VehicleServiceImpl implements VehicleService {
 
 	private Gson gson = new Gson();
 
-	// @PostConstruct
-	// private void insertSeed() {
-	// Vehicle vh = new Vehicle();
-	// vh.setVehicleNumber("ka05");
-	// vh.setVehicleDetails("Test 123");
-	// vh.setLastUpdatedDate(new Date());
-	// createOrUpdate(gson.toJson(vh));
-	// }
-
 	public String find(Long id) {
 		return gson.toJson(em.find(Vehicle.class, id));
 	}
@@ -39,7 +31,7 @@ public class VehicleServiceImpl implements VehicleService {
 	@Override
 	public String createOrUpdate(String vehicleJson) {
 		em.merge(gson.fromJson(vehicleJson, Vehicle.class));
-		return findAll(1, 1, VehicleService.NUM_RECS);
+		return findAll(1, 1, CrudOperations.NUM_RECS);
 	}
 
 	@Override
@@ -48,7 +40,7 @@ public class VehicleServiceImpl implements VehicleService {
 		Vehicle find = em.find(Vehicle.class, fromJson.getId());
 		em.remove(find);
 		em.flush();
-		return findAll(1, 1, VehicleService.NUM_RECS);
+		return findAll(1, 1, CrudOperations.NUM_RECS);
 	}
 
 	@Override

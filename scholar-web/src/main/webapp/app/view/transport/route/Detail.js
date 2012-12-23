@@ -83,7 +83,10 @@ Ext.define('scholar.view.transport.route.Detail', {
 							var rec = store.findRecord('routeId',routeId);
 							rec.set({
 									  'routeNumber' : formValues['routeNumber'],
-									  'routeDetails': formValues['routeDetails']
+									  'routeDetails': formValues['routeDetails'],
+									  'vehicleNumber':formValues['vehicleNumber'],
+									  'driverName':formValues['driverName'],
+									  'lastUpdatedDate':formValues['lastUpdatedDate']
 							});
 							
 							store.commitChanges();
@@ -93,10 +96,10 @@ Ext.define('scholar.view.transport.route.Detail', {
 							var rec = new store.model(form.getValues());
 							store.add(rec);
 						}
-//						store.load();
 						this.up('window').hide();
 						Ext.MessageBox.alert('Success!',
 								'Your request has been saved.');
+						store.load();
 					}
 				}
 			} ]

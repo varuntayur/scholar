@@ -50,7 +50,7 @@ Ext.define('scholar.controller.transport.route.Controller', {
 	
 	editRoute: function(grid,record)
 	{
-		var admForm = Ext.widget('routeDetail',{ store: this.getTransportRouteSearchStore() });
+		var admForm = Ext.widget('routeDetail',{ store: this.getTransportRouteSearchStore(), isEdit: true });
 	        admForm.loadRecord(record);
 		
 		Ext.create('Ext.Window', {
