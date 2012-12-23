@@ -69,7 +69,7 @@ Ext.define('scholar.controller.transport.route.Controller', {
 
 	views : [ 'transport.route.Lookup','transport.route.Detail' ],
 
-	stores : [ 'transport.route.Search','staff.lookup.SearchStore','transport.vehicle.Search' ],
+	stores : [ 'transport.route.Search','staff.lookup.SearchStore','transport.vehicle.Search','transport.vehicle.Combo' ],
 	
 	models : [ 'transport.route.Search' ]
 

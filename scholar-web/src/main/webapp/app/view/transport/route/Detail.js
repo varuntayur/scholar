@@ -46,7 +46,7 @@ Ext.define('scholar.view.transport.route.Detail', {
 				},	         
 				{
 					xtype:'combo',
-					store: 'transport.vehicle.Search',
+					store: 'transport.vehicle.Combo',
 					valueField: 'vehicleNumber',
 					displayField: 'vehicleNumber',
 					queryMode : 'local',
