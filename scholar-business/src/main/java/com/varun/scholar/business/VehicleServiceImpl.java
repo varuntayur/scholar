@@ -45,9 +45,7 @@ public class VehicleServiceImpl implements VehicleService {
 	@Override
 	public String remove(String vehicleJson) {
 		Vehicle fromJson = gson.fromJson(vehicleJson, Vehicle.class);
-		System.out.println("Delete entity:" + fromJson);
 		Vehicle find = em.find(Vehicle.class, fromJson.getId());
-		System.out.println("Entity to delete is:" + find.getId());
 		em.remove(find);
 		em.flush();
 		return findAll(1, 1, VehicleService.NUM_RECS);
