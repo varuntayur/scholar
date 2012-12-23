@@ -37,12 +37,14 @@ Ext.define('scholar.view.transport.route.Search', {
 	           {
 					text : 'Route Number',
 					width : 95,
+					flex : 1,
 					sortable : true,
 					dataIndex : 'routeNumber'
 			   }, 
 	           {
 					text : 'Vehicle Number',
 					width : 105,
+					flex : 1,
 					sortable : true,
 					dataIndex : 'vehicleNumber'
 				},
@@ -56,6 +58,7 @@ Ext.define('scholar.view.transport.route.Search', {
 				{
 					text : 'Driver Name',
 					width : 75,
+					flex : 1,
 					sortable : true,
 					dataIndex : 'driverName'
 				},

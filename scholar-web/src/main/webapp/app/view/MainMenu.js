@@ -53,6 +53,7 @@ Ext.define('scholar.view.MainMenu', {
 			
 	        {
 				mainItem : 0,
+				expanded: false,
 				items : [
 					{
 						iconCls: 'x-icon-student',

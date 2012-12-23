@@ -21,7 +21,8 @@ Ext.define('scholar.view.administration.user.roles.Role', {
 	columnLines : true,
 	columns : [ {
 		text : 'Role Name',
-		width : 75,
+		width : 175,
+		flex :1,
 		sortable : true,
 		dataIndex : 'roleName'
 	}, {
