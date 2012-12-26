@@ -2,7 +2,18 @@ Ext.define('scholar.store.administration.settings.general.Store', {
 	extend : 'Ext.data.Store',
 	model : 'scholar.model.administration.settings.general.Model',	
 	autoLoad : true,
-	data:[
-	      ["Educational Institute","1, 1st Main, 2nd Cross, Bangalore","123 456 789","012 345 678"]
-	     ]
+	autoSync: true,
+	proxy: {
+		type: 'rest',
+		url: 'http://localhost:8080/scholar-rest/rest/institutionDetails',
+		reader: {
+			type: 'json',
+			root: 'data',
+			totalProperty: 'total'
+		},
+		writer: {
+			type: 'json'
+		},
+		appendId: false
+	}
 });

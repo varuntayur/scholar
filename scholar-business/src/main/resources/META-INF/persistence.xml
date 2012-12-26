@@ -23,6 +23,7 @@
       
       <class>com.varun.scholar.business.data.entities.Vehicle</class>
       <class>com.varun.scholar.business.data.entities.Route</class>
+       <class>com.varun.scholar.business.data.entities.InstitutionDetails</class>
       
       <properties>
          <!-- Properties for Hibernate -->

@@ -1,11 +1,22 @@
 Ext.define('scholar.model.administration.settings.general.Model', {
 	extend : 'Ext.data.Model',
 	fields : [ {
-		name : 'abbr',
-		type : 'string'
+		name : 'institutionDetailsId',
+		type : 'int'
 	}, {
-		name : 'courseName',
+		name : 'name',
 		type : 'string'
-	} ],
+	},
+	{
+		name : 'address',
+		type : 'string'
+	},{
+		name : 'phone',
+		type : 'string'
+	},
+	{
+		name : 'fax',
+		type : 'string'
+	}]
 
 });

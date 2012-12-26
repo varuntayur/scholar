@@ -1,7 +1,7 @@
 Ext.define('scholar.view.administration.settings.general.Manager', {
 	extend : 'Ext.form.Panel',
 	alias : 'widget.generalSettingsManager',
-	title:'General',
+	title:'Institution',
 	frame : true,
 	bodyPadding : 5,
 	layout: 'anchor',
@@ -12,32 +12,33 @@ Ext.define('scholar.view.administration.settings.general.Manager', {
 		labelAlign : 'left',
 		msgTarget : 'side'
 	},
+	store: 'administration.settings.general.Store',
     defaultType: 'textfield',
 	items: [
 	        {
-		        fieldLabel: 'Institution Name',
-		        name: 'institutionName',
+		        fieldLabel: 'Name',
+		        name: 'name',
 		        allowBlank: false
 	        },
 	        {
-		        fieldLabel: 'Institution Address',
-		        name: 'institutionAddress',
+		        fieldLabel: 'Address',
+		        name: 'address',
 		        allowBlank: false
 	        },
 	        {
-		        fieldLabel: 'Institution Phone',
-		        name: 'institutionPhone',
+		        fieldLabel: 'Phone',
+		        name: 'phone',
 		        allowBlank: false
 	        },
 	        {
-		        fieldLabel: 'Institution Fax',
-		        name: 'institutionPhone',
+		        fieldLabel: 'Fax',
+		        name: 'fax',
 		        allowBlank: false
 	        },
 	        {
 	            xtype: 'filefield',
 	            emptyText: 'Select an image',
-	            fieldLabel: 'Institution Logo',
+	            fieldLabel: 'Logo',
 	            name: 'photo-path',
 	            buttonText: '',
 	            buttonConfig: {
@@ -49,15 +50,47 @@ Ext.define('scholar.view.administration.settings.general.Manager', {
 	      			{
 	      				text : 'Cancel',
 	      				handler : function() {
-	      					this.up('form').getForm().reset();
+	      					this.getForm().reset();
 	      					
 	      				}
 	      			},
 	      			{
 	      				text : 'Save',
 	      				handler : function() {
-      						Ext.MessageBox.alert('Success!',
-	      								'Your request has been saved.');
+	      					var form = this.up().up().getForm();
+	    					if (form.isValid()) {
+	    						
+	    						var store = this.store;
+	    						
+	    						var formValues = form.getValues();
+    							var instId = formValues['institutionDetailsId'];		
+	    						
+	    						if(instId)							
+	    						{
+	    							var formValues = form.getValues();
+	    							
+	    							var rec = store.findRecord('institutionDetailsId',instId);
+	    							rec.set({
+	    									  'name' : formValues['name'],
+	    									  'address': formValues['address'],
+	    									  'phone': formValues['phone'],
+	    									  'fax': formValues['fax'],
+	    							});
+	    							
+	    							store.commitChanges();
+	    						}
+	    						else
+	    						{
+	    							var rec = new store.model(form.getValues());
+	    							store.add(rec);
+	    						}
+	    						
+	    						Ext.MessageBox.alert('Success!',
+	    								'Your request has been saved.');
+	    						
+	    					}
+	      					
+      						
 	      				}
 	 } ]
 });
