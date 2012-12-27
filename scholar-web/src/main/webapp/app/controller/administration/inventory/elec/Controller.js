@@ -67,6 +67,6 @@ Ext.define('scholar.controller.administration.inventory.elec.Controller', {
 
 	stores : [ 'administration.inventory.elec.SearchStore' ],
 	
-	models : [ 'administration.inventory.elec.SearchModel' ]
+	models : [ 'administration.inventory.elec.ElectronicsSearch' ]
 
 });

@@ -3,17 +3,11 @@ package com.varun.scholar.business.data.entities;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class Vehicle {
-
-	@Id
-	@GeneratedValue
-	private Long vehicleId;
+public class Vehicle extends AbstractEntity{
 
 	private String vehicleNumber;
 	private String vehicleDetails;
@@ -22,14 +16,6 @@ public class Vehicle {
 	private Date lastUpdatedDate;
 
 	public Vehicle() {
-	}
-
-	public Long getId() {
-		return vehicleId;
-	}
-
-	public void setId(Long id) {
-		this.vehicleId = id;
 	}
 
 

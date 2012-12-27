@@ -35,6 +35,6 @@ Ext.define('scholar.controller.library.lookup.Controller', {
 
 	stores : [ 'library.lookup.SearchStore' ],
 	
-	models : [ 'library.lookup.SearchModel' ]
+	models : [ 'library.lookup.LookupSearch' ]
 
 });

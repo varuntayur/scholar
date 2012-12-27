@@ -9,6 +9,6 @@ Ext.define('scholar.controller.finance.settings.general.Controller', {
 
 	stores : [ 'finance.settings.general.Store' ],
 	
-	models : [ 'finance.settings.general.Model' ]
+	models : [ 'finance.settings.general.FinanceSettings' ]
 
 });

@@ -1,6 +1,6 @@
 Ext.define('scholar.store.administration.admission.Store', {
     extend: 'Ext.data.Store',
-    model: 'scholar.model.administration.admission.Model',
+    model: 'scholar.model.administration.admission.PerishableSearch',
 	data : [
 			[ '001/001', 'Amar', 'Standard 1', '2012','4/5 12:00am', '1/4 12:00am' ],
 			[ '001/002', 'Ishaan', 'Standard 2', '2012','10/5 12:00am', '1/4 12:00am' ],

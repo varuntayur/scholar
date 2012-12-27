@@ -1,6 +1,6 @@
 Ext.define('scholar.model.parent.Model', {
-	extend: 'Ext.data.Model',
-    fields : [ {
+	extend : 'Ext.data.Model',
+	fields : [ {
 		name : 'admissionNumber',
 		type : 'string'
 	}, {
@@ -15,11 +15,11 @@ Ext.define('scholar.model.parent.Model', {
 	}, {
 		name : 'admissionDate',
 		type : 'date',
-		dateFormat : 'n/j h:ia'
+		dateFormat:'n/j h:ia'
 	}, {
 		name : 'lastChange',
 		type : 'date',
-		dateFormat : 'n/j h:ia'
+		dateFormat:'n/j h:ia'
 	} ]
-	
+
 });

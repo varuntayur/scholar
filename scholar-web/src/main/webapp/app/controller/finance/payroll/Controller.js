@@ -37,6 +37,6 @@ Ext.define('scholar.controller.finance.payroll.Controller', {
 
 	stores : [ 'finance.payroll.SearchStore' ],
 	
-	models : [ 'finance.payroll.SearchModel' ]
+	models : [ 'finance.payroll.PayrollSearch' ]
 
 });

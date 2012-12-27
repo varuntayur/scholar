@@ -11,8 +11,8 @@ Ext.define('scholar.controller.administration.DashboardController', {
 			'administration.dashboard.TodayAttendanceStore',
 			'administration.dashboard.FreePeriodStore' ],
 
-	models : [ 'administration.dashboard.FeeCollectionModel',
-			'administration.dashboard.TodayAttendanceModel',
-			'administration.dashboard.FreePeriodModel' ]
+	models : [ 'administration.dashboard.FeeCollection',
+			'administration.dashboard.TodayAttendance',
+			'administration.dashboard.FreePeriod' ]
 
 });

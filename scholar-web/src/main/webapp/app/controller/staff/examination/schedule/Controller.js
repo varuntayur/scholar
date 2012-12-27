@@ -66,6 +66,6 @@ Ext.define('scholar.controller.staff.examination.schedule.Controller', {
 
 	stores : [ 'staff.examination.schedule.SearchStore' ],
 	
-	models : [ 'staff.examination.schedule.SearchModel' ]
+	models : [ 'staff.examination.schedule.ScheduleSearch' ]
 
 });

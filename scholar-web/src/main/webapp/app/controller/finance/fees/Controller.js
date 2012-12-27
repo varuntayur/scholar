@@ -49,6 +49,6 @@ Ext.define('scholar.controller.finance.fees.Controller', {
 
 	stores : [ 'finance.fees.SearchStore','finance.fees.FeeStructureStore' ],
 	
-	models : [ 'finance.fees.SearchModel' ]
+	models : [ 'finance.fees.FeeSearch' ]
 
 });

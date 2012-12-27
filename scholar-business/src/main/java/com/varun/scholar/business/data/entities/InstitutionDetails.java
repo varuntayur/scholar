@@ -1,30 +1,16 @@
 package com.varun.scholar.business.data.entities;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
-public class InstitutionDetails {
-
-	@Id
-	@GeneratedValue
-	private Long institutionDetailsId;
+public class InstitutionDetails extends AbstractEntity {
 
 	private String name;
 	private String address;
 	private String phone;
 	private String fax;
-	
+
 	public InstitutionDetails() {
-	}
-
-	public Long getInstitutionDetailsId() {
-		return institutionDetailsId;
-	}
-
-	public void setInstitutionDetailsId(Long institutionDetailsId) {
-		this.institutionDetailsId = institutionDetailsId;
 	}
 
 	public String getName() {
@@ -58,7 +44,5 @@ public class InstitutionDetails {
 	public void setFax(String fax) {
 		this.fax = fax;
 	}
-
-	
 
 }

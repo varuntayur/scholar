@@ -1,6 +1,6 @@
 Ext.define('scholar.store.administration.settings.course.SearchStore', {
 	extend : 'Ext.data.Store',
-	model : 'scholar.model.administration.settings.course.SearchModel',
+	model : 'scholar.model.administration.settings.course.CourseSearch',
 	data : [
 	        [ '001/001', 'Standard 1', '9/1 12:00am' ],
 			[ '002/002', 'Standard 2',  '9/1 12:00am' ],

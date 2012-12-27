@@ -1,6 +1,6 @@
 Ext.define('scholar.store.staff.attendance.SearchStore', {
     extend: 'Ext.data.Store',
-    model: 'scholar.model.staff.attendance.SearchModel',
+    model: 'scholar.model.staff.attendance.AttendanceSearch',
     data : [
 	        [ '001005', 'Ram', 'CS',  '9/1 12:00am' ],
 			[ '001006', 'Murali', 'Science',  '9/1 12:00am' ],

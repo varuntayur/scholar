@@ -73,6 +73,6 @@ Ext.define('scholar.controller.transport.vehicle.Controller', {
 
 	stores : [ 'transport.vehicle.Search' ],
 
-	models : [ 'transport.vehicle.Search' ]
+	models : [ 'transport.vehicle.VehicleSearch' ]
 
 });

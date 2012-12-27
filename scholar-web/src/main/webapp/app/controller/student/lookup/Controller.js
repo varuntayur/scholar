@@ -80,6 +80,6 @@ Ext.define('scholar.controller.student.lookup.Controller', {
 
 	stores : [ 'student.lookup.Search' ],
 	
-	models : [ 'student.lookup.Search' ]
+	models : [ 'student.lookup.LookupSearch' ]
 
 });

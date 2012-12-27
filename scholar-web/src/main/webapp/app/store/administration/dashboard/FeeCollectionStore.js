@@ -1,6 +1,6 @@
 Ext.define('scholar.store.administration.dashboard.FeeCollectionStore', {
 	extend: 'Ext.data.Store',
-	model:'scholar.model.administration.dashboard.FeeCollectionModel',
+	model:'scholar.model.administration.dashboard.FeeCollection',
 	data: [
 		        { name: 'Jan', data1: 100 },
 		        { name: 'Feb', data1: 0 },

@@ -1,6 +1,6 @@
 Ext.define('scholar.store.finance.payroll.SearchStore', {
     extend: 'Ext.data.Store',
-    model: 'scholar.model.finance.payroll.SearchModel',
+    model: 'scholar.model.finance.payroll.PayrollSearch',
     data : [
 			[ 'Ram', 'Admin','2012-01-02', 'A3','15', '9/1 12:00am' ],
 			[ 'Purushotham', 'Staff','2012-01-02', 'A3','15','9/1 12:00am' ],

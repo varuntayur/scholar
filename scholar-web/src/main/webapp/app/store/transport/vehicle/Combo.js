@@ -1,6 +1,6 @@
 Ext.define('scholar.store.transport.vehicle.Combo', {
     extend: 'Ext.data.Store',
-    model: 'scholar.model.transport.vehicle.Search',
+    model: 'scholar.model.transport.vehicle.VehicleSearch',
     proxy: {
 		type: 'rest',
 		url: 'http://localhost:8080/scholar-rest/rest/vehicle',

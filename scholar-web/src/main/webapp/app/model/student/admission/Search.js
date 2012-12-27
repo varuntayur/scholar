@@ -1,5 +1,6 @@
 Ext.define('scholar.model.student.admission.Search', {
 	extend: 'Ext.data.Model',
+	idProperty:'admissionId',
     fields : [ 
                {
 		name : 'admissionId',
@@ -53,7 +54,6 @@ Ext.define('scholar.model.student.admission.Search', {
 		name : 'lastChange',
 		type : 'date',
 		dateFormat : 'n/j h:ia'
-	} ],
-	idProperty:'admissionId'
+	} ]
 	
 });

@@ -9,6 +9,6 @@ Ext.define('scholar.controller.staff.leave.report.Controller', {
 
 	stores : [ 'staff.leave.report.SearchStore' ],
 	
-	models : [ 'staff.leave.report.SearchModel' ]
+	models : [ 'staff.leave.report.LeaveReportSearch' ]
 
 });

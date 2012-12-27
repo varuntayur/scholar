@@ -1,6 +1,6 @@
 Ext.define('scholar.store.staff.leave.report.SearchStore', {
     extend: 'Ext.data.Store',
-    model: 'scholar.model.staff.leave.report.SearchModel',
+    model: 'scholar.model.staff.leave.report.LeaveReportSearch',
     data : [ 
              [ '001005', 'Rama', 'CS', 'Blore', '9/1 12:00am' ],
 			 [ '001006', 'Krishna', 'Science', 'Blore', '9/1 12:00am' ],

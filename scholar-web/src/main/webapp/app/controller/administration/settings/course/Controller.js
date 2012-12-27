@@ -68,8 +68,8 @@ Ext.define('scholar.controller.administration.settings.course.Controller', {
 	           'administration.settings.course.SearchStore'
 	         ],
 	
-	models : [ 'administration.settings.course.Model',
-	           'administration.settings.course.SearchModel'
+	models : [ 'administration.settings.course.Combo',
+	           'administration.settings.course.CourseSearch'
 	         ]
 
 });

@@ -106,8 +106,8 @@ Ext.define('scholar.controller.staff.lookup.Controller', {
 	           'staff.lookup.SubjectAllocationStore'
 	           ],
 	
-	models : [ 'staff.lookup.SearchModel',
-	           'staff.lookup.SubjectAllocationModel'
+	models : [ 'staff.lookup.Search',
+	           'staff.lookup.SubjectAllocation'
 	           ]
 
 });

@@ -1,6 +1,6 @@
 Ext.define('scholar.store.finance.fees.FeeStructureStore', {
     extend: 'Ext.data.Store',
-    model: 'scholar.model.finance.fees.FeeStructureModel',
+    model: 'scholar.model.finance.fees.FeeStructure',
     groupField: 'groupName',
     data: [{
 	        lineItem: 'Registration Fee',

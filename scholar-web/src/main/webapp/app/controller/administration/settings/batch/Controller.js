@@ -69,8 +69,8 @@ Ext.define('scholar.controller.administration.settings.batch.Controller', {
 	           'administration.settings.batch.SearchStore'
 	         ],
 	
-	models : [ 'administration.settings.batch.Model',
-	           'administration.settings.batch.SearchModel'
+	models : [ 'administration.settings.batch.Combo',
+	           'administration.settings.batch.BatchSearch'
 	         ]
 
 });

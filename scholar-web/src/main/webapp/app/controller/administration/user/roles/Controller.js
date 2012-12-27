@@ -66,6 +66,6 @@ Ext.define('scholar.controller.administration.user.roles.Controller', {
 
 	stores : [ 'administration.user.roles.SearchStore','administration.user.roles.PermissionStore' ],
 	
-	models : [ 'administration.user.roles.SearchModel','administration.user.roles.PermissionModel' ]
+	models : [ 'administration.user.roles.RolesSearch','administration.user.roles.PermissionSearch' ]
 
 });

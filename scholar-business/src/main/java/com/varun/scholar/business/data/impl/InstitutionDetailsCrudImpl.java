@@ -39,7 +39,7 @@ public class InstitutionDetailsCrudImpl implements InstitutionDetailsCrud {
 		InstitutionDetails fromJson = gson.fromJson(vehicleJson,
 				InstitutionDetails.class);
 		InstitutionDetails find = em.find(InstitutionDetails.class,
-				fromJson.getInstitutionDetailsId());
+				fromJson.getId());
 		em.remove(find);
 		em.flush();
 		return findAll(1, 1, CrudOperations.NUM_RECS);

@@ -1,6 +1,6 @@
 Ext.define('scholar.store.transport.route.Search', {
     extend: 'Ext.data.Store',
-    model: 'scholar.model.transport.route.Search',
+    model: 'scholar.model.transport.route.RouteSearch',
     proxy: {
 		type: 'rest',
 		url: 'http://localhost:8080/scholar-rest/rest/route',

@@ -66,6 +66,6 @@ Ext.define('scholar.controller.administration.inventory.infra.Controller', {
 
 	stores : [ 'administration.inventory.infra.SearchStore' ],
 	
-	models : [ 'administration.inventory.infra.SearchModel' ]
+	models : [ 'administration.inventory.infra.InfraSearch' ]
 
 });

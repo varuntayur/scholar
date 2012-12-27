@@ -1,6 +1,6 @@
 Ext.define('scholar.store.library.lookup.SearchStore', {
     extend: 'Ext.data.Store',
-    model: 'scholar.model.library.lookup.SearchModel',
+    model: 'scholar.model.library.lookup.LookupSearch',
     data : [
 	        [ '001-005X-3413', 'Fun with Mathematics 1', 'Oxford', 'Agarwal', '9/1 12:00am' ],
 			[ '001-006Y-321X', 'Fun with Mathematics 2', 'Oxford', 'Agarwal', '9/1 12:00am' ],

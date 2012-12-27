@@ -1,6 +1,6 @@
 Ext.define('scholar.store.staff.timetable.Store', {
     extend: 'Ext.data.Store',
-    model: 'scholar.model.staff.timetable.Model',
+    model: 'scholar.model.staff.timetable.TimetableSearch',
     data : [
 	        [ 'Monday',   'Maths', 'Social-Science', 'General-Science', 'Short-Break','English','','Lunch','Hindi','Library' ],
 			[ 'Tuesday',  'Social-Science', 'Maths', '', 'Short-Break','General-Science','','Lunch','','Moral-Science' ],

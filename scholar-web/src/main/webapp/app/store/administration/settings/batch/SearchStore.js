@@ -1,6 +1,6 @@
 Ext.define('scholar.store.administration.settings.batch.SearchStore', {
 	extend : 'Ext.data.Store',
-	model : 'scholar.model.administration.settings.batch.SearchModel',
+	model : 'scholar.model.administration.settings.batch.BatchSearch',
 	data : [
 			[ '2011', 'Standard 1', 'A', '1/5 12:00am','1/4 12:00am', '9/1 12:00am' ],
 			[ '2012', 'Standard 1', 'A', '1/5 12:00am','1/4 12:00am', '9/1 12:00am' ],

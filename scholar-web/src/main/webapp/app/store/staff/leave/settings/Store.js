@@ -1,6 +1,6 @@
 Ext.define('scholar.store.staff.leave.settings.Store', {
     extend: 'Ext.data.Store',
-    model: 'scholar.model.staff.leave.settings.Model',
+    model: 'scholar.model.staff.leave.settings.LeaveSettingsSearch',
     data : [
 			[ 'Admin','10','1.5','1/5 12:00am' ],
 			[ 'Staff','12','1.5','9/1 12:00am' ],

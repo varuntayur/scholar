@@ -1,6 +1,6 @@
 Ext.define('scholar.store.finance.fees.SearchStore', {
     extend: 'Ext.data.Store',
-    model: 'scholar.model.finance.fees.SearchModel',
+    model: 'scholar.model.finance.fees.FeeSearch',
     data : [
 			[ '001/001', 'Amar',  '9/1 12:00am' ],
 			[ '001/002', 'Ishaan', '9/1 12:00am' ],

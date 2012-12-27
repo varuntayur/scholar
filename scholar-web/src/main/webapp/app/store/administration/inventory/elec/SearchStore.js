@@ -1,6 +1,6 @@
 Ext.define('scholar.store.administration.inventory.elec.SearchStore', {
     extend: 'Ext.data.Store',
-    model: 'scholar.model.administration.inventory.elec.SearchModel',
+    model: 'scholar.model.administration.inventory.elec.ElectronicsSearch',
     data : [
 			[ 'Monitors', 'Samsung','15" LCD','100'	,'9/1 12:00am' ],
 			[ 'Monitors', 'Samsung','15" CRT','150'	,'9/1 12:00am' ],

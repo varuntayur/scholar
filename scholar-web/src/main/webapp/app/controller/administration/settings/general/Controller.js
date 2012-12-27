@@ -9,6 +9,6 @@ Ext.define('scholar.controller.administration.settings.general.Controller', {
 
 	stores : [ 'administration.settings.general.Store' ],
 
-	models : [ 'administration.settings.general.Model' ]
+	models : [ 'administration.settings.general.SettingsSearch' ]
 
 });

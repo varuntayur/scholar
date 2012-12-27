@@ -118,8 +118,8 @@ Ext.define('scholar.controller.staff.event.Controller', {
 	           'administration.settings.course.Store',
 	           'administration.settings.batch.Store' ],
 	
-	models : [ 'staff.event.MemoModel',
-	           'staff.event.EventModel'
+	models : [ 'staff.event.MemoSearch',
+	           'staff.event.EventSearch'
 	         ]
 
 });

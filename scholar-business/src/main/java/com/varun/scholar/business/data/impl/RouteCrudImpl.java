@@ -37,7 +37,7 @@ public class RouteCrudImpl implements RouteCrud {
 	@Override
 	public String remove(String vehicleJson) {
 		Route fromJson = gson.fromJson(vehicleJson, Route.class);
-		Route find = em.find(Route.class, fromJson.getRouteId());
+		Route find = em.find(Route.class, fromJson.getId());
 		em.remove(find);
 		em.flush();
 		return findAll(1, 1, CrudOperations.NUM_RECS);

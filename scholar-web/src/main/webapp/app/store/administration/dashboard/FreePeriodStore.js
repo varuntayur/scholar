@@ -1,6 +1,6 @@
 Ext.define('scholar.store.administration.dashboard.FreePeriodStore', {
 	extend: 'Ext.data.JsonStore',
-	model:'scholar.model.administration.dashboard.FreePeriodModel',
+	model:'scholar.model.administration.dashboard.FreePeriod',
 	data: [
 		        [ '8am', 1 ],
 		        [ '9am', 2 ],

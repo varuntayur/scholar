@@ -11,6 +11,6 @@ Ext.define('scholar.controller.student.attendance.Controller', {
 			'administration.settings.course.Store',
 			'administration.settings.batch.Store' ],
 
-	models : [ 'student.attendance.Search' ]
+	models : [ 'student.attendance.AttendanceSearch' ]
 
 });

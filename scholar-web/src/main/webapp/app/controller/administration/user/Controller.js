@@ -66,6 +66,6 @@ Ext.define('scholar.controller.administration.user.Controller', {
 
 	stores : [ 'administration.user.SearchStore' ],
 	
-	models : [ 'administration.user.SearchModel' ]
+	models : [ 'administration.user.UserSearch' ]
 
 });

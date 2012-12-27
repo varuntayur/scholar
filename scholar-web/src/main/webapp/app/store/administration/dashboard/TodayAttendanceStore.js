@@ -1,6 +1,6 @@
 Ext.define('scholar.store.administration.dashboard.TodayAttendanceStore', {
 	extend: 'Ext.data.JsonStore',
-	model:'scholar.model.administration.dashboard.TodayAttendanceModel',
+	model:'scholar.model.administration.dashboard.TodayAttendance',
 	data: [
 		        [ 'Jan', 60 ]  				       				 
 		    ],

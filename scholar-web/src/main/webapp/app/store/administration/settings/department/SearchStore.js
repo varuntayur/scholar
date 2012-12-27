@@ -1,6 +1,6 @@
 Ext.define('scholar.store.administration.settings.department.SearchStore', {
 	extend : 'Ext.data.Store',
-	model : 'scholar.model.administration.settings.department.SearchModel',	
+	model : 'scholar.model.administration.settings.department.DepartmentSearch',	
 	autoLoad : true,
 	data : [
 			[ 'Mathematics', '9/1 12:00am' ],

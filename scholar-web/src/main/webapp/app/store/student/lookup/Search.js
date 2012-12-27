@@ -1,6 +1,6 @@
 Ext.define('scholar.store.student.lookup.Search', {
     extend: 'Ext.data.Store',
-    model: 'scholar.model.student.lookup.Search',
+    model: 'scholar.model.student.lookup.LookupSearch',
 //    data : [ 
 //			[ '001/001', 'Amar', 'Standard 1', 	  'Blore', '9/1 12:00am' ],
 //			[ '001/002', 'Ishaan', 'Standard 2',  'Blore', '9/1 12:00am' ],

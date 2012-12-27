@@ -1,6 +1,6 @@
 Ext.define('scholar.store.staff.examination.schedule.SearchStore', {
     extend: 'Ext.data.Store',
-    model: 'scholar.model.staff.examination.schedule.SearchModel',
+    model: 'scholar.model.staff.examination.schedule.ScheduleSearch',
     data : [
 			[ 'Standard 1', 'A','Subject 1'	,'9/1 12:00am' ],
 			[ 'Standard 2', 'A','Subject 2',	'9/1 12:00am' ],

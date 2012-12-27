@@ -9,6 +9,6 @@ Ext.define('scholar.controller.staff.timetable.Controller', {
 
 	stores : [ 'staff.timetable.Store' ],
 	
-	models : [ 'staff.timetable.Model' ]
+	models : [ 'staff.timetable.TimetableSearch' ]
 
 });

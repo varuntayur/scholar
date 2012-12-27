@@ -1,6 +1,6 @@
 Ext.define('scholar.store.administration.settings.general.Store', {
 	extend : 'Ext.data.Store',
-	model : 'scholar.model.administration.settings.general.Model',	
+	model : 'scholar.model.administration.settings.general.SettingsSearch',	
 	autoLoad : true,
 	autoSync: true,
 	proxy: {
