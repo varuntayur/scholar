@@ -32,7 +32,7 @@ Ext.define('scholar.view.transport.route.Search', {
 					width : 10,
 					hidden: true,
 					sortable : true,
-					dataIndex : 'routeId'
+					dataIndex : 'id'
 				},
 	           {
 					text : 'Route Number',

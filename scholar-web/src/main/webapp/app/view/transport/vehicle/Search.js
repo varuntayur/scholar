@@ -30,7 +30,7 @@ Ext.define('scholar.view.transport.vehicle.Search', {
 		width : 10,
 		hidden: true,
 		sortable : true,
-		dataIndex : 'vehicleId'
+		dataIndex : 'id'
 	}, {
 		text : 'Vehicle Number',
 		width : 100,

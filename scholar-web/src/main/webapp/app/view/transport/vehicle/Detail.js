@@ -57,9 +57,9 @@ Ext.define('scholar.view.transport.vehicle.Detail', {
 						if(form.owner.isEdit)							
 						{
 							var formValues = form.getValues();
-							var vehicleId = formValues['vehicleId'];		
+							var vehicleId = formValues['id'];		
 							
-							var rec = store.findRecord('vehicleId',vehicleId);
+							var rec = store.findRecord('id',vehicleId);
 							rec.set({
 									  'vehicleNumber' : formValues['vehicleNumber'],
 									  'vehicleDetails': formValues['vehicleDetails']

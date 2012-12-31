@@ -10,7 +10,7 @@ Ext.define('scholar.model.administration.settings.subject.SubjectSearch', {
 	},
 	{
 		name : 'examinationRequired',
-		type : 'boolean'
+		type : 'bool'
 	},
 	{
 		name : 'startDate',

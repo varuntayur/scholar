@@ -2,6 +2,7 @@ Ext.define('scholar.view.administration.settings.general.Manager', {
 	extend : 'Ext.form.Panel',
 	alias : 'widget.generalSettingsManager',
 	title:'Institution',
+	id:'adminInstitutionDetails',
 	frame : true,
 	bodyPadding : 5,
 	layout: 'anchor',
@@ -12,9 +13,26 @@ Ext.define('scholar.view.administration.settings.general.Manager', {
 		labelAlign : 'left',
 		msgTarget : 'side'
 	},
-	store: 'administration.settings.general.Store',
+	store: null,
+	initComponent: function() {
+	        var me = this;
+	        console.log('administration.settings.general.Manager store init');
+	        var theStore = Ext.create('scholar.store.administration.settings.general.Store');
+	        Ext.apply(me, {
+	            store: theStore
+	        }); 
+	        this.store = theStore;
+	        me.callParent();
+	},
     defaultType: 'textfield',
 	items: [
+	        {
+		        fieldLabel: 'id',
+		        name: 'id',
+		        allowBlank: true,
+		        visible: false
+		        
+	        },
 	        {
 		        fieldLabel: 'Name',
 		        name: 'name',
@@ -60,16 +78,16 @@ Ext.define('scholar.view.administration.settings.general.Manager', {
 	      					var form = this.up().up().getForm();
 	    					if (form.isValid()) {
 	    						
-	    						var store = this.store;
+	    						var store = form.owner.store;
 	    						
 	    						var formValues = form.getValues();
-    							var instId = formValues['institutionDetailsId'];		
+    							var instId = formValues['id'];		
 	    						
 	    						if(instId)							
 	    						{
 	    							var formValues = form.getValues();
 	    							
-	    							var rec = store.findRecord('institutionDetailsId',instId);
+	    							var rec = store.findRecord('id',instId);
 	    							rec.set({
 	    									  'name' : formValues['name'],
 	    									  'address': formValues['address'],
@@ -87,6 +105,14 @@ Ext.define('scholar.view.administration.settings.general.Manager', {
 	    						
 	    						Ext.MessageBox.alert('Success!',
 	    								'Your request has been saved.');
+	    						
+	    						store.load({
+	    						    scope   : this,
+	    						    callback: function(records, operation, success) {
+	    						        console.log(records);
+	    						        form.loadRecord(records[0]);
+	    						    }
+	    						});
 	    						
 	    					}
 	      					

@@ -28,7 +28,7 @@ Ext.define('scholar.view.transport.route.Detail', {
 	items : [
 	         	{
 					fieldLabel : 'Route Id',
-					name : 'routeId',
+					name : 'id',
 					hidden: true
 				}, 
 				{
@@ -78,9 +78,9 @@ Ext.define('scholar.view.transport.route.Detail', {
 						if(form.owner.isEdit)							
 						{
 							var formValues = form.getValues();
-							var routeId = formValues['routeId'];		
+							var routeId = formValues['id'];		
 							
-							var rec = store.findRecord('routeId',routeId);
+							var rec = store.findRecord('id',routeId);
 							rec.set({
 									  'routeNumber' : formValues['routeNumber'],
 									  'routeDetails': formValues['routeDetails'],

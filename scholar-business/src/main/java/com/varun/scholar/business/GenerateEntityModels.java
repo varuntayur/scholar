@@ -11,6 +11,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import org.apache.commons.lang3.StringUtils;
 
 public class GenerateEntityModels {
@@ -102,12 +105,22 @@ public class GenerateEntityModels {
 			String type = "";
 			if ((i + 1) < split.length)
 				type = split[i + 1];
+
 			String entityAttributes = type.replaceAll("type:", "") + " "
 					+ name.replaceAll("name:", "");
-			String concat = StringUtils.capitalize(entityAttributes)
-					.concat(";");
-			lstDatatypes.add(concat.startsWith("Int") ? StringUtils
-					.uncapitalize(concat) : concat);
+
+			String parsedDeclaration = entityAttributes.concat(";").trim();
+
+			if (parsedDeclaration.contains("string"))
+				parsedDeclaration = StringUtils.capitalize(parsedDeclaration);
+			else if (parsedDeclaration.contains("date")) {
+				parsedDeclaration = "\n@Temporal(TemporalType.DATE)\n"
+						+ StringUtils.capitalize(parsedDeclaration);
+			}
+
+			parsedDeclaration = parsedDeclaration.replaceAll("bool", "boolean");
+
+			lstDatatypes.add(parsedDeclaration);
 		}
 		return lstDatatypes;
 
@@ -115,8 +128,16 @@ public class GenerateEntityModels {
 
 	public static void main(String[] args) {
 
-		String uiModelFilePath = "C:\\Development\\scholar\\scholar-web\\src\\main\\webapp\\app\\model\\";
-		String entityModelFilePath = "C:\\Development\\scholar\\scholar-business\\src\\main\\java\\com\\varun\\scholar\\business\\data\\entities1\\";
+		String rootUiModelFolderHome = "C:\\Users\\Varun\\scholar\\scholar-web\\";
+		String rootEntityModelFolderHome = "C:\\Users\\Varun\\scholar\\scholar-business\\";
+
+		String rootUiModelFolderOffice = "C:\\Development\\scholar\\scholar-web\\";
+		String rootEntityModelFolderOffice = "C:\\Development\\scholar\\scholar-business\\";
+
+		String uiModelFilePath = rootUiModelFolderHome
+				+ "src\\main\\webapp\\app\\model\\";
+		String entityModelFilePath = rootEntityModelFolderHome
+				+ "src\\main\\java\\com\\varun\\scholar\\business\\data\\entities1\\";
 
 		listFiles(uiModelFilePath);
 
@@ -136,17 +157,17 @@ public class GenerateEntityModels {
 
 			String className = StringUtils.capitalize(file.getName())
 					.replaceAll(".js", "");
-			String classNameDeclaratino = "@Entity\n public class " + className
-					+ " extends AbstractEntity {  \n";
+			String classNameDeclaratino = "\n\n@Entity\n public class "
+					+ className + " extends AbstractEntity {  \n";
 			String classNameEnd = " \n }  \n";
 
-			System.out.println(importAndPackage);
-			System.out.println(classNameDeclaratino);
-			for (String string : lstDatatypes) {
-
-				System.out.println(string);
-			}
-			System.out.println(classNameEnd);
+			// System.out.println(importAndPackage);
+			// System.out.println(classNameDeclaratino);
+			// for (String string : lstDatatypes) {
+			//
+			// System.out.println(string);
+			// }
+			// System.out.println(classNameEnd);
 
 			try {
 				FileWriter fw = new FileWriter(entityModelFilePath + className

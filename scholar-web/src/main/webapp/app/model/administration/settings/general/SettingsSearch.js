@@ -1,7 +1,8 @@
 Ext.define('scholar.model.administration.settings.general.SettingsSearch', {
 	extend : 'Ext.data.Model',
+	idProperty: 'id',
 	fields : [ {
-		name : 'institutionDetailsId',
+		name : 'id',
 		type : 'int'
 	}, {
 		name : 'name',

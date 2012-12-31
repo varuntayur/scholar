@@ -1,8 +1,8 @@
 Ext.define('scholar.model.transport.vehicle.VehicleSearch', {
 	extend: 'Ext.data.Model',
-	idProperty:'vehicleId',
+	idProperty:'id',
 	fields : [ {
-		name: 'vehicleId',
+		name: 'id',
 		type: 'int'
 	},{
 		name : 'vehicleNumber',

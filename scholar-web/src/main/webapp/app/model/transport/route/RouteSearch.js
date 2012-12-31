@@ -1,9 +1,9 @@
 Ext.define('scholar.model.transport.route.RouteSearch', {
 	extend: 'Ext.data.Model',
-	idProperty: 'routeId',
+	idProperty: 'id',
 	fields : [
 	          {
-				name : 'routeId',
+				name : 'id',
 				type : 'int'
 			  },
 	          {
