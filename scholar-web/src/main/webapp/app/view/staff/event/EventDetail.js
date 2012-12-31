@@ -12,6 +12,10 @@ Ext.define('scholar.view.staff.event.EventDetail', {
 	autoScroll: true,
 	defaultType : 'textfield',
 	items : [ {
+		fieldLabel : 'Id',
+		name : 'id',
+		hidden: true
+	}, {
 				name: 'eventName',
 				fieldLabel:'Event Name'
 					

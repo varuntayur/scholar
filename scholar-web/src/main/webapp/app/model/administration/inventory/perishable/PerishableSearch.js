@@ -1,6 +1,9 @@
 Ext.define('scholar.model.administration.inventory.perishable.PerishableSearch', {
 	extend: 'Ext.data.Model',		
 	fields : [ {
+		name : 'id',
+		type : 'int'
+	},{
 		name : 'itemId',
 		type : 'string'
 	}, {

@@ -12,7 +12,11 @@ Ext.define('scholar.view.staff.lookup.Detail', {
 	bodyPadding : 10,
 	autoScroll: true,
 	defaultType : 'textfield',
-	items : [ {
+	items : [  {
+		fieldLabel : 'Id',
+		name : 'id',
+		hidden: true
+	},{
 		fieldLabel : 'Employee ID',
 		name : 'employeeId'
 	}, {

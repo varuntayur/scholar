@@ -37,7 +37,11 @@ Ext.define('scholar.view.finance.payroll.Search', {
 	
 	store : 'finance.payroll.SearchStore',
 	columnLines : true,
-	columns : [  {
+	columns : [ {
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	}, {
 		text : 'User Name',
 		width : 75,
 		flex:1,

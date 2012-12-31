@@ -1,6 +1,9 @@
 Ext.define('scholar.model.finance.settings.general.FinanceSettings', {
 	extend : 'Ext.data.Model',
-	fields : [  {
+	fields : [ {
+		name : 'id',
+		type : 'int'
+	},  {
 		name : 'finYearStartDate',
 		type : 'string'
 	},

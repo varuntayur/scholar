@@ -1,7 +1,10 @@
 Ext.define('scholar.model.administration.settings.batch.Combo', {
 	extend : 'Ext.data.Model',
 
-	fields : [ {
+	fields : [{
+		name : 'id',
+		type : 'int'
+	}, {
 		name : 'abbr',
 		type : 'string'
 	}, {

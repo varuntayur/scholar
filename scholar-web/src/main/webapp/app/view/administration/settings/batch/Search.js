@@ -20,6 +20,10 @@ Ext.define('scholar.view.administration.settings.batch.Search', {
 	store : 'administration.settings.batch.SearchStore',
 	columnLines : true,
 	columns : [ {
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	},{
 		text : 'Batch Name',
 		width : 75,
 		flex:1,

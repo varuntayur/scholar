@@ -11,7 +11,11 @@ Ext.define('scholar.view.library.lookup.Detail', {
 	bodyPadding : 10,
 	autoScroll: true,
 	defaultType : 'textfield',
-	items : [ {
+	items : [  {
+		fieldLabel : 'Id',
+		name : 'id',
+		hidden: true
+	},{
 		name : 'isbn',
 		fieldLabel : 'ISBN'
 	}, {

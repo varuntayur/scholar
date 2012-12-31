@@ -81,6 +81,10 @@ Ext.define('scholar.view.staff.event.Event', {
 	store :'staff.event.EventStore',
 	columnLines : true,
 	columns : [ {
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	},{
 		text : 'Event Name',
 		flex : 1,
 		sortable : false,

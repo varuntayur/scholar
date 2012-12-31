@@ -20,7 +20,11 @@ Ext.define('scholar.view.staff.lookup.SubjectAllocation', {
 	} ],
 	store : 'staff.lookup.SubjectAllocationStore',
 	columnLines : true,
-	columns : [  {
+	columns : [   {
+		fieldLabel : 'Id',
+		name : 'id',
+		hidden: true
+	},{
 		text : 'Batch Name',
 		width : 75,
 		flex:1,

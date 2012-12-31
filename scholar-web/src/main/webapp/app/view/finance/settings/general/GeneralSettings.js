@@ -13,7 +13,11 @@ Ext.define('scholar.view.finance.settings.general.GeneralSettings', {
 		msgTarget : 'side'
 	},
     defaultType: 'textfield',
-	items: [
+	items: [ {
+		fieldLabel : 'Id',
+		name : 'id',
+		hidden: true
+	},
 	        {
 	    		xtype : 'datefield',
 	    		name:'finYearStartDate',

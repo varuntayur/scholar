@@ -1,6 +1,9 @@
 Ext.define('scholar.model.administration.settings.subject.SubjectSearch', {
 	extend : 'Ext.data.Model',
-	fields : [  {
+	fields : [{
+		name : 'id',
+		type : 'int'
+	},  {
 		name : 'subjectName',
 		type : 'string'
 	},

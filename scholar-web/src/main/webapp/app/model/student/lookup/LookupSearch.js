@@ -2,6 +2,9 @@ Ext.define('scholar.model.student.lookup.LookupSearch', {
 	extend: 'Ext.data.Model',
 	idProperty:'admissionId',
 	fields : [ {
+		name : 'id',
+		type : 'int'
+	}, {
 		name : 'admissionId',
 		type : 'int'
 	},{

@@ -11,7 +11,11 @@ Ext.define('scholar.view.staff.event.MemoDetail', {
 	bodyPadding : 10,
 	autoScroll: true,
 	defaultType : 'textfield',
-	items : [ {
+	items : [  {
+		fieldLabel : 'Id',
+		name : 'id',
+		hidden: true
+	},{
 				name: 'memoName',
 				fieldLabel:'Memo Title'
 			},

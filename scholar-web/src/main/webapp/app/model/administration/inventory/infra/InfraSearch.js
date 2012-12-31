@@ -1,6 +1,9 @@
 Ext.define('scholar.model.administration.inventory.infra.InfraSearch', {
 	extend: 'Ext.data.Model',		
-	fields : [ {
+	fields : [{
+		name : 'id',
+		type : 'int'
+	}, {
 		name : 'itemId',
 		type : 'string'
 	}, {

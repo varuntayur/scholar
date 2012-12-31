@@ -9,6 +9,10 @@ Ext.define('scholar.view.administration.settings.subject.Detail', {
 	border : false,
 	bodyPadding : 10,
 	items : [ {
+		fieldLabel : 'Id',
+		name : 'id',
+		hidden: true
+	}, {
 		xtype : 'textfield',
 		fieldLabel : 'Subject Name',
 		name:'subjectName'

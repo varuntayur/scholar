@@ -19,7 +19,11 @@ Ext.define('scholar.view.administration.user.roles.Role', {
 	} ],
 	store : 'administration.user.roles.SearchStore',
 	columnLines : true,
-	columns : [ {
+	columns : [{
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	}, {
 		text : 'Role Name',
 		width : 175,
 		flex :1,

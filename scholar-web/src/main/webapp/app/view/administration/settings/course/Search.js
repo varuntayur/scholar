@@ -20,6 +20,10 @@ Ext.define('scholar.view.administration.settings.course.Search', {
 	store : 'administration.settings.course.SearchStore',
 	columnLines : true,
 	columns : [ {
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	},{
 		text : 'Course Id',
 		sortable : false,
 		flex:1,

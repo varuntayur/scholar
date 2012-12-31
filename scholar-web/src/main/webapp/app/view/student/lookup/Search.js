@@ -25,7 +25,11 @@ Ext.define('scholar.view.student.lookup.Search', {
         displayInfo: true
     }  ],
 	columnLines : true,
-	columns : [ {
+	columns : [{
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	}, {
 		text : 'Admission Number',		
 		sortable : false,
 		dataIndex : 'admissionNumber'

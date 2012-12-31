@@ -7,7 +7,11 @@ Ext.define('scholar.view.administration.settings.batch.Detail', {
 	bodyPadding : 10,
 	autoScroll: true,	
 	frame : true,	
-	items : [
+	items : [ {
+		fieldLabel : 'Id',
+		name : 'id',
+		hidden: true
+	},
 	         {
 	        	 xtype:'fieldset',
 	        		border : false,
@@ -15,7 +19,11 @@ Ext.define('scholar.view.administration.settings.batch.Detail', {
 	        		autoScroll: true,	
 	        		frame : true,	
 	        	 title:'Batch Information',
-	        	 items:[{
+	        	 items:[ {
+	        			fieldLabel : 'Id',
+	        			name : 'id',
+	        			hidden: true
+	        		},{
 						fieldLabel : 'Batch Name',
 						name : 'batchName'
 					}, 

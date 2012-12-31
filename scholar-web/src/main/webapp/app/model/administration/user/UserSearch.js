@@ -1,6 +1,9 @@
 Ext.define('scholar.model.administration.user.UserSearch', {
 	extend : 'Ext.data.Model',
 	fields : [  {
+		name : 'id',
+		type : 'int'
+	},{
 		name : 'userName',
 		type : 'string'
 	}, {

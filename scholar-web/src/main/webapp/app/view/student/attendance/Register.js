@@ -160,6 +160,10 @@ Ext.define('scholar.view.student.attendance.Register',{
 //		}),
 		columnLines : true,
 		columns : [ {
+			text : 'Id',
+			dataIndex : 'id',
+			hidden: true
+		},{
 			text : 'Name',
 		width : 75,
 		sortable : true,

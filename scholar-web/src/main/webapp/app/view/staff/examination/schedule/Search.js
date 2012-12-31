@@ -19,7 +19,11 @@ Ext.define('scholar.view.staff.examination.schedule.Search', {
 	} ],
 	store : 'staff.examination.schedule.SearchStore',
 	columnLines : true,
-	columns : [ {
+	columns : [{
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	}, {
 		text : 'Course Name',
 		sortable : false,
 		dataIndex : 'courseName'

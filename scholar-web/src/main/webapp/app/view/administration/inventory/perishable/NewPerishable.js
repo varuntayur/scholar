@@ -13,7 +13,11 @@ Ext.define('scholar.view.administration.inventory.perishable.NewPerishable', {
 		labelWidth : 90
 	},
 	defaultType : 'textfield',
-	items : [
+	items : [ {
+		fieldLabel : 'Id',
+		name : 'id',
+		hidden: true
+	},
 	{ 
 		xtype:'combo',
 		fieldLabel : 'Course Name',

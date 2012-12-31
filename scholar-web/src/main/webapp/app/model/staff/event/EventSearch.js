@@ -1,6 +1,9 @@
 Ext.define('scholar.model.staff.event.EventSearch', {
 	extend: 'Ext.data.Model',
 	fields : [ {
+		name : 'id',
+		type : 'int'
+	}, {
 		name : 'eventName',
 		type : 'string'
 	}, {

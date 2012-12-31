@@ -1,6 +1,9 @@
 Ext.define('scholar.model.administration.settings.batch.BatchSearch', {
 	extend : 'Ext.data.Model',
 	fields : [ {
+		name : 'id',
+		type : 'int'
+	},{
 		name : 'batchName',
 		type : 'string'
 	}, {

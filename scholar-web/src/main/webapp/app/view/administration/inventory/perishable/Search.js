@@ -37,6 +37,10 @@ Ext.define('scholar.view.administration.inventory.perishable.Search', {
 	} ],
 	store : new Ext.data.ArrayStore({
 		fields : [ {
+			text : 'Id',
+			dataIndex : 'id',
+			hidden: true
+		}, {
 			name : 'itemId',
 			type : 'string'
 		}, {

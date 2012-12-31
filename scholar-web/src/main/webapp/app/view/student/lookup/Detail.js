@@ -16,6 +16,10 @@ Ext.define('scholar.view.student.lookup.Detail', {
 	},
 	defaultType : 'textfield',
 	items : [ {
+		fieldLabel : 'Id',
+		name : 'id',
+		hidden: true
+	}, {
 		fieldLabel : 'Admission Number',
 		name : 'admissionNumber'
 	}, {

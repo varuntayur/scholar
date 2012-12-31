@@ -7,7 +7,11 @@ Ext.define('scholar.view.administration.settings.course.Detail', {
 	bodyPadding : 10,
 	autoScroll: true,
 	defaultType : 'textfield',
-	items : [ {
+	items : [  {
+		fieldLabel : 'Id',
+		name : 'id',
+		hidden: true
+	},{
 		fieldLabel : 'Course Id',
 		name : 'id',
 		hidden: true

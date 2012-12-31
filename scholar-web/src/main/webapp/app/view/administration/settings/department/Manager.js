@@ -22,6 +22,10 @@ Ext.define('scholar.view.administration.settings.department.Manager', {
 	store : 'administration.settings.department.SearchStore',
 	columnLines : true,
 	columns : [  {
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	},{
 		text : 'Department Name',
 		width : 75,
 		flex:1,

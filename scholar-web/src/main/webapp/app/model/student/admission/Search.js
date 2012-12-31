@@ -1,7 +1,10 @@
 Ext.define('scholar.model.student.admission.Search', {
 	extend: 'Ext.data.Model',
 	idProperty:'admissionId',
-    fields : [ 
+    fields : [ {
+		name : 'id',
+		type : 'int'
+	}, 
                {
 		name : 'admissionId',
 		type : 'int'

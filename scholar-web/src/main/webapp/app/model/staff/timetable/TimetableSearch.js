@@ -1,6 +1,9 @@
 Ext.define('scholar.model.staff.timetable.TimetableSearch', {
 	extend: 'Ext.data.Model',
-	fields : [
+	fields : [ {
+		name : 'id',
+		type : 'int'
+	},
 			    {
 					name : 'dayTime',
 					type : 'string'

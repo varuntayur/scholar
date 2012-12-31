@@ -6,7 +6,11 @@ Ext.define('scholar.view.staff.lookup.Search', {
 	dockedItems : [ {
 		xtype : 'toolbar',
 		dock : 'top',
-		items : [
+		items : [{
+			text : 'Id',
+			dataIndex : 'id',
+			hidden: true
+		},
 		         {
 			       	 xtype : 'button',
 			    	 iconCls:'x-icon-new',

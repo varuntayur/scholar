@@ -13,7 +13,11 @@ Ext.define('scholar.view.administration.user.roles.Detail', {
 		labelWidth : 90
 	},
 	defaultType : 'textfield',
-	items : [
+	items : [ {
+		fieldLabel : 'Id',
+		name : 'id',
+		hidden: true
+	},
 	         {
 	        	 fieldLabel : 'Role Name',
 	        	 name : 'roleName'

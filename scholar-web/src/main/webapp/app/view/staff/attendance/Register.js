@@ -97,6 +97,10 @@ Ext.define('scholar.view.staff.attendance.Register', {
     store : 'staff.attendance.SearchStore',
 	columnLines : true,
 	columns : [ {
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	},{
 		text : 'Name',
 		width : 75,
 		sortable : true,

@@ -41,7 +41,7 @@ Ext.define('scholar.store.student.admission.Search', {
 //	autoLoad : true
 	proxy: {
 		type: 'rest',
-		url: 'http://localhost:8080/scholar-rest/rest/vehicle',
+		url: 'http://localhost:8080/scholar-rest/rest/studentAdmission',
 		reader: {
 			type: 'json',
 			root: 'data',

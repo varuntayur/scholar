@@ -1,6 +1,9 @@
 Ext.define('scholar.model.staff.attendance.AttendanceSearch', {
 	extend: 'Ext.data.Model',
 	fields : [ {
+		name : 'id',
+		type : 'int'
+	}, {
 		name : 'employeeId',
 		type : 'string'
 	}, {

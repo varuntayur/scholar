@@ -11,7 +11,11 @@ Ext.define('scholar.view.staff.examination.schedule.Detail', {
 	bodyPadding : 10,
 	autoScroll: true,
 	defaultType : 'textfield',
-	items : [ { 
+	items : [ {
+		fieldLabel : 'Id',
+		name : 'id',
+		hidden: true
+	}, { 
 		xtype:'combo',
 		fieldLabel : 'Course Name',
 		store : 'administration.settings.course.Store',

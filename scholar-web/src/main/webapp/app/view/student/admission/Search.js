@@ -27,6 +27,10 @@ Ext.define('scholar.view.student.admission.Search', {
     } ],
 	columnLines : true,
 	columns : [ {
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	},{
 		text : 'Admission Number',
 		width : 125,
 		sortable : true,

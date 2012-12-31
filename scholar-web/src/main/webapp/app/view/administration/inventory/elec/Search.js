@@ -19,7 +19,11 @@ Ext.define('scholar.view.administration.inventory.elec.Search', {
 	} ],
 	store : 'administration.inventory.elec.SearchStore',
 	columnLines : true,
-	columns : [ {
+	columns : [  {
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	},{
 		text : 'Item ID',
 		sortable : false,
 		flex:1,

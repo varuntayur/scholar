@@ -5,6 +5,10 @@ Ext.define('scholar.view.library.lookup.Search', {
 	id:'librarySearch',
 	columnLines : true,
 	columns : [ {
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	},{
 		text : 'ISBN',
 		flex : 1,
 		sortable : false,

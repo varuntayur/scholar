@@ -80,7 +80,11 @@ Ext.define('scholar.view.staff.event.Memo', {
 	
 	store :'staff.event.MemoStore',
 	columnLines : true,
-	columns : [ {
+	columns : [{
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	}, {
 		text : 'Memo Name',
 		flex : 1,
 		sortable : false,

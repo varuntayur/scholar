@@ -1,6 +1,9 @@
 Ext.define('scholar.model.other.Model', {
 	extend: 'Ext.data.Model',
-    fields : [ {
+    fields : [  {
+		name : 'id',
+		type : 'int'
+	},{
 		name : 'admissionNumber',
 		type : 'string'
 	}, {

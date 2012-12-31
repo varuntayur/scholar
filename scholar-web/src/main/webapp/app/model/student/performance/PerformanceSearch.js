@@ -1,6 +1,9 @@
 Ext.define('scholar.model.student.performance.PerformanceSearch', {
 	extend: 'Ext.data.Model',
     fields : [ {
+		name : 'id',
+		type : 'int'
+	}, {
 		name : 'admissionNumber',
 		type : 'string'
 	}, {

@@ -48,7 +48,11 @@ Ext.define('scholar.view.finance.fees.Search', {
 	
 	store : 'finance.fees.SearchStore',
 	columnLines : true,
-	columns : [  {
+	columns : [ {
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	}, {
 		text : 'Admission Number',
 		width : 75,
 		flex:1,

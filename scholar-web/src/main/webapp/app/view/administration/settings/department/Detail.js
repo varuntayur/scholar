@@ -8,7 +8,11 @@ Ext.define('scholar.view.administration.settings.department.Detail', {
 	header : false,
 	border : false,
 	bodyPadding : 10,
-	items : [ {
+	items : [  {
+		fieldLabel : 'Id',
+		name : 'id',
+		hidden: true
+	},{
 		xtype : 'textfield',
 		fieldLabel : 'Department Name',
 		name:'departmentName'

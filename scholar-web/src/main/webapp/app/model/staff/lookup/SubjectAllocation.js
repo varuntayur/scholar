@@ -1,6 +1,9 @@
 Ext.define('scholar.model.staff.lookup.SubjectAllocation', {
 	extend: 'Ext.data.Model',
 	fields : [ {
+		name : 'id',
+		type : 'int'
+	}, {
 		name : 'batchName',
 		type : 'string'
 	}, {

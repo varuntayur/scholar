@@ -42,7 +42,11 @@ Ext.define('scholar.view.administration.inventory.infra.Search', {
 //				[ 'Benches', 'Scholar','1002'	,'9/1 12:00am' ] ]
 //	}),
 	columnLines : true,
-	columns : [ {
+	columns : [  {
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	},{
 		text : 'Item ID',
 		flex:1,
 		sortable : false,

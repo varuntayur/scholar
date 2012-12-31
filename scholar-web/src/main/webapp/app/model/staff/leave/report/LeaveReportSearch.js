@@ -1,6 +1,9 @@
 Ext.define('scholar.model.staff.leave.report.LeaveReportSearch', {
 	extend: 'Ext.data.Model',
-	fields : [ {
+	fields : [  {
+		name : 'id',
+		type : 'int'
+	},{
 		name : 'employeeId',
 		type : 'string'
 	}, {

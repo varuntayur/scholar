@@ -3,7 +3,11 @@ Ext.define('scholar.view.staff.leave.report.Search', {
 	alias: 'widget.leaveSearch',
 	store : 'staff.leave.report.SearchStore',
 	columnLines : true,
-	columns : [ {
+	columns : [{
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	}, {
 		text : 'Employee ID',
 		flex : 1,
 		sortable : false,

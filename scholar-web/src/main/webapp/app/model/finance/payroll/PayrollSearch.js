@@ -1,6 +1,9 @@
 Ext.define('scholar.model.finance.payroll.PayrollSearch', {
 	extend: 'Ext.data.Model',
-	fields : [  {
+	fields : [   {
+		name : 'id',
+		type : 'int'
+	},{
 		name : 'userName',
 		type : 'string'
 	},

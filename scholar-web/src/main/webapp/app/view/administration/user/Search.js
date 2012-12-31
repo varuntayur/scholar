@@ -77,7 +77,11 @@ Ext.define('scholar.view.administration.user.Search', {
 //			  ]
 //	}),
 	columnLines : true,
-	columns : [  {
+	columns : [ {
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	}, {
 		text : 'User Name',
 		width : 75,
 		sortable : true,

@@ -13,7 +13,11 @@ Ext.define('scholar.view.administration.inventory.elec.NewElectricInv', {
 		labelWidth : 90
 	},
 	defaultType : 'textfield',
-	items : [
+	items : [ {
+		fieldLabel : 'Id',
+		name : 'id',
+		hidden: true
+	},
 	         {
 	     		fieldLabel : 'Item ID',
 	     		name : 'itemId'

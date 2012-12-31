@@ -6,7 +6,11 @@ Ext.define('scholar.view.administration.user.roles.Permissions', {
 	title:'Permissions',
 	store : 'administration.user.roles.PermissionStore',
 	columnLines : true,
-	columns : [ {
+	columns : [{
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	}, {
 					text : 'Form Name',
 					width : 75,
 					dataIndex : 'roleName'

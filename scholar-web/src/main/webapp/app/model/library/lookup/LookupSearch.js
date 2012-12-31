@@ -1,6 +1,9 @@
 Ext.define('scholar.model.library.lookup.LookupSearch', {
 	extend: 'Ext.data.Model',
-	fields : [ {
+	fields : [  {
+		name : 'id',
+		type : 'int'
+	},{
 		name : 'isbn',
 		type : 'string'
 	}, {

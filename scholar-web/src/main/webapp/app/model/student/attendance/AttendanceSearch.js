@@ -2,6 +2,9 @@ Ext.define('scholar.model.student.attendance.AttendanceSearch', {
 	extend: 'Ext.data.Model',
 	idProperty:'attendanceId',
 	fields : [ {
+		name : 'id',
+		type : 'int'
+	}, {
 		name : 'attendanceId',
 		type : 'int'
 	},{

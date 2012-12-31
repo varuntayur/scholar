@@ -5,7 +5,11 @@ Ext.define('scholar.view.staff.timetable.Search', {
     stateful: true,
     collapsible: false,
     multiSelect: true,
-    columns: [
+    columns: [{
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	},
 		{
 		    text     : 'Day/Time',
 		    flex     : 1,

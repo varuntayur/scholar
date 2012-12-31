@@ -1,6 +1,9 @@
 Ext.define('scholar.model.administration.user.roles.RolesSearch', {
 	extend : 'Ext.data.Model',
-	fields : [ {
+	fields : [{
+		name : 'id',
+		type : 'int'
+	}, {
 		name : 'roleName',
 		type : 'string'
 	},{

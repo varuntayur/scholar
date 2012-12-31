@@ -1,6 +1,9 @@
 Ext.define('scholar.model.finance.fees.FeeSearch', {
 	extend: 'Ext.data.Model',
-	fields : [  {
+	fields : [{
+		name : 'id',
+		type : 'int'
+	},  {
 		name : 'admissionNumber',
 		type : 'string'
 	}, {

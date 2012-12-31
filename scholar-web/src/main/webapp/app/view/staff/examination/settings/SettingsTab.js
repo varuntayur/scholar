@@ -8,7 +8,11 @@ Ext.define('scholar.view.staff.examination.settings.SettingsTab', {
 		labelAlign : 'left',
 		msgTarget : 'side'
 	},
-	items : [{
+	items : [ {
+		fieldLabel : 'Id',
+		name : 'id',
+		hidden: true
+	},{
         xtype:'fieldset',
         columnWidth: 0.5,
         title: 'Grading Pattern',

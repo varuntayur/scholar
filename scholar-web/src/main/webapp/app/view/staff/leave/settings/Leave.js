@@ -4,7 +4,11 @@ Ext.define('scholar.view.staff.leave.settings.Leave', {
 	title:'Leave Settings',
 	store : 'staff.leave.settings.Store',
 	columnLines : true,
-	columns : [ {
+	columns : [{
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	}, {
 		text : 'Role Name',
 		width : 75,
 		sortable : true,

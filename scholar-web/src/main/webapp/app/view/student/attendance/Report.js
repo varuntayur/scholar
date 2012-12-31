@@ -168,7 +168,11 @@ Ext.define('scholar.view.student.attendance.Report', {
 	},
 	store : 'student.attendance.SearchStore',
 	columnLines : true,
-	columns : [ {
+	columns : [{
+		text : 'Id',
+		dataIndex : 'id',
+		hidden: true
+	}, {
 		text : 'Name',
 		width : 75,
 		sortable : true,
