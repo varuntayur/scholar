@@ -1,4 +1,4 @@
-package com.varun.scholar.rest;
+package com.varun.scholar.rest.administration.settings;
 
 import javax.inject.Inject;
 import javax.inject.Named;

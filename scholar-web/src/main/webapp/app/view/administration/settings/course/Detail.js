@@ -8,6 +8,10 @@ Ext.define('scholar.view.administration.settings.course.Detail', {
 	autoScroll: true,
 	defaultType : 'textfield',
 	items : [ {
+		fieldLabel : 'Course Id',
+		name : 'id',
+		hidden: true
+	}, {
 		fieldLabel : 'Course Code',
 		name : 'courseCode'
 	}, {

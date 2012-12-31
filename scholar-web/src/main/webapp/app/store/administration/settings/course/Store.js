@@ -1,10 +1,18 @@
 Ext.define('scholar.store.administration.settings.course.Store', {
 	extend : 'Ext.data.Store',
 	model : 'scholar.model.administration.settings.course.Combo',
-	data : [ [ "AL", "Standard 1" ], [ "AL", "Standard 2" ],
-			[ "AL", "Standard 3" ], [ "AL", "Standard 4" ],
-			[ "AL", "Standard 5" ], [ "AL", "Standard 6" ],
-			[ "AL", "Standard 7" ], [ "AL", "Standard 8" ],
-			[ "AL", "Standard 9" ], [ "AL", "Standard 10" ] ],
-	autoLoad : true
+	autoLoad : true,
+	proxy: {
+		type: 'rest',
+		url: 'http://localhost:8080/scholar-rest/rest/course',
+		reader: {
+			type: 'json',
+			root: 'data',
+			totalProperty: 'total'
+		},
+		writer: {
+			type: 'json'
+		},
+		appendId: false
+	}
 });

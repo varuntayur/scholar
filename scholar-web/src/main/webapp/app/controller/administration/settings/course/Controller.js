@@ -20,11 +20,17 @@ Ext.define('scholar.controller.administration.settings.course.Controller', {
 	
 	deleteCourse: function()
 	{
-		
+		console.log(record);
+		var store = this.getAdministrationSettingsCourseSearchStore();
+		var selection = Ext.ComponentQuery.query('#courseSearch')[0].getView().getSelectionModel().getSelection()[0];
+        if (selection) {
+            store.remove(selection);
+        }
 	},
 	
 	addCourse: function()
 	{
+		var admForm = Ext.widget('courseDetail',{ store: this.getAdministrationSettingsCourseSearchStore() });
 		Ext.create('Ext.Window', {
 			xtype : 'window',
 			closable : true,
@@ -35,17 +41,13 @@ Ext.define('scholar.controller.administration.settings.course.Controller', {
 			autoRender: true,
 			closeAction : 'hide',
 			constrain : true,
-			items : [ {
-				xtype : 'courseDetail'
-			} ]
+			items : [ admForm ]
 		}).show();
 	},
 	
 	editCourseSettings: function(grid, record)
 	{
-		 console.log('Double clicked on ' + record.get('courseName'));
-         
-	        var admForm = Ext.widget('courseDetail');
+	        var admForm = Ext.widget('courseDetail',{ store: this.getAdministrationSettingsCourseSearchStore(), isEdit: true  });
 	        admForm.loadRecord(record);
 	        
 	        Ext.create('Ext.Window', {

@@ -30,7 +30,7 @@ Ext.define('scholar.view.administration.settings.general.Manager', {
 		        fieldLabel: 'id',
 		        name: 'id',
 		        allowBlank: true,
-		        visible: false
+		        hidden: true
 		        
 	        },
 	        {
