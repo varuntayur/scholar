@@ -16,14 +16,15 @@ Ext.define('scholar.view.administration.settings.course.Search', {
 			text : 'Delete',
 			action:'delete',
 		} ]
-	} ],
+	}, {
+        xtype: 'pagingtoolbar',
+        store: 'administration.settings.course.SearchStore',   // same store GridPanel is using
+        dock: 'bottom',
+        displayInfo: true
+    } ],
 	store : 'administration.settings.course.SearchStore',
 	columnLines : true,
 	columns : [ {
-		text : 'Id',
-		dataIndex : 'id',
-		hidden: true
-	},{
 		text : 'Course Id',
 		sortable : false,
 		flex:1,

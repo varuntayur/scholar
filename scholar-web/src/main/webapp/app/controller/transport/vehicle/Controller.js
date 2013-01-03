@@ -20,7 +20,6 @@ Ext.define('scholar.controller.transport.vehicle.Controller', {
 	},
 	
 	loadVehicle: function(){
-		console.log('show called');
 		this.getTransportVehicleSearchStore().loadPage(1);
 	},
 

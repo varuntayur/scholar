@@ -1,5 +1,6 @@
 Ext.define('scholar.model.administration.settings.course.CourseSearch', {
 	extend : 'Ext.data.Model',
+	idProperty: 'id',
 	fields : [ {
 		name : 'id',
 		type : 'int'
