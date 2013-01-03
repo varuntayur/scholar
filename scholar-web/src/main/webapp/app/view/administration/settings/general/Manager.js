@@ -16,7 +16,6 @@ Ext.define('scholar.view.administration.settings.general.Manager', {
 	store: null,
 	initComponent: function() {
 	        var me = this;
-	        console.log('administration.settings.general.Manager store init');
 	        var theStore = Ext.create('scholar.store.administration.settings.general.Store');
 	        Ext.apply(me, {
 	            store: theStore
@@ -109,7 +108,6 @@ Ext.define('scholar.view.administration.settings.general.Manager', {
 	    						store.load({
 	    						    scope   : this,
 	    						    callback: function(records, operation, success) {
-	    						        console.log(records);
 	    						        form.loadRecord(records[0]);
 	    						    }
 	    						});

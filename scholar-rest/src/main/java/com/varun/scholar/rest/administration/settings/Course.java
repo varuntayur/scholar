@@ -23,7 +23,7 @@ public class Course {
 	}
 
 	@GET
-	@Path("/institutionDetails")
+	@Path("/course")
 	@Produces({ "application/json" })
 	public String getVehicle(@QueryParam("_dc") long dc,
 			@QueryParam("page") int page, @QueryParam("start") int start,

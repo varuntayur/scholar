@@ -6,7 +6,8 @@ Ext.define('scholar.controller.administration.settings.course.Controller', {
 		
 		this.control({
 			'#settingsCourseSearch' : {
-				itemdblclick: this.editCourseSettings
+				itemdblclick: this.editCourseSettings,
+				render:this.loadCourses
 			},
 			
 			'courseSearch button[action=add]' : {
@@ -16,6 +17,11 @@ Ext.define('scholar.controller.administration.settings.course.Controller', {
             	click: this.deleteCourse
             }
 		});
+	},
+	
+	loadCourses: function()
+	{
+		this.getAdministrationSettingsCourseSearchStoreStore().loadPage(1);
 	},
 	
 	deleteCourse: function()
@@ -30,7 +36,7 @@ Ext.define('scholar.controller.administration.settings.course.Controller', {
 	
 	addCourse: function()
 	{
-		var admForm = Ext.widget('courseDetail',{ store: this.getAdministrationSettingsCourseSearchStore() });
+		var admForm = Ext.widget('courseDetail',{ store: this.getAdministrationSettingsCourseSearchStoreStore() });
 		Ext.create('Ext.Window', {
 			xtype : 'window',
 			closable : true,
@@ -47,7 +53,7 @@ Ext.define('scholar.controller.administration.settings.course.Controller', {
 	
 	editCourseSettings: function(grid, record)
 	{
-	        var admForm = Ext.widget('courseDetail',{ store: this.getAdministrationSettingsCourseSearchStore(), isEdit: true  });
+	        var admForm = Ext.widget('courseDetail',{ store: this.getAdministrationSettingsCourseSearchStoreStore(), isEdit: true  });
 	        admForm.loadRecord(record);
 	        
 	        Ext.create('Ext.Window', {

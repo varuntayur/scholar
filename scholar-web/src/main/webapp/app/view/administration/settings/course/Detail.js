@@ -7,11 +7,17 @@ Ext.define('scholar.view.administration.settings.course.Detail', {
 	bodyPadding : 10,
 	autoScroll: true,
 	defaultType : 'textfield',
+	constructor : function() {
+		return this.callParent();
+	},
+	constructor : function(config) {
+		if (config) {
+			this.store = config.store;
+			this.isEdit = (typeof config.isEdit === "undefined") ? false: true;
+		}
+		this.callParent();
+	},
 	items : [  {
-		fieldLabel : 'Id',
-		name : 'id',
-		hidden: true
-	},{
 		fieldLabel : 'Course Id',
 		name : 'id',
 		hidden: true
@@ -37,10 +43,34 @@ Ext.define('scholar.view.administration.settings.course.Detail', {
 				{
 					text : 'Save',
 					handler : function() {
-						if (this.up('form').getForm().isValid()) {
+						var form = this.up('form').getForm();
+						if (form.isValid()) {
+							
+							var store = this.ownerCt.ownerCt.store; 
+							
+							if(form.owner.isEdit)							
+							{
+								var formValues = form.getValues();
+								var routeId = formValues['id'];		
+								
+								var rec = store.findRecord('id',routeId);
+								rec.set({
+										  'courseCode' : formValues['courseCode'],
+										  'courseName': formValues['courseName'],										 
+										  'lastUpdatedDate':formValues['lastUpdatedDate']
+								});
+								
+								store.commitChanges();
+							}
+							else
+							{
+								var rec = new store.model(form.getValues());
+								store.add(rec);
+							}
 							this.up('window').hide();
 							Ext.MessageBox.alert('Success!',
 									'Your request has been saved.');
+							store.load();
 						}
 					}
 				} ]

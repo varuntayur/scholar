@@ -24,6 +24,7 @@
       <class>com.varun.scholar.business.data.entities.Vehicle</class>
       <class>com.varun.scholar.business.data.entities.Route</class>
        <class>com.varun.scholar.business.data.entities.InstitutionDetails</class>
+       <class>com.varun.scholar.business.data.entities.CourseSearch</class>
       
       <properties>
          <!-- Properties for Hibernate -->
