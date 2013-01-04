@@ -1,4 +1,4 @@
-package com.varun.scholar.shared.interfaces.adminstration.settings.institution;
+package com.varun.scholar.shared.interfaces.adminstration.settings;
 
 import javax.ejb.Local;
 

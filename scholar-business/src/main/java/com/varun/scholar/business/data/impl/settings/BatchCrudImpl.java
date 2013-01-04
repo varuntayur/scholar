@@ -1,4 +1,4 @@
-package com.varun.scholar.business.data.impl;
+package com.varun.scholar.business.data.impl.settings;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -9,12 +9,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
-import com.varun.scholar.business.data.entities.Route;
+import com.varun.scholar.business.data.entities.settings.BatchSearch;
 import com.varun.scholar.shared.interfaces.CrudOperations;
-import com.varun.scholar.shared.interfaces.transport.RouteCrud;
+import com.varun.scholar.shared.interfaces.adminstration.settings.BatchCrud;
 
 @Stateless
-public class RouteCrudImpl implements RouteCrud {
+public class BatchCrudImpl implements BatchCrud {
 
 	@Inject
 	private Logger log;
@@ -25,19 +25,19 @@ public class RouteCrudImpl implements RouteCrud {
 	private Gson gson = new Gson();
 
 	public String find(Long id) {
-		return gson.toJson(em.find(Route.class, id));
+		return gson.toJson(em.find(BatchSearch.class, id));
 	}
 
 	@Override
 	public String createOrUpdate(String vehicleJson) {
-		em.merge(gson.fromJson(vehicleJson, Route.class));
+		em.merge(gson.fromJson(vehicleJson, BatchSearch.class));
 		return findAll(1, 1, CrudOperations.NUM_RECS);
 	}
 
 	@Override
 	public String remove(String vehicleJson) {
-		Route fromJson = gson.fromJson(vehicleJson, Route.class);
-		Route find = em.find(Route.class, fromJson.getId());
+		BatchSearch fromJson = gson.fromJson(vehicleJson, BatchSearch.class);
+		BatchSearch find = em.find(BatchSearch.class, fromJson.getId());
 		em.remove(find);
 		em.flush();
 		return findAll(1, 1, CrudOperations.NUM_RECS);
@@ -46,13 +46,13 @@ public class RouteCrudImpl implements RouteCrud {
 	@Override
 	public String findAll(int page, int start, int limit) {
 
-		CriteriaQuery<Route> criteria = em.getCriteriaBuilder().createQuery(
-				Route.class);
+		CriteriaQuery<BatchSearch> criteria = em.getCriteriaBuilder()
+				.createQuery(BatchSearch.class);
 
-		criteria.select(criteria.from(Route.class));
+		criteria.select(criteria.from(BatchSearch.class));
 
-		List<Route> vehicles = em.createQuery(criteria).setMaxResults(limit)
-				.setFirstResult(start).getResultList();
+		List<BatchSearch> vehicles = em.createQuery(criteria)
+				.setMaxResults(limit).setFirstResult(start).getResultList();
 
 		int resultCount = em.createQuery(criteria).getResultList().size();
 		String total = "\"total\":" + resultCount;

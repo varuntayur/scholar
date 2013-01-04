@@ -1,4 +1,4 @@
-package com.varun.scholar.business.data.impl;
+package com.varun.scholar.business.data.impl.settings;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -9,9 +9,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
-import com.varun.scholar.business.data.entities.InstitutionDetails;
+import com.varun.scholar.business.data.entities.settings.InstitutionDetails;
 import com.varun.scholar.shared.interfaces.CrudOperations;
-import com.varun.scholar.shared.interfaces.adminstration.settings.institution.InstitutionDetailsCrud;
+import com.varun.scholar.shared.interfaces.adminstration.settings.InstitutionDetailsCrud;
 
 @Stateless
 public class InstitutionDetailsCrudImpl implements InstitutionDetailsCrud {

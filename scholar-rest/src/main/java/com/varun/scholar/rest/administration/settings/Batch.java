@@ -10,47 +10,47 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
-import com.varun.scholar.shared.interfaces.adminstration.settings.InstitutionDetailsCrud;
+import com.varun.scholar.shared.interfaces.adminstration.settings.BatchCrud;
 
 @Named
 @Path("/")
-public class InstitutionDetails {
+public class Batch {
 
 	@Inject
-	private InstitutionDetailsCrud institutionDetails;
+	private BatchCrud batch;
 
-	public InstitutionDetails() {
+	public Batch() {
 	}
 
 	@GET
-	@Path("/institutionDetails")
+	@Path("/batch")
 	@Produces({ "application/json" })
 	public String getVehicle(@QueryParam("_dc") long dc,
 			@QueryParam("page") int page, @QueryParam("start") int start,
 			@QueryParam("limit") int limit) {
 
-		return institutionDetails.findAll(page, start, limit);
+		return batch.findAll(page, start, limit);
 	}
 
 	@POST
-	@Path("/institutionDetails")
+	@Path("/batch")
 	@Produces({ "application/json" })
 	public String postVehicle(String vehicleJson) {
-		return institutionDetails.createOrUpdate(vehicleJson);
+		return batch.createOrUpdate(vehicleJson);
 	}
 
 	@DELETE
-	@Path("/institutionDetails")
+	@Path("/batch")
 	@Produces({ "application/json" })
 	public String deleteVehicle(String vehicleJson) {
-		return institutionDetails.remove(vehicleJson);
+		return batch.remove(vehicleJson);
 	}
 
 	@PUT
-	@Path("/institutionDetails")
+	@Path("/batch")
 	@Produces({ "application/json" })
 	public String putVehicle(String vehicleJson) {
-		return institutionDetails.createOrUpdate(vehicleJson);
+		return batch.createOrUpdate(vehicleJson);
 	}
 
 }

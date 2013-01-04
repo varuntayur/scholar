@@ -21,10 +21,7 @@
          can find it in the source at src/main/webapp/WEB-INF/hibernate4-quickstart-ds.xml -->
       <jta-data-source>java:jboss/datasources/Hibernate4QuickstartDS</jta-data-source>
       
-      <class>com.varun.scholar.business.data.entities.Vehicle</class>
-      <class>com.varun.scholar.business.data.entities.Route</class>
-       <class>com.varun.scholar.business.data.entities.InstitutionDetails</class>
-       <class>com.varun.scholar.business.data.entities.CourseSearch</class>
+     
       
       <properties>
          <!-- Properties for Hibernate -->

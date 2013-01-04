@@ -1,4 +1,4 @@
-package com.varun.scholar.rest;
+package com.varun.scholar.rest.administration.settings;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -10,49 +10,47 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
-import com.varun.scholar.shared.interfaces.transport.VehicleCrud;
+import com.varun.scholar.shared.interfaces.adminstration.settings.NationalityCrud;
 
 @Named
 @Path("/")
-public class Vehicle {
+public class Nationality {
 
 	@Inject
-	private VehicleCrud vehicleService;
+	private NationalityCrud nationality;
 
-	public Vehicle() {
+	public Nationality() {
 	}
 
 	@GET
-	@Path("/vehicle")
+	@Path("/nationality")
 	@Produces({ "application/json" })
 	public String getVehicle(@QueryParam("_dc") long dc,
 			@QueryParam("page") int page, @QueryParam("start") int start,
 			@QueryParam("limit") int limit) {
 
-		return vehicleService.findAll(page, start, limit);
+		return nationality.findAll(page, start, limit);
 	}
 
 	@POST
-	@Path("/vehicle")
+	@Path("/nationality")
 	@Produces({ "application/json" })
-	public String postVehicle(String vehicleJson) {		
-		return vehicleService.createOrUpdate(vehicleJson);
+	public String postVehicle(String vehicleJson) {
+		return nationality.createOrUpdate(vehicleJson);
 	}
 
 	@DELETE
-	@Path("/vehicle")
+	@Path("/nationality")
 	@Produces({ "application/json" })
 	public String deleteVehicle(String vehicleJson) {
-		System.out.println(vehicleJson);
-		return vehicleService.remove(vehicleJson);
+		return nationality.remove(vehicleJson);
 	}
 
 	@PUT
-	@Path("/vehicle")
+	@Path("/nationality")
 	@Produces({ "application/json" })
 	public String putVehicle(String vehicleJson) {
-		System.out.println(vehicleJson);
-		return vehicleService.createOrUpdate(vehicleJson);
+		return nationality.createOrUpdate(vehicleJson);
 	}
 
 }

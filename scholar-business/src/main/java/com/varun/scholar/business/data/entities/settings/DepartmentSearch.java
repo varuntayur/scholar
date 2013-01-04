@@ -1,4 +1,4 @@
-package com.varun.scholar.business.data.entities1;
+package com.varun.scholar.business.data.entities.settings;
 
 import java.util.Date;
 

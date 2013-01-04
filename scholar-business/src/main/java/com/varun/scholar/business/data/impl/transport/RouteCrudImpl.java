@@ -1,4 +1,4 @@
-package com.varun.scholar.business.data.impl;
+package com.varun.scholar.business.data.impl.transport;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -9,12 +9,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
-import com.varun.scholar.business.data.entities.Vehicle;
+import com.varun.scholar.business.data.entities.transport.Route;
 import com.varun.scholar.shared.interfaces.CrudOperations;
-import com.varun.scholar.shared.interfaces.transport.VehicleCrud;
+import com.varun.scholar.shared.interfaces.transport.RouteCrud;
 
 @Stateless
-public class VehicleCrudImpl implements VehicleCrud {
+public class RouteCrudImpl implements RouteCrud {
 
 	@Inject
 	private Logger log;
@@ -25,19 +25,19 @@ public class VehicleCrudImpl implements VehicleCrud {
 	private Gson gson = new Gson();
 
 	public String find(Long id) {
-		return gson.toJson(em.find(Vehicle.class, id));
+		return gson.toJson(em.find(Route.class, id));
 	}
 
 	@Override
 	public String createOrUpdate(String vehicleJson) {
-		em.merge(gson.fromJson(vehicleJson, Vehicle.class));
+		em.merge(gson.fromJson(vehicleJson, Route.class));
 		return findAll(1, 1, CrudOperations.NUM_RECS);
 	}
 
 	@Override
 	public String remove(String vehicleJson) {
-		Vehicle fromJson = gson.fromJson(vehicleJson, Vehicle.class);
-		Vehicle find = em.find(Vehicle.class, fromJson.getId());
+		Route fromJson = gson.fromJson(vehicleJson, Route.class);
+		Route find = em.find(Route.class, fromJson.getId());
 		em.remove(find);
 		em.flush();
 		return findAll(1, 1, CrudOperations.NUM_RECS);
@@ -46,12 +46,12 @@ public class VehicleCrudImpl implements VehicleCrud {
 	@Override
 	public String findAll(int page, int start, int limit) {
 
-		CriteriaQuery<Vehicle> criteria = em.getCriteriaBuilder().createQuery(
-				Vehicle.class);
+		CriteriaQuery<Route> criteria = em.getCriteriaBuilder().createQuery(
+				Route.class);
 
-		criteria.select(criteria.from(Vehicle.class));
+		criteria.select(criteria.from(Route.class));
 
-		List<Vehicle> vehicles = em.createQuery(criteria).setMaxResults(limit)
+		List<Route> vehicles = em.createQuery(criteria).setMaxResults(limit)
 				.setFirstResult(start).getResultList();
 
 		int resultCount = em.createQuery(criteria).getResultList().size();
