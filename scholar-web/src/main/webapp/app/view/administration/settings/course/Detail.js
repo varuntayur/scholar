@@ -27,11 +27,7 @@ Ext.define('scholar.view.administration.settings.course.Detail', {
 	}, {
 		fieldLabel : 'Course Name',
 		name : 'courseName'
-	}, {
-		xtype : 'datefield',
-		fieldLabel : 'Last Updated',
-		name : 'lastChange'
-	} ],
+	}],
 	buttons : [
 				{
 					text : 'Cancel',
@@ -56,8 +52,7 @@ Ext.define('scholar.view.administration.settings.course.Detail', {
 								var rec = store.findRecord('id',routeId);
 								rec.set({
 										  'courseCode' : formValues['courseCode'],
-										  'courseName': formValues['courseName'],										 
-										  'lastUpdatedDate':formValues['lastUpdatedDate']
+										  'courseName': formValues['courseName']										 
 								});
 								
 								store.commitChanges();

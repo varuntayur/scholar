@@ -1,7 +1,7 @@
 Ext.define('scholar.view.administration.settings.batch.Search', {
 	extend : 'Ext.ux.LiveSearchGridPanel',
 	alias: 'widget.batchSearch',
-	id: 'settingsBatchSearch',
+	id: 'batchSearch',
 	dockedItems : [ {
 		xtype : 'toolbar',
 		dock : 'top',
@@ -16,7 +16,12 @@ Ext.define('scholar.view.administration.settings.batch.Search', {
 			text : 'Delete',
 			action:'delete',
 		} ]
-	} ],
+	}, {
+        xtype: 'pagingtoolbar',
+        store: 'administration.settings.batch.SearchStore',   // same store GridPanel is using
+        dock: 'bottom',
+        displayInfo: true
+    }  ],
 	store : 'administration.settings.batch.SearchStore',
 	columnLines : true,
 	columns : [ {

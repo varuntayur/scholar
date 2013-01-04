@@ -7,6 +7,16 @@ Ext.define('scholar.view.administration.settings.batch.Detail', {
 	bodyPadding : 10,
 	autoScroll: true,	
 	frame : true,	
+	constructor : function() {
+		return this.callParent();
+	},
+	constructor : function(config) {
+		if (config) {
+			this.store = config.store;
+			this.isEdit = (typeof config.isEdit === "undefined") ? false: true;
+		}
+		this.callParent();
+	},
 	items : [ {
 		fieldLabel : 'Id',
 		name : 'id',
@@ -48,11 +58,6 @@ Ext.define('scholar.view.administration.settings.batch.Detail', {
 						fieldLabel : 'End Date',
 						name : 'endDate'
 					}
-//					, {
-//						xtype : 'datefield',
-//						fieldLabel : 'Last Updated',
-//						name : 'lastChange'
-//					}
 					]
 	         },
 	         {
@@ -70,44 +75,6 @@ Ext.define('scholar.view.administration.settings.batch.Detail', {
 	        		 	xtype:'subjectManager'
 	        	 }]
 	         }
-//	         {
-//	        	 xtype:'panel',
-//	        	 region:'center',
-//	        	 items:[{
-//							fieldLabel : 'Batch Name',
-//							name : 'batchName'
-//						}, 
-//						{
-//							xtype:'combo',
-//							fieldLabel : 'Course Name',
-//							store : 'administration.settings.course.Store',
-//							queryMode : 'local',
-//							displayField : 'courseName',
-//							valueField : 'abbr'
-//						},
-//						{
-//							fieldLabel : 'Section',
-//							name : 'section'
-//						}, {
-//							xtype : 'datefield',
-//							fieldLabel : 'Start Date',
-//							name : 'lastChange'
-//						}, {
-//							xtype : 'datefield',
-//							fieldLabel : 'End Date',
-//							name : 'lastChange'
-//						}, {
-//							xtype : 'datefield',
-//							fieldLabel : 'Last Updated',
-//							name : 'lastChange'
-//						}]
-//	         },
-//	         {
-//	        	 title: 'Subject Setting',	        	 
-//	        	 xtype:'subjectManager',
-//	        	 region:'south',
-//	        	 layout:'fit'
-//	         }	         
 	],
 	buttons : [
 				{
@@ -120,10 +87,33 @@ Ext.define('scholar.view.administration.settings.batch.Detail', {
 				{
 					text : 'Save',
 					handler : function() {
-						if (this.up('form').getForm().isValid()) {
+						var form = this.up('form').getForm();
+						if (form.isValid()) {
+							
+							var store = this.ownerCt.ownerCt.store; 
+							
+							if(form.owner.isEdit)							
+							{
+								var formValues = form.getValues();
+								var routeId = formValues['id'];		
+								
+								var rec = store.findRecord('id',routeId);
+								rec.set({
+										  'courseCode' : formValues['courseCode'],
+										  'courseName': formValues['courseName']										 
+								});
+								
+								store.commitChanges();
+							}
+							else
+							{
+								var rec = new store.model(form.getValues());
+								store.add(rec);
+							}
 							this.up('window').hide();
 							Ext.MessageBox.alert('Success!',
 									'Your request has been saved.');
+							store.load();
 						}
 					}
 				} ]

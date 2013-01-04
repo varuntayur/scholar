@@ -5,26 +5,38 @@ Ext.define('scholar.controller.administration.settings.batch.Controller', {
 		console.log('Initialized batch.Controller!');
 			
 		this.control({
-			'#settingsBatchSearch' : {
-				itemdblclick: this.editBatchSettings
+			'#batchSearch' : {
+				itemdblclick: this.editBatchSettings,
+				render:this.loadBatchSettings
 			},
 			
 			'batchSearch button[action=add]' : {
             	click: this.addBatch
             },
             'batchSearch button[action=delete]' : {
-            	click: this.addCourse
+            	click: this.deleteBatch
             }
 		});
 	},
 	
-	addCourse: function()
+	loadBatchSettings: function()
 	{
-		
+		this.getAdministrationSettingsBatchSearchStoreStore().loadPage(1);
+	},
+	
+	
+	deleteBatch: function()
+	{
+		var store = this.getAdministrationSettingsBloodgroupStoreStore();
+		var selection = Ext.ComponentQuery.query('#batchSearch')[0].getView().getSelectionModel().getSelection()[0];
+        if (selection) {
+            store.remove(selection);
+        }
 	},
 	
 	addBatch: function()
 	{
+		var admForm = Ext.widget('batchDetail',{ store: this.getAdministrationSettingsBatchSearchStoreStore() });
 		Ext.create('Ext.Window', {
 			xtype : 'window',
 			closable : true,
@@ -35,17 +47,14 @@ Ext.define('scholar.controller.administration.settings.batch.Controller', {
 			autoRender: true,
 			closeAction : 'hide',
 			constrain : true,
-			items : [ {
-				xtype : 'batchDetail'
-			} ]
+			items : [ admForm ]
 		}).show();
 	},
 	
 	editBatchSettings: function(grid, record)
 	{
-		 console.log('Double clicked on ' + record.get('batchName'));
          
-	        var admForm = Ext.widget('batchDetail');
+	        var admForm = Ext.widget('batchDetail',{ store: this.getAdministrationSettingsBatchSearchStoreStore(), isEdit: true  });
 	        admForm.loadRecord(record);
 	        
 	        Ext.create('Ext.Window', {

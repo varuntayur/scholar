@@ -4,6 +4,9 @@ Ext.define('scholar.view.administration.settings.Manager', {
 	             'scholar.view.administration.settings.batch.Manager',		
 	             'scholar.view.administration.settings.department.Manager',		
 	             'scholar.view.administration.settings.course.Manager',
+	             'scholar.view.administration.settings.nationality.Manager',
+	             'scholar.view.administration.settings.bloodgroup.Manager',
+	             'scholar.view.administration.settings.category.Manager',
 	             'scholar.view.administration.settings.general.Manager'
 	           ],
 	alias : 'widget.settingsManager',
@@ -31,6 +34,18 @@ Ext.define('scholar.view.administration.settings.Manager', {
 			 {
 					xtype:'batchManager',
 					iconCls: 'x-icon-batch',
+			 },
+			 {
+					xtype:'nationalityManager',
+//					iconCls: 'x-icon-batch',
+			 },
+			 {
+					xtype:'bloodgroupManager',
+//					iconCls: 'x-icon-batch',
+			 },
+			 {
+					xtype:'categoryManager',
+//					iconCls: 'x-icon-batch',
 			 }
 //			{
 //				title : 'Reports',

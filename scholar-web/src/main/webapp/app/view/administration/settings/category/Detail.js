@@ -1,6 +1,6 @@
-Ext.define('scholar.view.administration.settings.subject.Detail', {
+Ext.define('scholar.view.administration.settings.category.Detail', {
 	extend : 'Ext.form.Panel',
-	alias : 'widget.subjectDetail',
+	alias : 'widget.categoryDetail',
 	fieldDefaults : {
 		labelAlign : 'left',
 		msgTarget : 'side'
@@ -14,40 +14,8 @@ Ext.define('scholar.view.administration.settings.subject.Detail', {
 		hidden: true
 	}, {
 		xtype : 'textfield',
-		fieldLabel : 'Subject Name',
-		name:'subjectName'
-	}, {
-		xtype : 'textfield',
-		fieldLabel : 'Subject Code',
-		afterLabelTextTpl : false,
-		name:'subjectCode'
-	},
-	Ext.create('Ext.form.ComboBox', {
-		fieldLabel : 'Examination Required',
-		store : Ext.create('Ext.data.Store', {
-			fields : [ 'abbr', 'name' ],
-			data : [ {
-				"abbr" : "AL",
-				"name" : "Yes"
-			}, {
-				"abbr" : "AL",
-				"name" : "No"
-			} ]
-		}),
-		name:'examinationRequired',
-		queryMode : 'local',
-		displayField : 'name',
-		valueField : 'abbr'
-	}),
-	{
-		xtype : 'datefield',
-		fieldLabel : 'Start Date',
-		name:'startDate'
-	},
-	{
-		xtype : 'datefield',
-		fieldLabel : 'End Date',
-		name:'endDate'
+		fieldLabel : 'Category',
+		name:'category'
 	}],
 
 	buttons : [
@@ -73,11 +41,7 @@ Ext.define('scholar.view.administration.settings.subject.Detail', {
 							
 							var rec = store.findRecord('id',recId);
 							rec.set({
-									  'subjectName' : formValues['subjectName'],
-							'subjectCode' : formValues['subjectCode'],
-									  'examinationRequired' : formValues['examinationRequired'],
-							'startDate' : formValues['startDate'],
-							'endDate' : formValues['endDate']
+									  'category' : formValues['category'],
 							});
 							
 							store.commitChanges();

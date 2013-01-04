@@ -1,11 +1,11 @@
-Ext.define('scholar.view.administration.settings.department.Manager', {
+Ext.define('scholar.view.administration.settings.nationality.Manager', {
 	extend : 'Ext.form.Panel',
 	requires : [ 
-			'scholar.view.administration.settings.department.Detail',
-			'scholar.view.administration.settings.department.Search'
+			'scholar.view.administration.settings.nationality.Detail',
+			'scholar.view.administration.settings.nationality.Search'
 			],
-	alias: 'widget.departmentManager',
-	title:'Department',			
+	alias: 'widget.nationalityManager',
+	title:'Nationality',			
 	frame : true,
 	bodyPadding : 5,
 	fieldDefaults : {
@@ -20,9 +20,9 @@ Ext.define('scholar.view.administration.settings.department.Manager', {
         split: true
     },
 	items : [{
-				xtype : 'departmentSearch',
+				xtype : 'nationalitySearch',
 				region:'center'			
 
 			}
-			],
+			]
 });

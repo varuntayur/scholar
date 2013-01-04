@@ -1,11 +1,11 @@
-Ext.define('scholar.store.administration.settings.department.SearchStore', {
+Ext.define('scholar.store.administration.settings.nationality.SearchStore', {
 	extend : 'Ext.data.Store',
-	model : 'scholar.model.administration.settings.department.DepartmentSearch',	
+	model : 'scholar.model.administration.settings.nationality.Search',
 	autoLoad : true,
 	autoSync: true,
 	proxy: {
 		type: 'rest',
-		url: 'http://localhost:8080/scholar-rest/rest/department',
+		url: 'http://localhost:8080/scholar-rest/rest/nationality',
 		reader: {
 			type: 'json',
 			root: 'data',

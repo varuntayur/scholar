@@ -4,26 +4,37 @@ Ext.define('scholar.controller.administration.settings.department.Controller', {
 	init : function() {
 		console.log('Initialized settings.department.Controller!');
 		this.control({
-			'#settingsDepartmentSearch' : {
-				itemdblclick: this.editDepartmentSettings
+			'#departmentSearch' : {
+				itemdblclick: this.editDepartmentSettings,
+				render:this.loadDepartmentSettings
 			},
 			
-			'departmentManager button[action=addDepartment]' : {
+			'departmentSearch button[action=addDepartment]' : {
             	click: this.addDepartment
             },
-            'departmentManager button[action=deleteDepartment]' : {
+            'departmentSearch button[action=deleteDepartment]' : {
             	click: this.deleteDepartment
             }
 		});
 	},
 	
+	loadDepartmentSettings: function()
+	{
+		this.getAdministrationSettingsDepartmentSearchStoreStore().loadPage(1);
+	},
+	
 	deleteDepartment: function()
 	{
-		
+		var store = this.getAdministrationSettingsDepartmentSearchStoreStore();
+		var selection = Ext.ComponentQuery.query('#departmentSearch')[0].getView().getSelectionModel().getSelection()[0];
+        if (selection) {
+            store.remove(selection);
+        }
 	},
 	
 	addDepartment: function()
 	{
+		var admForm = Ext.widget('departmentDetail',{ store: this.getAdministrationSettingsDepartmentSearchStoreStore() });
 		Ext.create('Ext.Window', {
 			xtype : 'window',
 			closable : true,
@@ -34,17 +45,13 @@ Ext.define('scholar.controller.administration.settings.department.Controller', {
 			autoRender: true,
 			closeAction : 'hide',
 			constrain : true,
-			items : [ {
-				xtype : 'departmentDetail'
-			} ]
+			items : [admForm]
 		}).show();
 	},
 	
 	editDepartmentSettings: function(grid, record)
 	{
-		 console.log('Double clicked on ' + record.get('departmentName'));
-         
-	        var admForm = Ext.widget('departmentDetail');
+		  var admForm = Ext.widget('departmentDetail',{ store: this.getAdministrationSettingsDepartmentSearchStoreStore(), isEdit: true  });    
 	        admForm.loadRecord(record);
 	        
 	        Ext.create('Ext.Window', {
