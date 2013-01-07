@@ -10,47 +10,47 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
-import com.varun.scholar.shared.interfaces.adminstration.settings.BatchCrud;
+import com.varun.scholar.shared.interfaces.adminstration.settings.SubjectCrud;
 
 @Named
 @Path("/")
 public class Subject {
 
 	@Inject
-	private BatchCrud batch;
+	private SubjectCrud subject;
 
 	public Subject() {
 	}
 
 	@GET
-	@Path("/batch")
+	@Path("/subject")
 	@Produces({ "application/json" })
 	public String getVehicle(@QueryParam("_dc") long dc,
 			@QueryParam("page") int page, @QueryParam("start") int start,
 			@QueryParam("limit") int limit) {
 
-		return batch.findAll(page, start, limit);
+		return subject.findAll(page, start, limit);
 	}
 
 	@POST
-	@Path("/batch")
+	@Path("/subject")
 	@Produces({ "application/json" })
 	public String postVehicle(String vehicleJson) {
-		return batch.createOrUpdate(vehicleJson);
+		return subject.createOrUpdate(vehicleJson);
 	}
 
 	@DELETE
-	@Path("/batch")
+	@Path("/subject")
 	@Produces({ "application/json" })
 	public String deleteVehicle(String vehicleJson) {
-		return batch.remove(vehicleJson);
+		return subject.remove(vehicleJson);
 	}
 
 	@PUT
-	@Path("/batch")
+	@Path("/subject")
 	@Produces({ "application/json" })
 	public String putVehicle(String vehicleJson) {
-		return batch.createOrUpdate(vehicleJson);
+		return subject.createOrUpdate(vehicleJson);
 	}
 
 }

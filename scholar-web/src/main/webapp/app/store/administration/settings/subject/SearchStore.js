@@ -21,6 +21,5 @@ Ext.define('scholar.store.administration.settings.subject.SearchStore', {
 			type: 'json'
 		},
 		appendId: false
-	},
-	pageSize: 1
+	}
 });
