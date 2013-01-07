@@ -1,4 +1,4 @@
-package com.varun.scholar.business.data.entities1;
+package com.varun.scholar.business.data.entities.settings;
 
 import java.util.Date;
 
@@ -7,6 +7,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.varun.scholar.business.data.entities.AbstractEntity;
+
 
 @Entity
 public class SubjectSearch extends AbstractEntity {

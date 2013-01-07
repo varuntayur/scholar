@@ -10,6 +10,7 @@ import com.varun.scholar.shared.interfaces.adminstration.settings.CourseCrud;
 import com.varun.scholar.shared.interfaces.adminstration.settings.DepartmentCrud;
 import com.varun.scholar.shared.interfaces.adminstration.settings.InstitutionDetailsCrud;
 import com.varun.scholar.shared.interfaces.adminstration.settings.NationalityCrud;
+import com.varun.scholar.shared.interfaces.adminstration.settings.SubjectCrud;
 import com.varun.scholar.shared.interfaces.transport.RouteCrud;
 import com.varun.scholar.shared.interfaces.transport.VehicleCrud;
 
@@ -50,6 +51,10 @@ public class Imports {
 	@Produces
 	@EJB(lookup = "java:global/scholar-business/BatchCrudImpl!com.varun.scholar.shared.interfaces.adminstration.settings.BatchCrud")
 	private BatchCrud batchCrud;
+
+	@Produces
+	@EJB(lookup = "java:global/scholar-business/SubjectCrudImpl!com.varun.scholar.shared.interfaces.adminstration.settings.SubjectCrud")
+	private SubjectCrud subjectCrud;
 
 	private Imports() {
 	}

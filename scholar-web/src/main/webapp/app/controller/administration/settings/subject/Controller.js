@@ -24,6 +24,7 @@ Ext.define('scholar.controller.administration.settings.subject.Controller', {
 	
 	addSubject: function()
 	{
+		var admForm = Ext.widget('subjectDetail',{ store: this.getAdministrationSettingsSubjectSearchStoreStore() });
 		Ext.create('Ext.Window', {
 			xtype : 'window',
 			closable : true,
@@ -34,17 +35,14 @@ Ext.define('scholar.controller.administration.settings.subject.Controller', {
 			autoRender: true,
 			closeAction : 'hide',
 			constrain : true,
-			items : [ {
-				xtype : 'subjectDetail'
-			} ]
+			items : [ admForm ]
 		}).show();
 	},
 	
 	editSubjectSettings: function(grid, record)
 	{
-		 console.log('Double clicked on ' + record.get('subjectName'));
          
-	        var admForm = Ext.widget('subjectDetail');
+		  var admForm = Ext.widget('subjectDetail',{ store: this.getAdministrationSettingsSubjectSearchStoreStore(), isEdit: true  });
 	        admForm.loadRecord(record);
 	        
 	        Ext.create('Ext.Window', {

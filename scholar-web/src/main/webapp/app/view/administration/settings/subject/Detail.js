@@ -8,6 +8,16 @@ Ext.define('scholar.view.administration.settings.subject.Detail', {
 	header : false,
 	border : false,
 	bodyPadding : 10,
+	constructor : function() {
+		return this.callParent();
+	},
+	constructor : function(config) {
+		if (config) {
+			this.store = config.store;
+			this.isEdit = (typeof config.isEdit === "undefined") ? false: true;
+		}
+		this.callParent();
+	},
 	items : [ {
 		fieldLabel : 'Id',
 		name : 'id',
@@ -66,7 +76,7 @@ Ext.define('scholar.view.administration.settings.subject.Detail', {
 						
 						var store = this.ownerCt.ownerCt.store; 
 						
-						if(form.owner.isEdit)							
+						if(form.isEdit)							
 						{
 							var formValues = form.getValues();
 							var recId = formValues['id'];		
