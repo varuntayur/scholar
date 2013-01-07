@@ -1,7 +1,7 @@
 Ext.define('scholar.view.administration.settings.course.Search', {
 	extend : 'Ext.ux.LiveSearchGridPanel',
 	alias: 'widget.courseSearch',
-	id:'settingsCourseSearch',
+	id:'courseSearch',
 	dockedItems : [ {
 		xtype : 'toolbar',
 		dock : 'top',

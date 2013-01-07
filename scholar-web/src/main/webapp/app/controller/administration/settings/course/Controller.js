@@ -5,7 +5,7 @@ Ext.define('scholar.controller.administration.settings.course.Controller', {
 		console.log('Initialized course.Controller!');
 		
 		this.control({
-			'#settingsCourseSearch' : {
+			'#courseSearch' : {
 				itemdblclick: this.editCourseSettings,
 				render:this.loadCourses
 			},
@@ -26,8 +26,7 @@ Ext.define('scholar.controller.administration.settings.course.Controller', {
 	
 	deleteCourse: function()
 	{
-		console.log(record);
-		var store = this.getAdministrationSettingsCourseSearchStore();
+		var store = this.getAdministrationSettingsCourseSearchStoreStore();
 		var selection = Ext.ComponentQuery.query('#courseSearch')[0].getView().getSelectionModel().getSelection()[0];
         if (selection) {
             store.remove(selection);

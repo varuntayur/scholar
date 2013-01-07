@@ -18,6 +18,16 @@ Ext.define('scholar.view.administration.settings.subject.Manager', {
 			action:'delete',
 		} ]
 	} ],
+	constructor : function() {
+		return this.callParent();
+	},
+	constructor : function(config) {
+		if (config) {
+			this.store = config.store;
+			this.isEdit = (typeof config.isEdit === "undefined") ? false: true;
+		}
+		this.callParent();
+	},
 	store : 'administration.settings.subject.SearchStore',
 	columnLines : true,
 	columns : [  {
