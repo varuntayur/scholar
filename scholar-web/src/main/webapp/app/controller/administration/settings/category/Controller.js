@@ -31,6 +31,7 @@ Ext.define('scholar.controller.administration.settings.category.Controller', {
         if (selection) {
             store.remove(selection);
         }
+        store.loadPage(1);
 	},
 	
 	addBloodgroup: function()
@@ -50,7 +51,7 @@ Ext.define('scholar.controller.administration.settings.category.Controller', {
 		}).show();
 	},
 	
-	editBloodgroupSettings: function(grid, record)
+	editCategorySettings: function(grid, record)
 	{
 	        var admForm = Ext.widget('categoryDetail',{ store: this.getAdministrationSettingsCategoryStoreStore(), isEdit: true  });
 	        admForm.loadRecord(record);

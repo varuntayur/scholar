@@ -6,7 +6,7 @@ Ext.define('scholar.view.administration.settings.nationality.Manager', {
 			],
 	alias: 'widget.nationalityManager',
 	title:'Nationality',			
-	frame : true,
+	frame : false,
 	bodyPadding : 5,
 	fieldDefaults : {
 		labelAlign : 'left',

@@ -31,6 +31,7 @@ Ext.define('scholar.controller.administration.settings.bloodgroup.Controller', {
         if (selection) {
             store.remove(selection);
         }
+        store.loadPage(1);
 	},
 	
 	addBloodgroup: function()

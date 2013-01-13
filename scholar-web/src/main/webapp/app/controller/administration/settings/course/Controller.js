@@ -31,6 +31,7 @@ Ext.define('scholar.controller.administration.settings.course.Controller', {
         if (selection) {
             store.remove(selection);
         }
+        store.loadPage(1);
 	},
 	
 	addCourse: function()

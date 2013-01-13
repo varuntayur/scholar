@@ -1,7 +1,7 @@
 Ext.define('scholar.view.administration.settings.bloodgroup.Search', {
 	extend : 'Ext.ux.LiveSearchGridPanel',
 	alias: 'widget.bloodgroupSearch',
-	frame : true,
+	frame : false,
 	id:'bloodgroupSearch',
 	dockedItems : [ {
 		xtype : 'toolbar',
@@ -17,7 +17,12 @@ Ext.define('scholar.view.administration.settings.bloodgroup.Search', {
 			text : 'Delete',
 			action:'delete',
 		} ]
-	} ],
+	}, {
+        xtype: 'pagingtoolbar',
+        store: 'administration.settings.bloodgroup.Store',   // same store GridPanel is using
+        dock: 'bottom',
+        displayInfo: true
+    }   ],
 	store : 'administration.settings.bloodgroup.Store',
 	columnLines : true,
 	columns : [  {

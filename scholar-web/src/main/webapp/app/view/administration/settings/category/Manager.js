@@ -6,7 +6,7 @@ Ext.define('scholar.view.administration.settings.category.Manager', {
 			],
 	alias: 'widget.categoryManager',
 	title:'Category',			
-	frame : true,
+	frame : false,
 	bodyPadding : 5,
 	fieldDefaults : {
 		labelAlign : 'left',

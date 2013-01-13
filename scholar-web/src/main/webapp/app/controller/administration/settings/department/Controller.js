@@ -30,6 +30,7 @@ Ext.define('scholar.controller.administration.settings.department.Controller', {
         if (selection) {
             store.remove(selection);
         }
+        store.loadPage(1);
 	},
 	
 	addDepartment: function()

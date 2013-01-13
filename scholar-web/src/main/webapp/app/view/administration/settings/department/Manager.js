@@ -6,7 +6,7 @@ Ext.define('scholar.view.administration.settings.department.Manager', {
 			],
 	alias: 'widget.departmentManager',
 	title:'Department',			
-	frame : true,
+	frame : false,
 	bodyPadding : 5,
 	fieldDefaults : {
 		labelAlign : 'left',

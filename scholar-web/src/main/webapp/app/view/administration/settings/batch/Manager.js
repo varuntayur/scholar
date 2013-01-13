@@ -6,7 +6,7 @@ Ext.define('scholar.view.administration.settings.batch.Manager', {
 			],
 	alias: 'widget.batchManager',
 	title:'Batch',			
-	frame : true,
+	frame : false,
 	bodyPadding : 5,
 	fieldDefaults : {
 		labelAlign : 'left',

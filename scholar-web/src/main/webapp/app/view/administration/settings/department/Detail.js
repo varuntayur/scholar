@@ -21,13 +21,13 @@ Ext.define('scholar.view.administration.settings.department.Detail', {
 	items : [  {
 		fieldLabel : 'Id',
 		name : 'id',
+		xtype : 'textfield',
 		hidden: true
 	},{
 		xtype : 'textfield',
 		fieldLabel : 'Department Name',
 		name:'departmentName'
 	}],
-
 	buttons : [
 			{
 				text : 'Cancel',

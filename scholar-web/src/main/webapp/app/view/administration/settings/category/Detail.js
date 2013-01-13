@@ -9,13 +9,14 @@ Ext.define('scholar.view.administration.settings.category.Detail', {
 	border : false,
 	bodyPadding : 10,
 	items : [ {
+		xtype : 'textfield',
 		fieldLabel : 'Id',
 		name : 'id',
 		hidden: true
 	}, {
 		xtype : 'textfield',
 		fieldLabel : 'Category',
-		name:'category'
+		name:'categoryName'
 	}],
 
 	buttons : [
@@ -41,7 +42,7 @@ Ext.define('scholar.view.administration.settings.category.Detail', {
 							
 							var rec = store.findRecord('id',recId);
 							rec.set({
-									  'category' : formValues['category'],
+									  'categoryName' : formValues['categoryName'],
 							});
 							
 							store.commitChanges();

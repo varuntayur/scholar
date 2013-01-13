@@ -32,6 +32,7 @@ Ext.define('scholar.controller.administration.settings.batch.Controller', {
         if (selection) {
             store.remove(selection);
         }
+        store.loadPage(1);
 	},
 	
 	addBatch: function()

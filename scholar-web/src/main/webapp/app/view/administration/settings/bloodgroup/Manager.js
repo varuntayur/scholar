@@ -6,7 +6,7 @@ Ext.define('scholar.view.administration.settings.bloodgroup.Manager', {
 			],
 	alias: 'widget.bloodgroupManager',
 	title:'BloodGroup',			
-	frame : true,
+	frame : false,
 	bodyPadding : 5,
 	fieldDefaults : {
 		labelAlign : 'left',

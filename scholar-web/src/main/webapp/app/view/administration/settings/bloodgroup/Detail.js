@@ -9,6 +9,7 @@ Ext.define('scholar.view.administration.settings.bloodgroup.Detail', {
 	border : false,
 	bodyPadding : 10,
 	items : [ {
+		xtype : 'textfield',
 		fieldLabel : 'Id',
 		name : 'id',
 		hidden: true

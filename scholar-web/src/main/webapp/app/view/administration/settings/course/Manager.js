@@ -5,7 +5,7 @@ Ext.define('scholar.view.administration.settings.course.Manager', {
 	 			],
 	alias : 'widget.courseManager',
 	title:'Course',
-	frame : true,
+	frame : false,
 	bodyPadding : 5,
 	layout: {
         type: 'border',

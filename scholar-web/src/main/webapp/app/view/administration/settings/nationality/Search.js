@@ -1,7 +1,7 @@
 Ext.define('scholar.view.administration.settings.nationality.Search', {
 	extend : 'Ext.ux.LiveSearchGridPanel',
 	alias: 'widget.nationalitySearch',
-	frame : true,
+	frame : false,
 	id:'nationalitySearch',
 	dockedItems : [ {
 		xtype : 'toolbar',
@@ -17,7 +17,12 @@ Ext.define('scholar.view.administration.settings.nationality.Search', {
 			text : 'Delete',
 			action:'delete',
 		} ]
-	} ],
+	}, {
+        xtype: 'pagingtoolbar',
+        store: 'administration.settings.nationality.SearchStore',   // same store GridPanel is using
+        dock: 'bottom',
+        displayInfo: true
+    }   ],
 	store : 'administration.settings.nationality.SearchStore',
 	columnLines : true,
 	columns : [  {

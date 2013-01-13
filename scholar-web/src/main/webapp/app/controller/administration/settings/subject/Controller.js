@@ -4,8 +4,9 @@ Ext.define('scholar.controller.administration.settings.subject.Controller', {
 	init : function() {
 		console.log('Initialized settings.subject.Controller!');
 		this.control({
-			'#settingsSubjectSearch' : {
-				itemdblclick: this.editSubjectSettings
+			'#subjectSearch' : {
+				itemdblclick: this.editSubjectSettings,
+				render:this.loadSubjectSettings
 			},
 			
 			'subjectManager button[action=add]' : {
@@ -17,9 +18,19 @@ Ext.define('scholar.controller.administration.settings.subject.Controller', {
 		});
 	},
 	
+	loadSubjectSettings : function()
+	{
+		this.getAdministrationSettingsSubjectSearchStoreStore().loadPage(1);
+	},
+	
 	deleteSubject: function()
 	{
-		
+		var store = this.getAdministrationSettingsSubjectSearchStoreStore();
+		var selection = Ext.ComponentQuery.query('#subjectSearch')[0].getView().getSelectionModel().getSelection()[0];
+        if (selection) {
+            store.remove(selection);
+        }
+       store.loadPage(1);
 	},
 	
 	addSubject: function()

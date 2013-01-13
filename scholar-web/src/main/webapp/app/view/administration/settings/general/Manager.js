@@ -3,7 +3,7 @@ Ext.define('scholar.view.administration.settings.general.Manager', {
 	alias : 'widget.generalSettingsManager',
 	title:'Institution',
 	id:'adminInstitutionDetails',
-	frame : true,
+	frame : false,
 	bodyPadding : 5,
 	layout: 'anchor',
     defaults: {

@@ -26,11 +26,12 @@ Ext.define('scholar.controller.administration.settings.nationality.Controller', 
 	
 	deleteNationality: function()
 	{
-		var store = this.getAdministrationSettingsNationalityStore();
+		var store = this.getAdministrationSettingsNationalitySearchStoreStore();
 		var selection = Ext.ComponentQuery.query('#nationalitySearch')[0].getView().getSelectionModel().getSelection()[0];
         if (selection) {
             store.remove(selection);
         }
+        store.loadPage(1);
 	},
 	
 	addNationality: function()

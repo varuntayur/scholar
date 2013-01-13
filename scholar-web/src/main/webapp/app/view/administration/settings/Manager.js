@@ -32,6 +32,10 @@ Ext.define('scholar.view.administration.settings.Manager', {
 				 iconCls: 'x-icon-admission',
 			 },
 			 {
+				 xtype:'subjectManager',
+				 iconCls: 'x-icon-subject',
+			 },
+			 {
 					xtype:'batchManager',
 					iconCls: 'x-icon-batch',
 			 },

@@ -19,6 +19,7 @@ Ext.define('scholar.view.administration.settings.subject.Detail', {
 		this.callParent();
 	},
 	items : [ {
+		xtype : 'textfield',
 		fieldLabel : 'Id',
 		name : 'id',
 		hidden: true
@@ -35,19 +36,19 @@ Ext.define('scholar.view.administration.settings.subject.Detail', {
 	Ext.create('Ext.form.ComboBox', {
 		fieldLabel : 'Examination Required',
 		store : Ext.create('Ext.data.Store', {
-			fields : [ 'abbr', 'name' ],
+			fields : [ 'required', 'name' ],
 			data : [ {
-				"abbr" : "AL",
-				"name" : "Yes"
+				'required' : true,
+				'name' : "Yes"
 			}, {
-				"abbr" : "AL",
-				"name" : "No"
+				'required' : false,
+				'name' : "No"
 			} ]
 		}),
 		name:'examinationRequired',
 		queryMode : 'local',
 		displayField : 'name',
-		valueField : 'abbr'
+		valueField : 'required'
 	}),
 	{
 		xtype : 'datefield',
@@ -76,7 +77,7 @@ Ext.define('scholar.view.administration.settings.subject.Detail', {
 						
 						var store = this.ownerCt.ownerCt.store; 
 						
-						if(form.isEdit)							
+						if(form.owner.isEdit)							
 						{
 							var formValues = form.getValues();
 							var recId = formValues['id'];		
@@ -84,10 +85,10 @@ Ext.define('scholar.view.administration.settings.subject.Detail', {
 							var rec = store.findRecord('id',recId);
 							rec.set({
 									  'subjectName' : formValues['subjectName'],
-							'subjectCode' : formValues['subjectCode'],
+									  'subjectCode' : formValues['subjectCode'],
 									  'examinationRequired' : formValues['examinationRequired'],
-							'startDate' : formValues['startDate'],
-							'endDate' : formValues['endDate']
+									  'startDate' : formValues['startDate'],
+									  'endDate' : formValues['endDate']
 							});
 							
 							store.commitChanges();
