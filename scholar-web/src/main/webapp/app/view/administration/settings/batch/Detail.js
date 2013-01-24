@@ -17,14 +17,10 @@ Ext.define('scholar.view.administration.settings.batch.Detail', {
 		}
 		this.callParent();
 	},
-	items : [ {
-		fieldLabel : 'Id',
-		name : 'id',
-		hidden: true
-	},
-	         {
+	items : [{
 	        	 xtype:'fieldset',
-	        		border : false,
+	        	 collapsible: true,
+	        		border : true,
 	        		bodyPadding : 10,
 	        		autoScroll: true,	
 	        		frame : true,	
@@ -32,9 +28,11 @@ Ext.define('scholar.view.administration.settings.batch.Detail', {
 	        	 items:[ {
 	        			fieldLabel : 'Id',
 	        			name : 'id',
+	        			xtype:'textfield',
 	        			hidden: true
 	        		},{
 						fieldLabel : 'Batch Name',
+						xtype:'textfield',
 						name : 'batchName'
 					}, 
 					{
@@ -48,6 +46,7 @@ Ext.define('scholar.view.administration.settings.batch.Detail', {
 					},
 					{
 						fieldLabel : 'Section',
+						xtype:'textfield',
 						name : 'section'
 					}, {
 						xtype : 'datefield',
@@ -57,13 +56,12 @@ Ext.define('scholar.view.administration.settings.batch.Detail', {
 						xtype : 'datefield',
 						fieldLabel : 'End Date',
 						name : 'endDate'
-					}
-					]
+					}]
 	         },
 	         {
 	        	 xtype:'fieldset',
 	        	 collapsible: true,
-        		border : false,
+        		border : true,
         		bodyPadding : 10,
         		autoScroll: true,	
         		frame : true,	
@@ -72,7 +70,7 @@ Ext.define('scholar.view.administration.settings.batch.Detail', {
 	        	 layout:'fit',
 	        	 items:[{
 	        		 	layout:'fit',	        		 	
-	        		 	xtype:'subjectManager'
+	        		 	xtype:'batchSubjectSearch'
 	        	 }]
 	         }
 	],
