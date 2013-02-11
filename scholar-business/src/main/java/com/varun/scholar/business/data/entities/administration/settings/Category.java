@@ -1,4 +1,4 @@
-package com.varun.scholar.business.data.entities.settings;
+package com.varun.scholar.business.data.entities.administration.settings;
 
 import java.util.Date;
 
@@ -9,8 +9,8 @@ import javax.persistence.TemporalType;
 import com.varun.scholar.business.data.entities.AbstractEntity;
 
 @Entity
-public class BloodGroup extends AbstractEntity {
+public class Category extends AbstractEntity {
 	@Temporal(TemporalType.DATE)
 	Date lastDate;
-	String bloodgroupName;
+	String categoryName;
 }

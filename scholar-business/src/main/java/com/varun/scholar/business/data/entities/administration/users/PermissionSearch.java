@@ -1,4 +1,4 @@
-package com.varun.scholar.business.data.entities.settings;
+package com.varun.scholar.business.data.entities.administration.users;
 
 import java.util.Date;
 
@@ -8,9 +8,13 @@ import javax.persistence.TemporalType;
 
 import com.varun.scholar.business.data.entities.AbstractEntity;
 
+
 @Entity
-public class Category extends AbstractEntity {
+public class PermissionSearch extends AbstractEntity {
+	String roleName;
+	boolean read;
+	boolean write;
+	boolean delete;
 	@Temporal(TemporalType.DATE)
-	Date lastDate;
-	String categoryName;
+	Date lastChange;
 }
