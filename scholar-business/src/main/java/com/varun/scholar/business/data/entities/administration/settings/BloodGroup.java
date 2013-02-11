@@ -1,4 +1,4 @@
-package com.varun.scholar.business.data.entities1;
+package com.varun.scholar.business.data.entities.administration.settings;
 
 import java.util.Date;
 
@@ -9,11 +9,8 @@ import javax.persistence.TemporalType;
 import com.varun.scholar.business.data.entities.AbstractEntity;
 
 @Entity
-public class PermissionSearch extends AbstractEntity {
-	String roleName;
-	boolean read;
-	boolean write;
-	boolean delete;
+public class BloodGroup extends AbstractEntity {
 	@Temporal(TemporalType.DATE)
-	Date lastChange;
+	Date lastDate;
+	String bloodgroupName;
 }

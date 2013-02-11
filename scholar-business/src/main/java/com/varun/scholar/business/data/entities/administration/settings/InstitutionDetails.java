@@ -1,4 +1,4 @@
-package com.varun.scholar.business.data.entities.settings;
+package com.varun.scholar.business.data.entities.administration.settings;
 
 import javax.persistence.Entity;
 
