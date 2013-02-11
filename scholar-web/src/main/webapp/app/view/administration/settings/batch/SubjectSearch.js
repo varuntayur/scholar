@@ -16,7 +16,7 @@ Ext.define('scholar.view.administration.settings.batch.SubjectSearch', {
 	                             var r = Ext.create('scholar.store.administration.settings.batch.SubjectStore', {	                                
 	                             });
 	                             this.ownerCt.ownerCt.store.insert(0, r);
-	                             //cellEditing.startEditByPosition({row: 0, column: 0});
+//	                             this.ownerCt.ownerCt.plugins[0].startEditByPosition({row: 0, column: 0});
 	                         }
 		}, {
 			xtype : 'button',
@@ -62,14 +62,7 @@ Ext.define('scholar.view.administration.settings.batch.SubjectSearch', {
 	                             lazyRender: true,
 	                             listClass: 'x-combo-list-small'
 	                         })
-	},
-	{
-		text : 'Subject Code',
-		width : 75,
-		flex:1,
-		sortable : true,
-		dataIndex : 'subjectCode'
-	},
+	},	
 	{
 		text : 'Examination Required',
 		width : 75,

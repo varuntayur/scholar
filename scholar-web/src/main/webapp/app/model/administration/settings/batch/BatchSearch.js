@@ -25,6 +25,9 @@ Ext.define('scholar.model.administration.settings.batch.BatchSearch', {
 		name : 'lastChange',
 		type : 'date',
 		dateFormat : 'n/j h:ia'
+	}, {
+		name : 'lstSubjects',
+		type : 'string'
 	} ]
 
 });
