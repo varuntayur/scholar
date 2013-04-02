@@ -12,10 +12,21 @@ Ext.define('scholar.view.administration.user.roles.Detail', {
 		width : 300,
 		labelWidth : 90
 	},
+	constructor : function() {
+		return this.callParent();
+	},
+	constructor : function(config) {
+		if (config) {
+			this.store = config.store;
+			this.isEdit = (typeof config.isEdit === "undefined") ? false: true;
+		}
+		this.callParent();
+	},
 	defaultType : 'textfield',
-	items : [ {
+	items : [  {
 		fieldLabel : 'Id',
 		name : 'id',
+		xtype:'textfield',
 		hidden: true
 	},
 	         {
@@ -24,7 +35,8 @@ Ext.define('scholar.view.administration.user.roles.Detail', {
 	         },
 	         {
 	        	 xtype:'permissionsGrid',
-	        	 layout:'fit'
+	        	 layout:'fit',
+	        	 id:'userRolesPermissions'
 	         }
 			 ],
 	buttons : [
@@ -38,10 +50,43 @@ Ext.define('scholar.view.administration.user.roles.Detail', {
 			{
 				text : 'Save',
 				handler : function() {
-					if (this.up('form').getForm().isValid()) {
+					var form = this.up('form').getForm();
+					if (form.isValid()) {
+						
+						var store = this.ownerCt.ownerCt.store; 
+						
+						if(form.owner.isEdit)							
+						{
+							var formValues = form.getValues();
+							var routeId = formValues['id'];		
+							
+							var rec = store.findRecord('id',routeId);
+							rec.set({
+									  'courseCode' : formValues['courseCode'],
+									  'courseName': formValues['courseName']										 
+							});
+							
+							store.commitChanges();
+						}
+						else
+						{
+							form.owner.items.get(2).getStore().data;
+							form.owner.items.get(2).getStore().data.getAt(0).data
+							
+							var permissionsData = Ext.getCmp('userRolesPermissions').getStore().data;
+							var lstPermissions = [];
+							
+							for(var i = 0; i< permissionsData.getCount(); i++)
+								lstPermissions.push(permissionsData.getAt(i).data);
+							
+							var rec = new store.model(form.getValues());
+							rec.data.lstPermissions = lstPermissions;
+							store.add(rec);
+						}
 						this.up('window').hide();
 						Ext.MessageBox.alert('Success!',
 								'Your request has been saved.');
+						store.load();
 					}
 				}
 			} ]

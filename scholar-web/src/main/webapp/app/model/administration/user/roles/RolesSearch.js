@@ -10,6 +10,10 @@ Ext.define('scholar.model.administration.user.roles.RolesSearch', {
 		name : 'lastChange',
 		type : 'date',
 		dateFormat : 'n/j h:ia'
+	},
+	{
+		name : 'lstPermissions',
+		type : 'string'
 	} ]
 
 });

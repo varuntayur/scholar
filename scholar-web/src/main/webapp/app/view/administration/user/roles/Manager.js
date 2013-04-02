@@ -13,7 +13,7 @@ Ext.define('scholar.view.administration.user.roles.Manager', {
     items: [
 		    {
 		        flex: 1,
-            	xtype:'roleGrid',
+            	xtype:'userRoles',
            		region:'center'
 		    }
 		   ]	

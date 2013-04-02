@@ -9,9 +9,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
-import com.varun.scholar.business.data.entities.settings.Category;
+import com.varun.scholar.business.data.entities.administration.settings.Category;
 import com.varun.scholar.shared.interfaces.CrudOperations;
-import com.varun.scholar.shared.interfaces.adminstration.settings.CategoryCrud;
+import com.varun.scholar.shared.interfaces.administration.settings.CategoryCrud;
 
 @Stateless
 public class CategoryCrudImpl implements CategoryCrud {

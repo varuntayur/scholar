@@ -9,9 +9,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
-import com.varun.scholar.business.data.entities.settings.Nationality;
+import com.varun.scholar.business.data.entities.administration.settings.Nationality;
 import com.varun.scholar.shared.interfaces.CrudOperations;
-import com.varun.scholar.shared.interfaces.adminstration.settings.NationalityCrud;
+import com.varun.scholar.shared.interfaces.administration.settings.NationalityCrud;
 
 @Stateless
 public class NationalityCrudImpl implements NationalityCrud {

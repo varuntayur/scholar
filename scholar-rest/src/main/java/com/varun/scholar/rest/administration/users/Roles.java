@@ -10,7 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
-import com.varun.scholar.shared.interfaces.adminstration.users.RolesCrud;
+import com.varun.scholar.shared.interfaces.administration.users.RolesCrud;
 
 @Named
 @Path("/")
@@ -23,7 +23,7 @@ public class Roles {
 	}
 
 	@GET
-	@Path("/roles")
+	@Path("/userRoles")
 	@Produces({ "application/json" })
 	public String getRoles(@QueryParam("_dc") long dc,
 			@QueryParam("page") int page, @QueryParam("start") int start,
@@ -33,24 +33,24 @@ public class Roles {
 	}
 
 	@POST
-	@Path("/roles")
+	@Path("/userRoles")
 	@Produces({ "application/json" })
-	public String postRoles(String vehicleJson) {
-		return roles.createOrUpdate(vehicleJson);
+	public String postRoles(String rolesJson) {
+		return roles.createOrUpdate(rolesJson);
 	}
 
 	@DELETE
-	@Path("/roles")
+	@Path("/userRoles")
 	@Produces({ "application/json" })
-	public String deleteRoles(String vehicleJson) {
-		return roles.remove(vehicleJson);
+	public String deleteRoles(String rolesJson) {
+		return roles.remove(rolesJson);
 	}
 
 	@PUT
-	@Path("/roles")
+	@Path("/userRoles")
 	@Produces({ "application/json" })
-	public String putRoles(String vehicleJson) {
-		return roles.createOrUpdate(vehicleJson);
+	public String putRoles(String rolesJson) {
+		return roles.createOrUpdate(rolesJson);
 	}
 
 }

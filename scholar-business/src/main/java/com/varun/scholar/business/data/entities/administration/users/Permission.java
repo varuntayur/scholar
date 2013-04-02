@@ -8,10 +8,9 @@ import javax.persistence.TemporalType;
 
 import com.varun.scholar.business.data.entities.AbstractEntity;
 
-
 @Entity
-public class PermissionSearch extends AbstractEntity {
-	String roleName;
+public class Permission extends AbstractEntity {
+	String formName;
 	boolean read;
 	boolean write;
 	boolean delete;

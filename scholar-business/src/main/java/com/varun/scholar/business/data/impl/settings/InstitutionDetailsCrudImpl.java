@@ -9,9 +9,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
-import com.varun.scholar.business.data.entities.settings.InstitutionDetails;
+import com.varun.scholar.business.data.entities.administration.settings.InstitutionDetails;
 import com.varun.scholar.shared.interfaces.CrudOperations;
-import com.varun.scholar.shared.interfaces.adminstration.settings.InstitutionDetailsCrud;
+import com.varun.scholar.shared.interfaces.administration.settings.InstitutionDetailsCrud;
 
 @Stateless
 public class InstitutionDetailsCrudImpl implements InstitutionDetailsCrud {

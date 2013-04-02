@@ -1,6 +1,6 @@
 Ext.define('scholar.view.administration.user.roles.Role', {
 	extend : 'Ext.ux.LiveSearchGridPanel',
-	alias: 'widget.roleGrid',
+	alias: 'widget.userRoles',
 	id:'userRoles',
 	dockedItems : [ {
 		xtype : 'toolbar',
@@ -16,7 +16,12 @@ Ext.define('scholar.view.administration.user.roles.Role', {
 			text : 'Delete',
 			action:'delete',
 		} ]
-	} ],
+	}, {
+        xtype: 'pagingtoolbar',
+        store: 'administration.user.roles.SearchStore',   // same store GridPanel is using
+        dock: 'bottom',
+        displayInfo: true
+    }  ],
 	store : 'administration.user.roles.SearchStore',
 	columnLines : true,
 	columns : [{

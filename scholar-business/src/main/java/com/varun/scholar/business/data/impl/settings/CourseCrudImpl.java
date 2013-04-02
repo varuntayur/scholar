@@ -9,9 +9,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
-import com.varun.scholar.business.data.entities.settings.CourseSearch;
+import com.varun.scholar.business.data.entities.administration.settings.CourseSearch;
 import com.varun.scholar.shared.interfaces.CrudOperations;
-import com.varun.scholar.shared.interfaces.adminstration.settings.CourseCrud;
+import com.varun.scholar.shared.interfaces.administration.settings.CourseCrud;
 
 @Stateless
 public class CourseCrudImpl implements CourseCrud {

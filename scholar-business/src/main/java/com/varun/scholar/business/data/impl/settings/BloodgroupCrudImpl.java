@@ -9,9 +9,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
-import com.varun.scholar.business.data.entities.settings.BloodGroup;
+import com.varun.scholar.business.data.entities.administration.settings.BloodGroup;
 import com.varun.scholar.shared.interfaces.CrudOperations;
-import com.varun.scholar.shared.interfaces.adminstration.settings.BloodgroupCrud;
+import com.varun.scholar.shared.interfaces.administration.settings.BloodgroupCrud;
 
 @Stateless
 public class BloodgroupCrudImpl implements BloodgroupCrud {

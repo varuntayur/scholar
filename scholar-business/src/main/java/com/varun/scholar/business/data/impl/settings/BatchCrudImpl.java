@@ -9,9 +9,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
-import com.varun.scholar.business.data.entities.settings.BatchSearch;
+import com.varun.scholar.business.data.entities.administration.settings.BatchSearch;
 import com.varun.scholar.shared.interfaces.CrudOperations;
-import com.varun.scholar.shared.interfaces.adminstration.settings.BatchCrud;
+import com.varun.scholar.shared.interfaces.administration.settings.BatchCrud;
 
 @Stateless
 public class BatchCrudImpl implements BatchCrud {
