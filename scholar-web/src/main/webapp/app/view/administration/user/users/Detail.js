@@ -1,4 +1,4 @@
-Ext.define('scholar.view.administration.user.Detail', {
+Ext.define('scholar.view.administration.user.users.Detail', {
 	extend : 'Ext.form.Panel',
 	alias : 'widget.userDetail',
 	title : 'User Details',

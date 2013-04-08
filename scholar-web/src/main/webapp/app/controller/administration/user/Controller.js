@@ -5,25 +5,36 @@ Ext.define('scholar.controller.administration.user.Controller', {
 		console.log('Initialized user.roles.Controller!');
 		this.control({
 			'#userSearch' : {
-				itemdblclick: this.editUser
+				itemdblclick: this.editUser,
+				render: this.loadUsers
 			},
 			
-			'#userSearch button[action=add]' : {
+			'userSearch button[action=add]' : {
             	click: this.addUser
             },
-            '#userSearch button[action=delete]' : {
+            'userSearch button[action=delete]' : {
             	click: this.deleteUser
             }      
 		});
 	},
 	
+	loadUsers: function(){
+		this.getAdministrationUserSearchStoreStore().loadPage(1);
+	},
+	
 	deleteUser: function()
 	{
-		
+		var store = this.getAdministrationUserSearchStoreStore();
+		var selection = Ext.ComponentQuery.query('#userSearch')[0].getView().getSelectionModel().getSelection()[0];
+        if (selection) {
+            store.remove(selection);
+        }
+        store.loadPage(1);
 	},
 	
 	addUser: function()
 	{
+		var admForm = Ext.widget('userDetail',{ store: this.getAdministrationUserSearchStoreStore() });
 		Ext.create('Ext.Window', {
 			xtype : 'window',
 			closable : true,
@@ -34,16 +45,12 @@ Ext.define('scholar.controller.administration.user.Controller', {
 			autoRender: true,
 			closeAction : 'hide',
 			constrain : true,
-			items : [ {
-				xtype : 'userDetail'
-			} ]
+			items : [ admForm ]
 		}).show();
 	},
 	
 	editUser: function(grid, record)
 	{
-		 console.log('Double clicked on ' + record.get('userName'));
-         
 	        var admForm = Ext.widget('userDetail');
 	        admForm.loadRecord(record);
 	        
@@ -62,7 +69,8 @@ Ext.define('scholar.controller.administration.user.Controller', {
 	},
 
 	views : [ 'administration.user.Manager',
-	          'administration.user.Detail' ],
+	          'administration.user.users.Detail',
+	          'administration.user.users.Search'],
 
 	stores : [ 'administration.user.SearchStore' ],
 	

@@ -1,16 +1,19 @@
 Ext.define('scholar.view.administration.user.roles.Permissions', {
 	extend : 'Ext.ux.LiveSearchGridPanel',
 	alias: 'widget.permissionsGrid',
+	id:'permissionsGrid',
 	requires:['Ext.ux.CheckColumn'],
-	id:'userPermissions',
 	title:'Permissions',
+	autoScroll:true,
 	store : 'administration.user.roles.PermissionStore',
 	columnLines : true,
+	height : 250,
+	width: 500,
 	columns : [{
-		text : 'Id',
-		dataIndex : 'id',
-		hidden: true
-	}, {
+					text : 'Id',
+					dataIndex : 'id',
+					hidden: true
+				}, {
 					text : 'Form Name',
 					width : 75,
 					dataIndex : 'roleName'

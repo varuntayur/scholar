@@ -1,17 +1,12 @@
 Ext.define('scholar.view.administration.user.roles.Detail', {
 	extend : 'Ext.form.Panel',
 	alias : 'widget.roleDetail',
-	fieldDefaults : {
-		labelAlign : 'left',
-		msgTarget : 'side'
-	},
+	title : 'Role details',
 	header : false,
 	border : false,
 	bodyPadding : 10,
-	defaults : {
-		width : 300,
-		labelWidth : 90
-	},
+	autoScroll: true,	
+	frame : true,	
 	constructor : function() {
 		return this.callParent();
 	},
@@ -22,25 +17,35 @@ Ext.define('scholar.view.administration.user.roles.Detail', {
 		}
 		this.callParent();
 	},
-	defaultType : 'textfield',
 	items : [  {
 		fieldLabel : 'Id',
 		name : 'id',
-		xtype:'textfield',
-		hidden: true
-	},
-	         {
-	        	 fieldLabel : 'Role Name',
-	        	 name : 'roleName'
-	         },
-	         {
-	        	 xtype:'permissionsGrid',
-	        	 layout:'fit',
-	        	 id:'userRolesPermissions'
-	         }
-			 ],
+		hidden: true,
+	 },
+     {
+    	 fieldLabel : 'Role Name',
+    	 name : 'roleName',
+    	 xtype:'textfield'
+     },
+     {
+    	xtype:'fieldset',
+    	collapsible: true,
+		border : true,
+		bodyPadding : 10,
+		autoScroll: true,	
+		frame : true,	
+    	 title:'Permissions',
+    	 width: 500,
+    	 layout:'fit',
+    	 items:[{
+    		 	layout:'fit',	        		 	
+    		 	xtype:'permissionsGrid',
+		 		id:'userRolesPermissions'
+    	 }]
+     }	         
+	 ],
 	buttons : [
-			{
+				{
 				text : 'Cancel',
 				handler : function() {
 					this.up('form').getForm().reset();
@@ -55,30 +60,29 @@ Ext.define('scholar.view.administration.user.roles.Detail', {
 						
 						var store = this.ownerCt.ownerCt.store; 
 						
+						var permissionsData = Ext.getCmp('userRolesPermissions').getStore().data;
+						var lstPermissions = [];
+						
+						for(var i = 0; i< permissionsData.getCount(); i++)
+							lstPermissions.push(permissionsData.getAt(i).data);
+						
 						if(form.owner.isEdit)							
 						{
 							var formValues = form.getValues();
 							var routeId = formValues['id'];		
 							
+							
 							var rec = store.findRecord('id',routeId);
 							rec.set({
-									  'courseCode' : formValues['courseCode'],
-									  'courseName': formValues['courseName']										 
+									  'roleName' : formValues['roleName'],
+									  'lstPermissions': permissionsData										 
 							});
 							
 							store.commitChanges();
 						}
 						else
-						{
-							form.owner.items.get(2).getStore().data;
-							form.owner.items.get(2).getStore().data.getAt(0).data
-							
-							var permissionsData = Ext.getCmp('userRolesPermissions').getStore().data;
-							var lstPermissions = [];
-							
-							for(var i = 0; i< permissionsData.getCount(); i++)
-								lstPermissions.push(permissionsData.getAt(i).data);
-							
+						{												
+													
 							var rec = new store.model(form.getValues());
 							rec.data.lstPermissions = lstPermissions;
 							store.add(rec);

@@ -332,7 +332,7 @@ Ext.define('scholar.view.MainMenu', {
 								layout: 'fit',
 								border : false,
 								items: { 
-									xtype : 'vehicleLookup' , 
+									xtype : 'vehicleLookup' 
 								},
 						  },
 						  {

@@ -16,7 +16,6 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import com.varun.scholar.business.data.entities.administration.settings.BatchSearch;
 import com.varun.scholar.business.data.entities.administration.users.RolesSearch;
 import com.varun.scholar.shared.interfaces.CrudOperations;
 import com.varun.scholar.shared.interfaces.administration.users.RolesCrud;
@@ -60,6 +59,21 @@ public class RolesCrudImpl implements RolesCrud {
 
 	@Override
 	public String remove(String rolesJson) {
+		gsonBuilder.registerTypeAdapter(RolesSearch.class,
+				new JsonDeserializer<RolesSearch>() {
+
+					@Override
+					public RolesSearch deserialize(JsonElement jsonEl,
+							Type arg1, JsonDeserializationContext arg2)
+							throws JsonParseException {
+
+						RolesSearch roles = new RolesSearch();
+
+						JsonObject jsonObj = jsonEl.getAsJsonObject();
+						roles.setRoleName(jsonObj.get("roleName").getAsString());
+						return roles;
+					}
+				});
 		RolesSearch fromJson = gson.fromJson(rolesJson, RolesSearch.class);
 		RolesSearch find = em.find(RolesSearch.class, fromJson.getId());
 		em.remove(find);

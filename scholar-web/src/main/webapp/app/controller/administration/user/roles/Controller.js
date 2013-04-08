@@ -4,15 +4,15 @@ Ext.define('scholar.controller.administration.user.roles.Controller', {
 	init : function() {
 		console.log('Initialized user.roles.Controller!');
 		this.control({
-			'#userRoles' : {
+			'#roleSearch' : {
 				itemdblclick: this.editRoles,
 				render:this.loadRoles
 			},
 			
-			'userRoles button[action=add]' : {
+			'roleSearch button[action=add]' : {
             	click: this.addRoles
             },
-            'userRoles button[action=delete]' : {
+            'roleSearch button[action=delete]' : {
             	click: this.deleteRoles
             }      
 		});
@@ -27,7 +27,7 @@ Ext.define('scholar.controller.administration.user.roles.Controller', {
 	deleteRoles: function()
 	{
 		var store = this.getAdministrationUserRolesSearchStoreStore();
-		var selection = Ext.ComponentQuery.query('#userRoles')[0].getView().getSelectionModel().getSelection()[0];
+		var selection = Ext.ComponentQuery.query('#roleSearch')[0].getView().getSelectionModel().getSelection()[0];
         if (selection) {
             store.remove(selection);
         }
@@ -54,8 +54,6 @@ Ext.define('scholar.controller.administration.user.roles.Controller', {
 	
 	editRoles: function(grid, record)
 	{
-		 console.log('Double clicked on ' + record.get('roleName'));
-         
 	        var admForm = Ext.widget('roleDetail',{ store: this.getAdministrationUserRolesSearchStoreStore() });
 	        admForm.loadRecord(record);
 	        
@@ -73,8 +71,8 @@ Ext.define('scholar.controller.administration.user.roles.Controller', {
 			}).show();
 	},
 
-	views : [ 'administration.user.roles.Manager',
-	          'administration.user.roles.Detail' ],
+	views : [ 'scholar.view.administration.user.roles.Permissions',
+	          'administration.user.roles.Detail','administration.user.roles.Search' ],
 
 	stores : [ 'administration.user.roles.SearchStore','administration.user.roles.PermissionStore' ],
 	

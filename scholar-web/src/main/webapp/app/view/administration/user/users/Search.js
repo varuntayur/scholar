@@ -1,4 +1,4 @@
-Ext.define('scholar.view.administration.user.Search', {
+Ext.define('scholar.view.administration.user.users.Search', {
 	extend : 'Ext.ux.LiveSearchGridPanel',
 	alias: 'widget.userSearch',
 	id:'userSearch',
@@ -16,7 +16,12 @@ Ext.define('scholar.view.administration.user.Search', {
 			text : 'Delete',
 			action:'delete',
 		} ]
-	} ],
+	}, {
+        xtype: 'pagingtoolbar',
+        store: 'administration.settings.batch.SearchStore',   // same store GridPanel is using
+        dock: 'bottom',
+        displayInfo: true
+    }  ],
 	getTbar :function()
     {
     	return ['Search',{

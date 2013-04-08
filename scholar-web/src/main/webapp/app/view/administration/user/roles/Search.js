@@ -1,7 +1,8 @@
-Ext.define('scholar.view.administration.user.roles.Role', {
+Ext.define('scholar.view.administration.user.roles.Search', {
 	extend : 'Ext.ux.LiveSearchGridPanel',
-	alias: 'widget.userRoles',
-	id:'userRoles',
+	alias: 'widget.roleSearch',
+	id: 'roleSearch',
+	frame: true,
 	dockedItems : [ {
 		xtype : 'toolbar',
 		dock : 'top',
@@ -24,7 +25,7 @@ Ext.define('scholar.view.administration.user.roles.Role', {
     }  ],
 	store : 'administration.user.roles.SearchStore',
 	columnLines : true,
-	columns : [{
+	columns : [ {
 		text : 'Id',
 		dataIndex : 'id',
 		hidden: true
@@ -41,6 +42,6 @@ Ext.define('scholar.view.administration.user.roles.Role', {
 		flex : 1,
 		sortable : true,
 		dataIndex : 'lastChange'
-	} ],
+	} ]	
 });
 
