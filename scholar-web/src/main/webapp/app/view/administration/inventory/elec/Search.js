@@ -1,6 +1,6 @@
 Ext.define('scholar.view.administration.inventory.elec.Search', {
 	extend : 'Ext.ux.LiveSearchGridPanel',
-	alias: 'widget.elecSearch',
+	alias: 'widget.inventoryElecSearch',
 	id:'inventoryElecSearch',
 	dockedItems : [ {
 		xtype : 'toolbar',
@@ -16,7 +16,12 @@ Ext.define('scholar.view.administration.inventory.elec.Search', {
 			text : 'Delete',
 			action:'deleteElec',
 		} ]
-	} ],
+	}, {
+        xtype: 'pagingtoolbar',
+        store: 'administration.inventory.elec.SearchStore',   // same store GridPanel is using
+        dock: 'bottom',
+        displayInfo: true
+    }  ],
 	store : 'administration.inventory.elec.SearchStore',
 	columnLines : true,
 	columns : [  {

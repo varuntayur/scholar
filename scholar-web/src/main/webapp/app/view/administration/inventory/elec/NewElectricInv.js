@@ -12,12 +12,22 @@ Ext.define('scholar.view.administration.inventory.elec.NewElectricInv', {
 		width : 300,
 		labelWidth : 90
 	},
+	constructor : function() {
+		return this.callParent();
+	},
+	constructor : function(config) {
+		if (config) {
+			this.store = config.store;
+			this.isEdit = (typeof config.isEdit === "undefined") ? false: true;
+		}
+		this.callParent();
+	},
 	defaultType : 'textfield',
 	items : [ {
-		fieldLabel : 'Id',
-		name : 'id',
-		hidden: true
-	},
+				fieldLabel : 'Id',
+				name : 'id',
+				hidden: true
+			 },
 	         {
 	     		fieldLabel : 'Item ID',
 	     		name : 'itemId'
@@ -50,10 +60,36 @@ Ext.define('scholar.view.administration.inventory.elec.NewElectricInv', {
 			{
 				text : 'Save',
 				handler : function() {
-					if (this.up('form').getForm().isValid()) {
+					var form = this.up('form').getForm();
+					if (form.isValid()) {
+						
+						var store = this.ownerCt.ownerCt.store; 
+						
+						if(form.owner.isEdit)							
+						{
+							var formValues = form.getValues();
+							var routeId = formValues['id'];		
+													
+							var rec = store.findRecord('id',routeId);
+							rec.set({
+									  'itemId' : formValues['itemId'],
+									  'itemName' : formValues['itemName'],
+									  'itemDescription' : formValues['itemDescription'],
+									  'quantity' : formValues['quantity'],
+									  'itemAcquisitionDate': formValues['itemAcquisitionDate']										 
+							});
+							
+							store.commitChanges();
+						}
+						else
+						{
+							var rec = new store.model(form.getValues());
+							store.add(rec);
+						}
 						this.up('window').hide();
 						Ext.MessageBox.alert('Success!',
 								'Your request has been saved.');
+						store.load();
 					}
 				}
 			} ]

@@ -1,7 +1,7 @@
 Ext.define('scholar.view.administration.inventory.infra.Search', {
 	extend : 'Ext.ux.LiveSearchGridPanel',
 	alias: 'widget.infraSearch',
-	id:'inventoryInfraSearch',
+	id:'infraSearch',
 	dockedItems : [ {
 		xtype : 'toolbar',
 		dock : 'top',
@@ -16,7 +16,12 @@ Ext.define('scholar.view.administration.inventory.infra.Search', {
 			text : 'Delete',
 			action:'deleteInfra',
 		} ]
-	} ],
+	}, {
+        xtype: 'pagingtoolbar',
+        store: 'administration.inventory.infra.SearchStore',   // same store GridPanel is using
+        dock: 'bottom',
+        displayInfo: true
+    }   ],
 	store : 'administration.inventory.infra.SearchStore',
 //		new Ext.data.ArrayStore({
 //		fields : [ {

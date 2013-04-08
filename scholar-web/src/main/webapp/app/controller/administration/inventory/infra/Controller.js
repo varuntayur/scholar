@@ -4,21 +4,27 @@ Ext.define('scholar.controller.administration.inventory.infra.Controller', {
 	init : function() {
 		console.log('Initialized inventory.infra.Controller!');
 		this.control({
-			'#inventoryInfraSearch':{
-				itemdblclick: this.editInfraInventory
+			'#infraSearch':{
+				itemdblclick: this.editInfraInventory,
+				render:this.loadInfraInventorySettings
 			},
-			'#inventoryInfraSearch button[action=addInfra]':{
+			'infraSearch button[action=addInfra]':{
 				click: this.addInfraInventory
 			},
-			'#inventoryInfraSearch button[action=deleteInfra]':{
+			'infraSearch button[action=deleteInfra]':{
 				click: this.deleteInfraInventory
 			}
 		});
 	},
+		
+	loadInfraInventorySettings:function()
+	{
+		this.getAdministrationInventoryInfraSearchStoreStore().loadPage(1);
+	},
 	
 	editInfraInventory: function(grid,record)
 	{
-		var admForm = Ext.widget('newInfraInv');
+		var admForm = Ext.widget('newInfraInv',{store:this.getAdministrationInventoryInfraSearchStoreStore(),isEdit: true});
         admForm.loadRecord(record);
 	
 		Ext.create('Ext.Window', {
@@ -39,7 +45,7 @@ Ext.define('scholar.controller.administration.inventory.infra.Controller', {
 	
 	addInfraInventory: function(grid,record)
 	{
-		 var admForm = Ext.widget('newInfraInv');
+		 var admForm = Ext.widget('newInfraInv',{store:this.getAdministrationInventoryInfraSearchStoreStore()});
 		
 		Ext.create('Ext.Window', {
 			xtype : 'window',

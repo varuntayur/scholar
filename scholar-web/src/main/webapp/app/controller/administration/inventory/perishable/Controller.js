@@ -4,21 +4,26 @@ Ext.define('scholar.controller.administration.inventory.perishable.Controller', 
 	init : function() {
 		console.log('Initialized inventory.perishable.Controller!');
 		this.control({
-			'#inventoryPerishSearch':{
-				itemdblclick: this.editInventory
+			'#perishableSearch':{
+				itemdblclick: this.editInventory,
+				render:this.loadPerishableInventorySettings
 			},
-			'#inventoryPerishSearch button[action=addPerish]':{
+			'perishableSearch button[action=addPerishable]':{
 				itemdblclick: this.addPerishInventory
 			},
-			'#inventoryPerishSearch button[action=deletePerish]':{
+			'perishableSearch button[action=deletePerishable]':{
 				itemdblclick: this.deletePerishInventory
 			}
 		});
 	},
+	loadPerishableInventorySettings: function()
+	{
+		this.getAdministrationInventoryInfraSearchStoreStore().loadPage(1);
+	},
 	
 	editPerishInventory: function(grid,record)
 	{
-		var admForm = Ext.widget('newPerishInv');
+		var admForm = Ext.widget('newPerishInv',{store:this.getAdministrationInventoryInfraSearchStoreStore(),isEdit: true});
         admForm.loadRecord(record);
 	
 		Ext.create('Ext.Window', {
@@ -39,7 +44,7 @@ Ext.define('scholar.controller.administration.inventory.perishable.Controller', 
 	
 	addPerishInventory: function(grid,record)
 	{
-		 var admForm = Ext.widget('newPerishInv');
+		 var admForm = Ext.widget('newPerishInv',{store:this.getAdministrationInventoryInfraSearchStoreStore()});
 		
 		Ext.create('Ext.Window', {
 			xtype : 'window',
@@ -62,10 +67,10 @@ Ext.define('scholar.controller.administration.inventory.perishable.Controller', 
 		
 	},
 
-//	views : [ 'administration.inventory.infra.Search','administration.inventory.infra.NewInfra' ],
-//
-//	stores : [ 'administration.inventory.infra.SearchStore' ],
-//	
-//	models : [ 'administration.inventory.infra.SearchModel'  ]
+	views : [ 'administration.inventory.infra.Search','administration.inventory.infra.NewInfra' ],
+
+	stores : [ 'administration.inventory.infra.SearchStore' ],
+	
+	models : [ 'administration.inventory.infra.InfraSearch'  ]
 
 });

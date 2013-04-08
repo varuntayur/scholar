@@ -12,7 +12,7 @@ Ext.define('scholar.store.administration.inventory.elec.SearchStore', {
 	autoSync: true,
 	proxy: {
 		type: 'rest',
-		url: 'http://localhost:8080/scholar-rest/rest/eletronics',
+		url: 'http://localhost:8080/scholar-rest/rest/electronics',
 		reader: {
 			type: 'json',
 			root: 'data',

@@ -26,7 +26,7 @@ Ext.define('scholar.view.administration.inventory.Manager', {
 			{
 				title:'Electronics/Laboratories',
 				iconCls:'x-icon-electronics',
-				xtype:'elecSearch'
+				xtype:'inventoryElecSearch'
 			},
 			{
 				title:'Perishables/Canteen',

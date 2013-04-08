@@ -6,20 +6,25 @@ Ext.define('scholar.controller.administration.inventory.elec.Controller', {
 		
 		this.control({
 			'#inventoryElecSearch':{
-				itemdblclick: this.editElecInventory
+				itemdblclick: this.editElecInventory,
+				render:this.loadElecInventorySettings
 			},
-			'#inventoryElecSearch button[action=addElec]':{
+			'inventoryElecSearch button[action=addElec]':{
 				click: this.addElecInventory
 			},
-			'#inventoryElecSearch button[action=deleteElec]':{
+			'inventoryElecSearch button[action=deleteElec]':{
 				click: this.deleteElecInventory
 			}
 		});
 	},
 	
+	loadElecInventorySettings : function(){
+		this.getAdministrationInventoryElecSearchStoreStore().loadPage(1);
+	},
+	
 	editElecInventory: function(grid,record)
 	{
-		var admForm = Ext.widget('newElectricInv');
+		var admForm = Ext.widget('newElectricInv',{store:this.getAdministrationInventoryElecSearchStoreStore(),isEdit: true});
         admForm.loadRecord(record);
 	
 		Ext.create('Ext.Window', {
@@ -40,7 +45,7 @@ Ext.define('scholar.controller.administration.inventory.elec.Controller', {
 	
 	addElecInventory: function(grid,record)
 	{
-		 var admForm = Ext.widget('newElectricInv');
+		 var admForm = Ext.widget('newElectricInv',{store:this.getAdministrationInventoryElecSearchStoreStore()});
 		
 		Ext.create('Ext.Window', {
 			xtype : 'window',
@@ -60,7 +65,12 @@ Ext.define('scholar.controller.administration.inventory.elec.Controller', {
 	
 	deleteElecInventory: function(grid,record)
 	{
-		
+		var store = this.getAdministrationInventoryElecSearchStoreStore();
+		var selection = Ext.ComponentQuery.query('#inventoryElecSearch')[0].getView().getSelectionModel().getSelection()[0];
+        if (selection) {
+            store.remove(selection);
+        }
+        store.loadPage(1);
 	},
 
 	views : [ 'administration.inventory.elec.Search','administration.inventory.elec.NewElectricInv' ],
