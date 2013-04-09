@@ -1,4 +1,4 @@
-package com.varun.scholar.business.data.entities1;
+package com.varun.scholar.business.data.entities.administration.inventory;
 
 import java.util.Date;
 

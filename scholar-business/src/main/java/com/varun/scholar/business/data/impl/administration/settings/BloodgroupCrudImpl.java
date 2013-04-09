@@ -1,4 +1,4 @@
-package com.varun.scholar.business.data.impl.settings;
+package com.varun.scholar.business.data.impl.administration.settings;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -9,12 +9,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
-import com.varun.scholar.business.data.entities.administration.settings.SubjectSearch;
+import com.varun.scholar.business.data.entities.administration.settings.BloodGroup;
 import com.varun.scholar.shared.interfaces.CrudOperations;
-import com.varun.scholar.shared.interfaces.administration.settings.SubjectCrud;
+import com.varun.scholar.shared.interfaces.administration.settings.BloodgroupCrud;
 
 @Stateless
-public class SubjectCrudImpl implements SubjectCrud {
+public class BloodgroupCrudImpl implements BloodgroupCrud {
 
 	@Inject
 	private Logger log;
@@ -25,20 +25,19 @@ public class SubjectCrudImpl implements SubjectCrud {
 	private Gson gson = new Gson();
 
 	public String find(Long id) {
-		return gson.toJson(em.find(SubjectSearch.class, id));
+		return gson.toJson(em.find(BloodGroup.class, id));
 	}
 
 	@Override
 	public String createOrUpdate(String vehicleJson) {
-		em.merge(gson.fromJson(vehicleJson, SubjectSearch.class));
+		em.merge(gson.fromJson(vehicleJson, BloodGroup.class));
 		return findAll(1, 1, CrudOperations.NUM_RECS);
 	}
 
 	@Override
 	public String remove(String vehicleJson) {
-		SubjectSearch fromJson = gson
-				.fromJson(vehicleJson, SubjectSearch.class);
-		SubjectSearch find = em.find(SubjectSearch.class, fromJson.getId());
+		BloodGroup fromJson = gson.fromJson(vehicleJson, BloodGroup.class);
+		BloodGroup find = em.find(BloodGroup.class, fromJson.getId());
 		em.remove(find);
 		em.flush();
 		return findAll(1, 1, CrudOperations.NUM_RECS);
@@ -47,12 +46,12 @@ public class SubjectCrudImpl implements SubjectCrud {
 	@Override
 	public String findAll(int page, int start, int limit) {
 
-		CriteriaQuery<SubjectSearch> criteria = em.getCriteriaBuilder()
-				.createQuery(SubjectSearch.class);
+		CriteriaQuery<BloodGroup> criteria = em.getCriteriaBuilder()
+				.createQuery(BloodGroup.class);
 
-		criteria.select(criteria.from(SubjectSearch.class));
+		criteria.select(criteria.from(BloodGroup.class));
 
-		List<SubjectSearch> vehicles = em.createQuery(criteria)
+		List<BloodGroup> vehicles = em.createQuery(criteria)
 				.setMaxResults(limit).setFirstResult(start).getResultList();
 
 		int resultCount = em.createQuery(criteria).getResultList().size();

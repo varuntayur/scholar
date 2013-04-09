@@ -1,4 +1,4 @@
-package com.varun.scholar.business.data.impl.settings;
+package com.varun.scholar.business.data.impl.administration.users;
 
 import java.lang.reflect.Type;
 import java.util.List;

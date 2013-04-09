@@ -18,7 +18,7 @@ Ext.define('scholar.view.administration.user.users.Search', {
 		} ]
 	}, {
         xtype: 'pagingtoolbar',
-        store: 'administration.settings.batch.SearchStore',   // same store GridPanel is using
+        store: 'administration.user.SearchStore',   // same store GridPanel is using
         dock: 'bottom',
         displayInfo: true
     }  ],

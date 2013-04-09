@@ -12,6 +12,7 @@ import com.varun.scholar.shared.interfaces.administration.settings.InstitutionDe
 import com.varun.scholar.shared.interfaces.administration.settings.NationalityCrud;
 import com.varun.scholar.shared.interfaces.administration.settings.SubjectCrud;
 import com.varun.scholar.shared.interfaces.administration.users.RolesCrud;
+import com.varun.scholar.shared.interfaces.administration.users.UsersCrud;
 import com.varun.scholar.shared.interfaces.transport.RouteCrud;
 import com.varun.scholar.shared.interfaces.transport.VehicleCrud;
 
@@ -60,6 +61,10 @@ public class Imports {
 	@Produces
 	@EJB(lookup = "java:global/scholar-business/RolesCrudImpl!com.varun.scholar.shared.interfaces.administration.users.RolesCrud")
 	private RolesCrud rolesCrud;
+	
+	@Produces
+	@EJB(lookup = "java:global/scholar-business/UsersCrudImpl!com.varun.scholar.shared.interfaces.administration.users.UsersCrud")
+	private UsersCrud usersCrud;
 
 	private Imports() {
 	}

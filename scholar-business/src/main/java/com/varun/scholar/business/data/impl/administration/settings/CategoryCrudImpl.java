@@ -1,4 +1,4 @@
-package com.varun.scholar.business.data.impl.settings;
+package com.varun.scholar.business.data.impl.administration.settings;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -9,12 +9,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
-import com.varun.scholar.business.data.entities.administration.settings.CourseSearch;
+import com.varun.scholar.business.data.entities.administration.settings.Category;
 import com.varun.scholar.shared.interfaces.CrudOperations;
-import com.varun.scholar.shared.interfaces.administration.settings.CourseCrud;
+import com.varun.scholar.shared.interfaces.administration.settings.CategoryCrud;
 
 @Stateless
-public class CourseCrudImpl implements CourseCrud {
+public class CategoryCrudImpl implements CategoryCrud {
 
 	@Inject
 	private Logger log;
@@ -25,19 +25,19 @@ public class CourseCrudImpl implements CourseCrud {
 	private Gson gson = new Gson();
 
 	public String find(Long id) {
-		return gson.toJson(em.find(CourseSearch.class, id));
+		return gson.toJson(em.find(Category.class, id));
 	}
 
 	@Override
 	public String createOrUpdate(String vehicleJson) {
-		em.merge(gson.fromJson(vehicleJson, CourseSearch.class));
+		em.merge(gson.fromJson(vehicleJson, Category.class));
 		return findAll(1, 1, CrudOperations.NUM_RECS);
 	}
 
 	@Override
 	public String remove(String vehicleJson) {
-		CourseSearch fromJson = gson.fromJson(vehicleJson, CourseSearch.class);
-		CourseSearch find = em.find(CourseSearch.class, fromJson.getId());
+		Category fromJson = gson.fromJson(vehicleJson, Category.class);
+		Category find = em.find(Category.class, fromJson.getId());
 		em.remove(find);
 		em.flush();
 		return findAll(1, 1, CrudOperations.NUM_RECS);
@@ -46,13 +46,13 @@ public class CourseCrudImpl implements CourseCrud {
 	@Override
 	public String findAll(int page, int start, int limit) {
 
-		CriteriaQuery<CourseSearch> criteria = em.getCriteriaBuilder()
-				.createQuery(CourseSearch.class);
+		CriteriaQuery<Category> criteria = em.getCriteriaBuilder().createQuery(
+				Category.class);
 
-		criteria.select(criteria.from(CourseSearch.class));
+		criteria.select(criteria.from(Category.class));
 
-		List<CourseSearch> vehicles = em.createQuery(criteria)
-				.setMaxResults(limit).setFirstResult(start).getResultList();
+		List<Category> vehicles = em.createQuery(criteria).setMaxResults(limit)
+				.setFirstResult(start).getResultList();
 
 		int resultCount = em.createQuery(criteria).getResultList().size();
 		String total = "\"total\":" + resultCount;

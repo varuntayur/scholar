@@ -1,4 +1,4 @@
-package com.varun.scholar.business.data.impl.settings;
+package com.varun.scholar.business.data.impl.administration.settings;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -9,12 +9,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
-import com.varun.scholar.business.data.entities.administration.settings.InstitutionDetails;
+import com.varun.scholar.business.data.entities.administration.settings.Nationality;
 import com.varun.scholar.shared.interfaces.CrudOperations;
-import com.varun.scholar.shared.interfaces.administration.settings.InstitutionDetailsCrud;
+import com.varun.scholar.shared.interfaces.administration.settings.NationalityCrud;
 
 @Stateless
-public class InstitutionDetailsCrudImpl implements InstitutionDetailsCrud {
+public class NationalityCrudImpl implements NationalityCrud {
 
 	@Inject
 	private Logger log;
@@ -25,21 +25,19 @@ public class InstitutionDetailsCrudImpl implements InstitutionDetailsCrud {
 	private Gson gson = new Gson();
 
 	public String find(Long id) {
-		return gson.toJson(em.find(InstitutionDetails.class, id));
+		return gson.toJson(em.find(Nationality.class, id));
 	}
 
 	@Override
-	public String createOrUpdate(String vehicleJson) {
-		em.merge(gson.fromJson(vehicleJson, InstitutionDetails.class));
+	public String createOrUpdate(String json) {
+		em.merge(gson.fromJson(json, Nationality.class));
 		return findAll(1, 1, CrudOperations.NUM_RECS);
 	}
 
 	@Override
-	public String remove(String vehicleJson) {
-		InstitutionDetails fromJson = gson.fromJson(vehicleJson,
-				InstitutionDetails.class);
-		InstitutionDetails find = em.find(InstitutionDetails.class,
-				fromJson.getId());
+	public String remove(String json) {
+		Nationality fromJson = gson.fromJson(json, Nationality.class);
+		Nationality find = em.find(Nationality.class, fromJson.getId());
 		em.remove(find);
 		em.flush();
 		return findAll(1, 1, CrudOperations.NUM_RECS);
@@ -48,12 +46,12 @@ public class InstitutionDetailsCrudImpl implements InstitutionDetailsCrud {
 	@Override
 	public String findAll(int page, int start, int limit) {
 
-		CriteriaQuery<InstitutionDetails> criteria = em.getCriteriaBuilder()
-				.createQuery(InstitutionDetails.class);
+		CriteriaQuery<Nationality> criteria = em.getCriteriaBuilder()
+				.createQuery(Nationality.class);
 
-		criteria.select(criteria.from(InstitutionDetails.class));
+		criteria.select(criteria.from(Nationality.class));
 
-		List<InstitutionDetails> vehicles = em.createQuery(criteria)
+		List<Nationality> vehicles = em.createQuery(criteria)
 				.setMaxResults(limit).setFirstResult(start).getResultList();
 
 		int resultCount = em.createQuery(criteria).getResultList().size();

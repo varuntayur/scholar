@@ -128,7 +128,6 @@
 			<groupId>com.varun.scholar.shared</groupId>
 			<artifactId>scholar-shared</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-			<scope>provided</scope>
 		</dependency>
     </dependencies>
 

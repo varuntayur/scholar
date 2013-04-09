@@ -1,4 +1,4 @@
-package com.varun.scholar.business.data.impl.settings;
+package com.varun.scholar.business.data.impl.administration.settings;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -9,12 +9,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
-import com.varun.scholar.business.data.entities.administration.settings.DepartmentSearch;
+import com.varun.scholar.business.data.entities.administration.settings.SubjectSearch;
 import com.varun.scholar.shared.interfaces.CrudOperations;
-import com.varun.scholar.shared.interfaces.administration.settings.DepartmentCrud;
+import com.varun.scholar.shared.interfaces.administration.settings.SubjectCrud;
 
 @Stateless
-public class DepartmentCrudImpl implements DepartmentCrud {
+public class SubjectCrudImpl implements SubjectCrud {
 
 	@Inject
 	private Logger log;
@@ -25,21 +25,20 @@ public class DepartmentCrudImpl implements DepartmentCrud {
 	private Gson gson = new Gson();
 
 	public String find(Long id) {
-		return gson.toJson(em.find(DepartmentSearch.class, id));
+		return gson.toJson(em.find(SubjectSearch.class, id));
 	}
 
 	@Override
 	public String createOrUpdate(String vehicleJson) {
-		em.merge(gson.fromJson(vehicleJson, DepartmentSearch.class));
+		em.merge(gson.fromJson(vehicleJson, SubjectSearch.class));
 		return findAll(1, 1, CrudOperations.NUM_RECS);
 	}
 
 	@Override
 	public String remove(String vehicleJson) {
-		DepartmentSearch fromJson = gson.fromJson(vehicleJson,
-				DepartmentSearch.class);
-		DepartmentSearch find = em.find(DepartmentSearch.class,
-				fromJson.getId());
+		SubjectSearch fromJson = gson
+				.fromJson(vehicleJson, SubjectSearch.class);
+		SubjectSearch find = em.find(SubjectSearch.class, fromJson.getId());
 		em.remove(find);
 		em.flush();
 		return findAll(1, 1, CrudOperations.NUM_RECS);
@@ -48,12 +47,12 @@ public class DepartmentCrudImpl implements DepartmentCrud {
 	@Override
 	public String findAll(int page, int start, int limit) {
 
-		CriteriaQuery<DepartmentSearch> criteria = em.getCriteriaBuilder()
-				.createQuery(DepartmentSearch.class);
+		CriteriaQuery<SubjectSearch> criteria = em.getCriteriaBuilder()
+				.createQuery(SubjectSearch.class);
 
-		criteria.select(criteria.from(DepartmentSearch.class));
+		criteria.select(criteria.from(SubjectSearch.class));
 
-		List<DepartmentSearch> vehicles = em.createQuery(criteria)
+		List<SubjectSearch> vehicles = em.createQuery(criteria)
 				.setMaxResults(limit).setFirstResult(start).getResultList();
 
 		int resultCount = em.createQuery(criteria).getResultList().size();

@@ -34,7 +34,7 @@ Ext.define('scholar.store.administration.user.SearchStore', {
 	autoSync: true,
 	proxy: {
 		type: 'rest',
-		url: 'http://localhost:8080/scholar-rest/rest/user',
+		url: 'http://localhost:8080/scholar-rest/rest/users',
 		reader: {
 			type: 'json',
 			root: 'data',

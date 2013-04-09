@@ -1,4 +1,4 @@
-package com.varun.scholar.business.data.impl.settings;
+package com.varun.scholar.business.data.impl.administration.settings;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -9,12 +9,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
-import com.varun.scholar.business.data.entities.administration.settings.Nationality;
+import com.varun.scholar.business.data.entities.administration.settings.BatchSearch;
 import com.varun.scholar.shared.interfaces.CrudOperations;
-import com.varun.scholar.shared.interfaces.administration.settings.NationalityCrud;
+import com.varun.scholar.shared.interfaces.administration.settings.BatchCrud;
 
 @Stateless
-public class NationalityCrudImpl implements NationalityCrud {
+public class BatchCrudImpl implements BatchCrud {
 
 	@Inject
 	private Logger log;
@@ -25,19 +25,19 @@ public class NationalityCrudImpl implements NationalityCrud {
 	private Gson gson = new Gson();
 
 	public String find(Long id) {
-		return gson.toJson(em.find(Nationality.class, id));
+		return gson.toJson(em.find(BatchSearch.class, id));
 	}
 
 	@Override
-	public String createOrUpdate(String json) {
-		em.merge(gson.fromJson(json, Nationality.class));
+	public String createOrUpdate(String vehicleJson) {
+		em.merge(gson.fromJson(vehicleJson, BatchSearch.class));
 		return findAll(1, 1, CrudOperations.NUM_RECS);
 	}
 
 	@Override
-	public String remove(String json) {
-		Nationality fromJson = gson.fromJson(json, Nationality.class);
-		Nationality find = em.find(Nationality.class, fromJson.getId());
+	public String remove(String vehicleJson) {
+		BatchSearch fromJson = gson.fromJson(vehicleJson, BatchSearch.class);
+		BatchSearch find = em.find(BatchSearch.class, fromJson.getId());
 		em.remove(find);
 		em.flush();
 		return findAll(1, 1, CrudOperations.NUM_RECS);
@@ -46,12 +46,12 @@ public class NationalityCrudImpl implements NationalityCrud {
 	@Override
 	public String findAll(int page, int start, int limit) {
 
-		CriteriaQuery<Nationality> criteria = em.getCriteriaBuilder()
-				.createQuery(Nationality.class);
+		CriteriaQuery<BatchSearch> criteria = em.getCriteriaBuilder()
+				.createQuery(BatchSearch.class);
 
-		criteria.select(criteria.from(Nationality.class));
+		criteria.select(criteria.from(BatchSearch.class));
 
-		List<Nationality> vehicles = em.createQuery(criteria)
+		List<BatchSearch> vehicles = em.createQuery(criteria)
 				.setMaxResults(limit).setFirstResult(start).getResultList();
 
 		int resultCount = em.createQuery(criteria).getResultList().size();

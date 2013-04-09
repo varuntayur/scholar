@@ -1,4 +1,4 @@
-package com.varun.scholar.business.data.impl.settings;
+package com.varun.scholar.business.data.impl.administration.settings;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -9,12 +9,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
-import com.varun.scholar.business.data.entities.administration.settings.BatchSearch;
+import com.varun.scholar.business.data.entities.administration.settings.InstitutionDetails;
 import com.varun.scholar.shared.interfaces.CrudOperations;
-import com.varun.scholar.shared.interfaces.administration.settings.BatchCrud;
+import com.varun.scholar.shared.interfaces.administration.settings.InstitutionDetailsCrud;
 
 @Stateless
-public class BatchCrudImpl implements BatchCrud {
+public class InstitutionDetailsCrudImpl implements InstitutionDetailsCrud {
 
 	@Inject
 	private Logger log;
@@ -25,19 +25,21 @@ public class BatchCrudImpl implements BatchCrud {
 	private Gson gson = new Gson();
 
 	public String find(Long id) {
-		return gson.toJson(em.find(BatchSearch.class, id));
+		return gson.toJson(em.find(InstitutionDetails.class, id));
 	}
 
 	@Override
 	public String createOrUpdate(String vehicleJson) {
-		em.merge(gson.fromJson(vehicleJson, BatchSearch.class));
+		em.merge(gson.fromJson(vehicleJson, InstitutionDetails.class));
 		return findAll(1, 1, CrudOperations.NUM_RECS);
 	}
 
 	@Override
 	public String remove(String vehicleJson) {
-		BatchSearch fromJson = gson.fromJson(vehicleJson, BatchSearch.class);
-		BatchSearch find = em.find(BatchSearch.class, fromJson.getId());
+		InstitutionDetails fromJson = gson.fromJson(vehicleJson,
+				InstitutionDetails.class);
+		InstitutionDetails find = em.find(InstitutionDetails.class,
+				fromJson.getId());
 		em.remove(find);
 		em.flush();
 		return findAll(1, 1, CrudOperations.NUM_RECS);
@@ -46,12 +48,12 @@ public class BatchCrudImpl implements BatchCrud {
 	@Override
 	public String findAll(int page, int start, int limit) {
 
-		CriteriaQuery<BatchSearch> criteria = em.getCriteriaBuilder()
-				.createQuery(BatchSearch.class);
+		CriteriaQuery<InstitutionDetails> criteria = em.getCriteriaBuilder()
+				.createQuery(InstitutionDetails.class);
 
-		criteria.select(criteria.from(BatchSearch.class));
+		criteria.select(criteria.from(InstitutionDetails.class));
 
-		List<BatchSearch> vehicles = em.createQuery(criteria)
+		List<InstitutionDetails> vehicles = em.createQuery(criteria)
 				.setMaxResults(limit).setFirstResult(start).getResultList();
 
 		int resultCount = em.createQuery(criteria).getResultList().size();
