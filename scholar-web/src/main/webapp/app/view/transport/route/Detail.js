@@ -40,7 +40,6 @@ Ext.define('scholar.view.transport.route.Detail', {
 					store: 'staff.lookup.SearchStore',
 					valueField: 'staffName',
 					displayField: 'staffName',
-					queryMode : 'local',
 					fieldLabel : 'Driver Name',
 					name : 'driverName'
 				},	         
@@ -49,9 +48,8 @@ Ext.define('scholar.view.transport.route.Detail', {
 					store: 'transport.vehicle.Combo',
 					valueField: 'vehicleNumber',
 					displayField: 'vehicleNumber',
-					queryMode : 'local',
 					fieldLabel : 'Vehicle Number',
-					name : 'vehicleNumber'
+					name : 'vehicleNumber'				
 				},
 				{
 					xtype:'textarea',

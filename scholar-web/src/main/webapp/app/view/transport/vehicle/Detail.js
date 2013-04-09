@@ -28,7 +28,7 @@ Ext.define('scholar.view.transport.vehicle.Detail', {
 	defaultType : 'textfield',
 	items : [ {
 		fieldLabel : 'Vehicle Id',
-		name : 'vehicleId',
+		name : 'id',
 		hidden: true
 	},  {
 		fieldLabel : 'Vehicle Number',

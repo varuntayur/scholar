@@ -21,7 +21,6 @@ Ext.define('scholar.view.administration.user.users.Detail', {
 				 xtype:'combo',
 				 store:'administration.user.roles.SearchStore',
 				 valueField:'roleName',
-				 queryMode : 'local',
 				 displayField:'roleName',
 				 name : 'userRole',
 			 }
@@ -37,10 +36,33 @@ Ext.define('scholar.view.administration.user.users.Detail', {
 				{
 					text : 'Save',
 					handler : function() {
-						if (this.up('form').getForm().isValid()) {
+						var form = this.up('form').getForm();
+						if (form.isValid()) {
+							
+							var store = this.ownerCt.ownerCt.store; 
+							
+							if(form.owner.isEdit)							
+							{
+								var formValues = form.getValues();
+								var routeId = formValues['id'];		
+								
+								var rec = store.findRecord('id',routeId);
+								rec.set({
+										  'userName' : formValues['userName'],
+										  'userRole': formValues['userRole']										 
+								});
+								
+								store.commitChanges();
+							}
+							else
+							{
+								var rec = new store.model(form.getValues());
+								store.add(rec);
+							}
 							this.up('window').hide();
 							Ext.MessageBox.alert('Success!',
 									'Your request has been saved.');
+							store.load();
 						}
 					}
 				} ]

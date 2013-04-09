@@ -11,7 +11,7 @@ Ext.define('scholar.controller.administration.settings.category.Controller', {
 			},
 			
 			'categorySearch button[action=add]' : {
-            	click: this.addBloodgroup
+            	click: this.addCategory
             },
             'categorySearch button[action=delete]' : {
             	click: this.deleteCategory
@@ -34,7 +34,7 @@ Ext.define('scholar.controller.administration.settings.category.Controller', {
         store.loadPage(1);
 	},
 	
-	addBloodgroup: function()
+	addCategory: function()
 	{
 		var admForm = Ext.widget('categoryDetail',{ store: this.getAdministrationSettingsCategoryStoreStore() });
 		Ext.create('Ext.Window', {

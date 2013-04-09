@@ -34,7 +34,7 @@ Ext.define('scholar.store.student.admission.BloodGroup', {
 	autoSync: true,
 	proxy: {
 		type: 'rest',
-		url: 'http://localhost:8080/scholar-rest/rest/bloodGroup',
+		url: 'http://localhost:8080/scholar-rest/rest/bloodgroup',
 		reader: {
 			type: 'json',
 			root: 'data',

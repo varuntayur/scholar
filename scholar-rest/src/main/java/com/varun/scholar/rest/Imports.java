@@ -3,6 +3,9 @@ package com.varun.scholar.rest;
 import javax.ejb.EJB;
 import javax.enterprise.inject.Produces;
 
+import com.varun.scholar.shared.interfaces.administration.inventory.ElectronicsCrud;
+import com.varun.scholar.shared.interfaces.administration.inventory.InfraCrud;
+import com.varun.scholar.shared.interfaces.administration.inventory.PerishablesCrud;
 import com.varun.scholar.shared.interfaces.administration.settings.BatchCrud;
 import com.varun.scholar.shared.interfaces.administration.settings.BloodgroupCrud;
 import com.varun.scholar.shared.interfaces.administration.settings.CategoryCrud;
@@ -57,14 +60,26 @@ public class Imports {
 	@Produces
 	@EJB(lookup = "java:global/scholar-business/SubjectCrudImpl!com.varun.scholar.shared.interfaces.administration.settings.SubjectCrud")
 	private SubjectCrud subjectCrud;
-	
+
 	@Produces
 	@EJB(lookup = "java:global/scholar-business/RolesCrudImpl!com.varun.scholar.shared.interfaces.administration.users.RolesCrud")
 	private RolesCrud rolesCrud;
-	
+
 	@Produces
 	@EJB(lookup = "java:global/scholar-business/UsersCrudImpl!com.varun.scholar.shared.interfaces.administration.users.UsersCrud")
 	private UsersCrud usersCrud;
+
+	@Produces
+	@EJB(lookup = "java:global/scholar-business/ElectronicsCrudImpl!com.varun.scholar.shared.interfaces.administration.inventory.ElectronicsCrud")
+	private ElectronicsCrud electronicsCrud;
+
+	@Produces
+	@EJB(lookup = "java:global/scholar-business/InfraCrudImpl!com.varun.scholar.shared.interfaces.administration.inventory.InfraCrud")
+	private InfraCrud infraCrud;
+
+	@Produces
+	@EJB(lookup = "java:global/scholar-business/PerishablesCrudImpl!com.varun.scholar.shared.interfaces.administration.inventory.PerishablesCrud")
+	private PerishablesCrud perishablesCrud;
 
 	private Imports() {
 	}

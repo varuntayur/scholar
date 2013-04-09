@@ -27,7 +27,7 @@ Ext.define('scholar.controller.administration.settings.batch.Controller', {
 	
 	deleteBatch: function()
 	{
-		var store = this.getAdministrationSettingsBloodgroupStoreStore();
+		var store = this.getAdministrationSettingsBatchSearchStoreStore();
 		var selection = Ext.ComponentQuery.query('#batchSearch')[0].getView().getSelectionModel().getSelection()[0];
         if (selection) {
             store.remove(selection);
