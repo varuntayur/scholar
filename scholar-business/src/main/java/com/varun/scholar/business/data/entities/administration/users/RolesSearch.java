@@ -44,5 +44,10 @@ public class RolesSearch extends AbstractEntity {
 	public void setLstPermissions(List<Permission> lstPermissions) {
 		this.lstPermissions = lstPermissions;
 	}
+	
+	@Override
+	public String toString() {
+		return this.roleName + "," + this.lstPermissions.toString();
+	}
 
 }

@@ -16,7 +16,7 @@ Ext.define('scholar.view.administration.user.roles.Permissions', {
 				}, {
 					text : 'Form Name',
 					width : 75,
-					dataIndex : 'roleName'
+					dataIndex : 'formName'
 				},
 				{
 		              xtype: 'checkcolumn',

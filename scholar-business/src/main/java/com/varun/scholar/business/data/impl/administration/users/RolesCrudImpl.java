@@ -1,6 +1,5 @@
 package com.varun.scholar.business.data.impl.administration.users;
 
-import java.lang.reflect.Type;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -11,11 +10,6 @@ import javax.persistence.criteria.CriteriaQuery;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
 import com.varun.scholar.business.data.entities.administration.users.RolesSearch;
 import com.varun.scholar.shared.interfaces.CrudOperations;
 import com.varun.scholar.shared.interfaces.administration.users.RolesCrud;
@@ -38,42 +32,12 @@ public class RolesCrudImpl implements RolesCrud {
 
 	@Override
 	public String createOrUpdate(String rolesJson) {
-		gsonBuilder.registerTypeAdapter(RolesSearch.class,
-				new JsonDeserializer<RolesSearch>() {
-
-					@Override
-					public RolesSearch deserialize(JsonElement jsonEl,
-							Type arg1, JsonDeserializationContext arg2)
-							throws JsonParseException {
-
-						RolesSearch roles = new RolesSearch();
-
-						JsonObject jsonObj = jsonEl.getAsJsonObject();
-						roles.setRoleName(jsonObj.get("roleName").getAsString());
-						return roles;
-					}
-				});
 		em.merge(gson.fromJson(rolesJson, RolesSearch.class));
 		return findAll(1, 1, CrudOperations.NUM_RECS);
 	}
 
 	@Override
 	public String remove(String rolesJson) {
-		gsonBuilder.registerTypeAdapter(RolesSearch.class,
-				new JsonDeserializer<RolesSearch>() {
-
-					@Override
-					public RolesSearch deserialize(JsonElement jsonEl,
-							Type arg1, JsonDeserializationContext arg2)
-							throws JsonParseException {
-
-						RolesSearch roles = new RolesSearch();
-
-						JsonObject jsonObj = jsonEl.getAsJsonObject();
-						roles.setRoleName(jsonObj.get("roleName").getAsString());
-						return roles;
-					}
-				});
 		RolesSearch fromJson = gson.fromJson(rolesJson, RolesSearch.class);
 		RolesSearch find = em.find(RolesSearch.class, fromJson.getId());
 		em.remove(find);

@@ -4,7 +4,7 @@ Ext.define('scholar.model.administration.user.roles.PermissionSearch', {
 		name : 'id',
 		type : 'int'
 	},{
-		name : 'roleName',
+		name : 'formName',
 		type : 'string'
 	}, {
 		name : 'read',

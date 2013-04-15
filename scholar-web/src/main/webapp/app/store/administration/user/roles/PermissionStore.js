@@ -22,21 +22,6 @@ Ext.define('scholar.store.administration.user.roles.PermissionStore', {
 			[ 0, 'Transport Vehicle',false,false,false ],
 			[ 0, 'Transport	Route',false,false,false ]
 		   ],
-	autoLoad: true,
-//    autoLoad : true,
-//	autoSync: true,
-//	proxy: {
-//		type: 'rest',
-//		url: 'http://localhost:8080/scholar-rest/rest/userPermissions',
-//		reader: {
-//			type: 'json',
-//			root: 'data',
-//			totalProperty: 'total'
-//		},
-//		writer: {
-//			type: 'json'
-//		},
-//		appendId: false
-//	},
-//	pageSize: 1
+	autoLoad: true
+
 });

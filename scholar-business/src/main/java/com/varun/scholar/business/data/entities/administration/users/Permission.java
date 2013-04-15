@@ -16,4 +16,12 @@ public class Permission extends AbstractEntity {
 	boolean delete;
 	@Temporal(TemporalType.DATE)
 	Date lastChange;
+
+	@Override
+	public String toString() {
+		return "Permission [formName=" + formName + ", read=" + read
+				+ ", write=" + write + ", delete=" + delete + ", lastChange="
+				+ lastChange + "]";
+	}
+
 }

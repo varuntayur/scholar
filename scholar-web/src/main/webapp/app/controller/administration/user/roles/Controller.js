@@ -29,6 +29,9 @@ Ext.define('scholar.controller.administration.user.roles.Controller', {
 		var store = this.getAdministrationUserRolesSearchStoreStore();
 		var selection = Ext.ComponentQuery.query('#roleSearch')[0].getView().getSelectionModel().getSelection()[0];
         if (selection) {
+		
+			selection.data.lstPermissions =  selection.raw.lstPermissions										 
+			
             store.remove(selection);
         }
         store.loadPage(1);
