@@ -5,25 +5,25 @@ Ext.define('scholar.controller.administration.inventory.perishable.Controller', 
 		console.log('Initialized inventory.perishable.Controller!');
 		this.control({
 			'#perishableSearch':{
-				itemdblclick: this.editInventory,
+				itemdblclick: this.editPerishInventory,
 				render:this.loadPerishableInventorySettings
 			},
 			'perishableSearch button[action=addPerishable]':{
-				itemdblclick: this.addPerishInventory
+				click: this.addPerishInventory
 			},
 			'perishableSearch button[action=deletePerishable]':{
-				itemdblclick: this.deletePerishInventory
+				click: this.deletePerishInventory
 			}
 		});
 	},
 	loadPerishableInventorySettings: function()
 	{
-		this.getAdministrationInventoryInfraSearchStoreStore().loadPage(1);
+		this.getAdministrationInventoryPerishableSearchStoreStore().loadPage(1);
 	},
 	
 	editPerishInventory: function(grid,record)
 	{
-		var admForm = Ext.widget('newPerishable',{store:this.getAdministrationInventoryInfraSearchStoreStore(),isEdit: true});
+		var admForm = Ext.widget('newPerishable',{store:this.getAdministrationInventoryPerishableSearchStoreStore(),isEdit: true});
         admForm.loadRecord(record);
 	
 		Ext.create('Ext.Window', {
@@ -44,7 +44,7 @@ Ext.define('scholar.controller.administration.inventory.perishable.Controller', 
 	
 	addPerishInventory: function(grid,record)
 	{
-		 var admForm = Ext.widget('newPerishable',{store:this.getAdministrationInventoryInfraSearchStoreStore()});
+		 var admForm = Ext.widget('newPerishable',{store:this.getAdministrationInventoryPerishableSearchStoreStore()});
 		
 		Ext.create('Ext.Window', {
 			xtype : 'window',
@@ -64,13 +64,18 @@ Ext.define('scholar.controller.administration.inventory.perishable.Controller', 
 	
 	deletePerishInventory: function(grid,record)
 	{
-		
+		var store = this.getAdministrationInventoryPerishableSearchStoreStore();
+		var selection = Ext.ComponentQuery.query('#perishableSearch')[0].getView().getSelectionModel().getSelection()[0];
+        if (selection) {
+            store.remove(selection);
+        }
+        store.loadPage(1);
 	},
 
-	views : [ 'administration.inventory.infra.Search','administration.inventory.infra.NewInfra' ],
+	views : [ 'administration.inventory.perishable.NewPerishable','administration.inventory.perishable.Search' ],
 
-	stores : [ 'administration.inventory.infra.SearchStore' ],
+	stores : [ 'administration.inventory.perishable.SearchStore' ],
 	
-	models : [ 'administration.inventory.infra.InfraSearch'  ]
+	models : [ 'administration.inventory.perishable.PerishableSearch'  ]
 
 });

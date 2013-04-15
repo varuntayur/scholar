@@ -5,6 +5,7 @@
 	alias: 'widget.userRoleManager',
 	title:'User/Roles',
 	frame : true,
+	border: true,
 	bodyPadding : 5,
 	fieldDefaults : {
 		labelAlign : 'left',

@@ -77,7 +77,7 @@ Ext.define('scholar.view.administration.inventory.perishable.NewPerishable', {
 								  'itemDescription' : formValues['itemDescription'],
 								  'quantity' : formValues['quantity'],
 								  'itemAcquisitionDate': formValues['itemAcquisitionDate']										 
-						});
+							});
 							
 							store.commitChanges();
 						}

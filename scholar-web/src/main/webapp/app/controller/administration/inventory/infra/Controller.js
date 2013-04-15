@@ -65,7 +65,12 @@ Ext.define('scholar.controller.administration.inventory.infra.Controller', {
 	
 	deleteInfraInventory: function(grid,record)
 	{
-		
+		var store = this.getAdministrationInventoryInfraSearchStoreStore();
+		var selection = Ext.ComponentQuery.query('#infraSearch')[0].getView().getSelectionModel().getSelection()[0];
+        if (selection) {
+            store.remove(selection);
+        }
+        store.loadPage(1);
 	},
 
 	views : [ 'administration.inventory.infra.Search','administration.inventory.infra.NewInfra'  ],

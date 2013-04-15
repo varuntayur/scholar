@@ -2,7 +2,6 @@ Ext.define('scholar.view.administration.user.roles.Search', {
 	extend : 'Ext.ux.LiveSearchGridPanel',
 	alias: 'widget.roleSearch',
 	id: 'roleSearch',
-	frame: true,
 	dockedItems : [ {
 		xtype : 'toolbar',
 		dock : 'top',
