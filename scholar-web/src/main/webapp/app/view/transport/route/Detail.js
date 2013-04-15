@@ -35,14 +35,22 @@ Ext.define('scholar.view.transport.route.Detail', {
 					fieldLabel : 'Route Number',
 					name : 'routeNumber'
 				}, 
+//	 			{
+//					xtype:'combo',
+//					store: 'staff.lookup.SearchStore',
+//					valueField: 'staffName',
+//					displayField: 'staffName',
+//					fieldLabel : 'Driver Name',
+//					name : 'driverName'
+//				},	   
 				{
 					xtype:'combo',
-					store: 'staff.lookup.SearchStore',
-					valueField: 'staffName',
-					displayField: 'staffName',
+					store: 'transport.vehicle.Combo',
+					valueField: 'vehicleNumber',
+					displayField: 'vehicleNumber',
 					fieldLabel : 'Driver Name',
-					name : 'driverName'
-				},	         
+					name : 'driverName'				
+				},
 				{
 					xtype:'combo',
 					store: 'transport.vehicle.Combo',

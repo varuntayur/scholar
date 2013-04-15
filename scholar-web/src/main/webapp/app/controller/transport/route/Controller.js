@@ -9,10 +9,10 @@ Ext.define('scholar.controller.transport.route.Controller', {
 				itemdblclick: this.editRoute,
 				render:this.loadRoute
 			},
-			'#routeSearch button[action=addRoute]':{
+			'routeSearch button[action=addRoute]':{
 				click: this.addRoute
 			},
-			'#routeSearch button[action=deleteRoute]':{
+			'routeSearch button[action=deleteRoute]':{
 				click: this.deleteRoute
 			}
 		});

@@ -9,10 +9,10 @@ Ext.define('scholar.controller.transport.vehicle.Controller', {
 				itemdblclick : this.editVehicle,
 				render:this.loadVehicle
 			},			
-			'#vehicleSearch button[action=deleteVehicle]' : {
+			'vehicleSearch button[action=deleteVehicle]' : {
 				click : this.deleteVehicle
 			},
-			'#vehicleSearch button[action=addVehicle]' : {
+			'vehicleSearch button[action=addVehicle]' : {
 				click : this.addVehicle
 			}
 		});
