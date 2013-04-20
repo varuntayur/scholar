@@ -21,6 +21,7 @@ Ext.define('scholar.view.administration.user.roles.Detail', {
 		fieldLabel : 'Id',
 		name : 'id',
 		hidden: true,
+		xtype:'textfield'
 	 },
      {
     	 fieldLabel : 'Role Name',
@@ -73,16 +74,23 @@ Ext.define('scholar.view.administration.user.roles.Detail', {
 							
 							
 							var rec = store.findRecord('id',routeId);
-							rec.set({
-									  'roleName' : formValues['roleName'],
-									  'lstPermissions': permissionsData										 
-							});
+//							rec.set({
+//									  'roleName' : formValues['roleName'],
+//									  'lstPermissions': permissionsData										 
+//							});
+//							rec.data.lstPermissions = lstPermissions;
+//							store.commitChanges();
+//							store.removeAll(store.findRecord('id',routeId));
 							
+//							var rec = new store.model(formValues);
+							rec.data.lstPermissions = lstPermissions;
+							rec.set({'roleName' : formValues['roleName']});
+//							rec.set({'id': routeId});
+//							store.add(rec);
 							store.commitChanges();
 						}
 						else
 						{												
-													
 							var rec = new store.model(form.getValues());
 							rec.data.lstPermissions = lstPermissions;
 							store.add(rec);

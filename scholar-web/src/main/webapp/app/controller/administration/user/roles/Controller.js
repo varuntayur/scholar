@@ -49,15 +49,17 @@ Ext.define('scholar.controller.administration.user.roles.Controller', {
 			layout:'fit',
 			autoScroll : true,
 			autoRender: true,
-			closeAction : 'hide',
+			closeAction : 'destroy',
 			constrain : true,
 			items : [ admForm ]
 		}).show();
+		
+		Ext.getCmp('userRolesPermissionsDeselectAll').fireEvent('click', Ext.getCmp('userRolesPermissionsDeselectAll'));
 	},
 	
 	editRoles: function(grid, record)
 	{
-	        var admForm = Ext.widget('roleDetail',{ store: this.getAdministrationUserRolesSearchStoreStore() });
+	        var admForm = Ext.widget('roleDetail',{ store: this.getAdministrationUserRolesSearchStoreStore(),isEdit: true });
 	        admForm.loadRecord(record);
 	        
 	        Ext.create('Ext.Window', {
@@ -68,10 +70,18 @@ Ext.define('scholar.controller.administration.user.roles.Controller', {
 				layout:'fit',			
 				autoScroll : true,
 				autoRender: true,
-				closeAction : 'hide',
+				closeAction : 'destroy',
 				constrain : true,
 				items : [  admForm ]
 			}).show();
+	        
+	        var permissionsStore = Ext.getCmp('userRolesPermissions').getStore();
+	        if (permissionsStore) {
+			
+	        	permissionsStore.data.lstPermissions =  record.raw.lstPermissions										 
+				
+	        	permissionsStore.loadData(record.raw.lstPermissions);
+	        }
 	},
 
 	views : [ 'scholar.view.administration.user.roles.Permissions',
